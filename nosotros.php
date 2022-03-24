@@ -17,7 +17,7 @@
   <!-- IMPORTS HEADER END -->
 
   <section>
-      <div class="container-fluid">
+      <div class="container-fluid">   
         <div class="row my-lg-3">
           <div class="col-lg-6 order-lg-2 mb-3 mb-lg-0">
             <div class="d-flex align-items-center p-5 p-xl-6 bg-gray-100 h-100">
