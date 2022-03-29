@@ -23,7 +23,7 @@
             <div class="d-flex align-items-center p-5 p-xl-6 bg-gray-100 h-100">
               <div>
                 <h6 class="text-uppercase text-primary letter-spacing-5 mb-3"> Sobre nosotros</h6>
-                <h1 class="display-3 text-serif fw-bold mb-5"> Famosa Barber</h1>
+                <h1 class="display-3 text-serif fw-bold mb-5"> Famoso Barber</h1>
                 <div class="row">
                   <div class="col-xl-6">
                     <p class="text-lg text-muted mb-lg-0">Más de 25 años de experiencia para ofrecer a nuestros clientes los mejores servicios.

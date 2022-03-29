@@ -55,7 +55,7 @@
             <h4 class="ff-base">Correo electrónico</h4>
             <p class="text-muted">Contáctanos para cualquier tipo de duda o problema que pueda surgirte</p>
             <ul class="list-unstyled text-muted">
-              <li><a class="text-muted" href="mailto: famosabarber@gmail.com" target="_blank">famosabarber@gmail.com</a></li>
+              <li><a class="text-muted" href="mailto: Famosobarber@gmail.com" target="_blank">Famosobarber@gmail.com</a></li>
             </ul>
           </div>
         </div>
