@@ -63,7 +63,7 @@
         <div class="container">
           <div class="row">
             <div class="col-lg-4 mb-5 mb-lg-0">
-              <div class="fw-bold text-uppercase text-lg text-dark mb-3"><a class="navbar-brand" href="index.html"><img class="nav-brand-logo" src="assets/logos/logo-peluqueria.jpeg" alt="La Pelu de Maria" style="width: 120px;"></a></div>
+              <div class="fw-bold text-uppercase text-lg text-dark mb-3"><a class="navbar-brand" href="index.html"><img class="nav-brand-logo" src="assets/logos/logo-peluqueria.jpeg" alt=" Famosa Barber" style="width: 120px;"></a></div>
               
               <!--<ul class="list-inline">
                 <li class="list-inline-item"><a class="text-muted text-primary-hover" href="#" target="_blank" title="twitter"><i class="fab fa-twitter"></i></a></li>
@@ -84,14 +84,14 @@
             <div class="col-lg-2 col-md-6 mb-5 mb-lg-0">
               <h6 class="text-uppercase text-dark mb-3">Teléfono</h6>
               <ul class="list-unstyled">
-                <li> <a class="text-muted" href="tel: +34647761117">+34 647 761 117</a></li>
+                <li> <a class="text-muted" href="tel: +34647761117">+34 666 666 666</a></li>
                 
               </ul>
             </div>
             <div class="col-lg-2 col-md-6 mb-5 mb-lg-0">
               <h6 class="text-uppercase text-dark mb-3">Email</h6>
               <ul class="list-unstyled">
-                <li> <a class="text-muted" href="mailto: citaslapeludemaria@gmail.com" target="_blank">citaslapeludemaria@gmail.com</a></li>
+                <li> <a class="text-muted" href="mailto: famosabarber@gmail.com" target="_blank">famosabarber@gmail.com</a></li>
                
               </ul>
             </div>
@@ -119,7 +119,7 @@
         <div class="container">
           <div class="row align-items-center">
             <div class="col-md-6 text-center text-md-start">
-              <p class="mb-md-0">&copy; <?php echo date("Y");?>La pelu de Maria todos los derechos reservados</p>
+              <p class="mb-md-0">&copy; <?php echo date("Y");?> Famosa Barber todos los derechos reservados</p>
             </div>
             <div class="col-md-6">
             <ul class="list-inline mb-0 mt-2 mt-md-0 text-center text-md-end">

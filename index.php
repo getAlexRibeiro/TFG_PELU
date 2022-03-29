@@ -53,7 +53,7 @@
             <div class="row">
               <div class="col-lg-8 col-xl-6 mx-auto text-white text-center position-relative">
                 <h5 class="text-uppercase text-white fw-light mb-4 letter-spacing-5"></h5>
-                <h1 class="mb-5 display-2  text-dark text-serif">Pelu de María</h1>
+                <h1 class="mb-5 display-2  text-dark text-serif"> Famosa Barber</h1>
                 <p class="lead mb-4  text-dark">Ven y conócenos</p>
                 <p> <a class="btn btn-dark" href="./custom-login.php">Pedir cita</a></p>
               </div>
@@ -64,7 +64,7 @@
           <div class="container py-6">
             <div class="row">
               <div class="col-lg-8 col-xl-6 mx-auto text-white text-center overlay-content">
-                <h1 class="mb-4 display-2 text-uppercase fw-bold">Pelu de Maria</h1>
+                <h1 class="mb-4 display-2 text-uppercase fw-bold"> Famosa Barber</h1>
                 <p class="lead mb-5">Sientete como en casa</p>
                 <p> <a class="btn btn-light" href="servicios.php">Ver servicios</a></p>
               </div>
@@ -81,7 +81,7 @@
         <div class="row">
           <div class="col-lg-5">
             <h6 class="text-uppercase text-muted letter-spacing-5 mb-1">Conócenos un poco más</h6>
-            <h2 class="mb-4">Pelu de María</h2>
+            <h2 class="mb-4"> Famosa Barber</h2>
             <p class="text-lg text-muted">Abierta desde hace 25 años, donde de la nada, María consiguió su sueño y aun sigue haciendo felices a sus clientes.</p>
           </div>
           <div class="col-lg-6 ms-lg-auto">
@@ -92,7 +92,7 @@
               </div>
               <div class="col-sm-6 mb-4">
                 <h4>2017</h4>
-                <p class="text-muted">Remodelación completa de la peluquería y cambio de nombre al actual, La Pelu de María. </p>
+                <p class="text-muted">Remodelación completa de la peluquería y cambio de nombre al actual,  Famosa Barber. </p>
               </div>
               
             </div>

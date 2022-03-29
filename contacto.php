@@ -46,7 +46,7 @@
             </svg>
             <h4 class="ff-base">Teléfono</h4>
             <p class="text-muted">Llámanos y pide tu cita</p>
-            <a class="text-muted" href="tel: +34647761117">+34 647 761 117</a>
+            <a class="text-muted" href="tel: +34647761117">+34 666 666 666</a>
           </div>
           <div class="col-md-4 text-center text-md-start">
             <svg class="svg-icon svg-icon-light text-primary w-3rem h-3rem mb-3">
@@ -55,7 +55,7 @@
             <h4 class="ff-base">Correo electrónico</h4>
             <p class="text-muted">Contáctanos para cualquier tipo de duda o problema que pueda surgirte</p>
             <ul class="list-unstyled text-muted">
-              <li><a class="text-muted" href="mailto: citaslapeludemaria@gmail.com" target="_blank">citaslapeludemaria@gmail.com</a></li>
+              <li><a class="text-muted" href="mailto: famosabarber@gmail.com" target="_blank">famosabarber@gmail.com</a></li>
             </ul>
           </div>
         </div>
