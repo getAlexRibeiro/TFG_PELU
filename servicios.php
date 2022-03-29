@@ -11,127 +11,123 @@
   </head>
   <body>
 
-  <header class="header header-absolute">
-      <!-- Top Bar-->
-      <div class="top-bar">
-        <div class="container-fluid">
-          <div class="row d-flex align-items-center">
-            <div class="col-sm-7 d-none d-sm-block">
-              <ul class="list-inline topbar-text mb-0">
-                <li class="list-inline-item pe-3 me-0">
-                  <svg class="svg-icon me-2">
-                    <use xlink:href="#calls-1"> </use>
-                  </svg>647761117
-                </li>
-                <!--<li class="list-inline-item px-3 border-start d-none d-lg-inline-block">Free shipping on orders over $300</li>-->
-              </ul>
-            </div>
-            <div class="col-sm-5 d-flex justify-content-end">
-              <!-- Language Dropdown-->
-              <div class="dropdown border-end px-3"><a class="dropdown-toggle topbar-link" id="langsDropdown" href="#" data-bs-toggle="dropdown" data-bs-display="static" aria-haspopup="true" aria-expanded="false"><img class="topbar-flag" src="assets/img/flag/gb.svg" alt="english">English</a>
-                <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated" aria-labelledby="langsDropdown"><a class="dropdown-item text-sm" href="#"><img class="topbar-flag" src="assets/img/flag/de.svg" alt="german">German</a><a class="dropdown-item text-sm" href="#"> <img class="topbar-flag" src="assets/img/flag/fr.svg" alt="french">French</a></div>
-              </div>
-              <!-- Currency Dropdown-->
-              <div class="dropdown ps-3 ms-0"><a class="dropdown-toggle topbar-link" id="currencyDropdown" href="#" data-bs-toggle="dropdown" data-bs-display="static" aria-haspopup="true" aria-expanded="false"> <i class="fas fa-dollar-sign text-xs align-middle mt-n1 me-2"> </i>USD</a>
-                <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated" aria-labelledby="currencyDropdown"><a class="dropdown-item text-sm" href="#"> <i class="fas fa-euro-sign text-xs align-middle mt-n1 me-2"> </i>EUR</a><a class="dropdown-item text-sm" href="#"><i class="fas fa-pound-sign text-xs align-middle mt-n1 me-2"> </i>GBP</a></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Top Bar End-->
+    
        <!-- IMPORTS HEADER BEGIN -->
 <?php include "includes/importMenu.php"; ?>
   <!-- IMPORTS HEADER END -->
 
-  <section class="position-relative py-6 mb-4"><img class="bg-image" src="assets/img/photo/matese-fields-233175-unsplash.jpg" alt="">
+  <section class="py-6">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-8 mb-5">
+            <p class="text-uppercase text-muted fw-bold mb-1">Todos nuestros servicios</p>
+            <p class="lead text-muted">Reserva tu cita solicitando el día y la hora que quieras en la sección de citas, escríbenos por Whastapp o llámanos sin compromiso para consultar cualquier duda que pueda surgirte</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 mb-4 mb-md-6 pt-lg-3"><a href="./calendario/calendario.php"><img class="img-fluid" src="assets/img/1_Lavar-marcar.jpg" alt=""></a>
+            <div class="px-4 position-relative z-index-2 mt-n3"><a class="text-dark text-decoration-none" href="./calendario/calendario.php">
+                <h3>Lavar y Marcar     </h3>
+                <p style="font-size: 20px;" class="text-muted">15€</p></a>
+              <p> <a class="btn btn-link text-dark text-decoration-none px-0" href="./calendario/calendario.php"> Pedir Cita                      </a></p>
+            </div>
+          </div>
+          <div class="col-md-7 ms-auto mb-4 mb-md-5">
+            <div class="position-absolute z-index-5 py-6"><a class="text-dark text-decoration-none" href="./calendario/calendario.php">
+                <h2>Cortar<br>Señoras     </h2>
+                <p style="font-size: 20px;" class="text-muted">12€</p></a>
+              <p> <a class="btn btn-link text-dark text-decoration-none px-0" href="./calendario/calendario.php"> Pedir Cita                      </a></p>
+            </div>
+            <div class="ms-6"><a href="./calendario/calendario.php"><img class="img-fluid" src="assets/img/3-corte-señora.jpg" alt=""></a></div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-7 mb-4 mb-lg-5">
+            <div class="position-absolute z-index-5 py-6"><a class="text-dark text-decoration-none" href="./calendario/calendario.php">
+                <h2>Cortar<br>Caballeros<br></h2>
+                <p style="font-size: 20px;" class="text-muted">10€</p></a>
+              <p> <a class="btn btn-link text-dark text-decoration-none px-0" href="./calendario/calendario.php"> Pedir Cita                      </a></p>
+            </div>
+            <div class="ms-6"><a href="./calendario/calendario.php"><img class="img-fluid" src="assets/img/4-corte-caballero.jpg" alt=""></a></div>
+          </div>
+          <div class="col-lg-4 ms-auto pt-lg-6 mb-4 mb-lg-5"><a class="text-dark text-decoration-none" href="./calendario/calendario.php"><img class="img-fluid" src="assets/img/5-corte-niño.jpg" alt=""></a>
+            <div class="px-4 position-relative z-index-2 mt-n3"><a class="text-dark text-decoration-none" href="./calendario/calendario.php">
+                <h3>Cortar<br>Niños hasta 7 años</h3>
+                <p style="font-size: 20px;" class="text-muted">5€</p></a>
+                <p> <a class="btn btn-link text-dark text-decoration-none px-0" href="./calendario/calendario.php"> Pedir Cita                      </a></p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-3 pt-lg-3 mb-4 mb-lg-5"><a href="./calendario/calendario.php"><img class="img-fluid" src="assets/img/6-tinte.jpg" alt=""></a>
+            <div class="px-4 position-relative z-index-2 mt-n3"><a class="text-dark text-decoration-none" href="./calendario/calendario.php">
+                <h3>Tinte     </h3>
+                <p  style="font-size: 20px;" class="text-muted">24€</p></a>
+                <p> <a class="btn btn-link text-dark text-decoration-none px-0" href="./calendario/calendario.php"> Pedir Cita                      </a></p>
+            </div>
+          </div>
+          <div class="col-lg-8 ms-auto">
+            <div class="position-absolute z-index-5 py-6"><a class="text-dark text-decoration-none" href="./calendario/calendario.php">
+                <h2>Mechas    </h2>
+                <p style="font-size: 20px;" class="text-muted">32€</p></a>
+                <p> <a class="btn btn-link text-dark text-decoration-none px-0" href="./calendario/calendario.php"> Pedir Cita                      </a></p>
+            </div>
+            <div class="ms-6"><a href="./calendario/calendario.php"><img class="img-fluid" src="assets/img/7-mechas.jpg" alt=""></a></div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xl-8 mb-5">
+            <p class="text-uppercase text-muted fw-bold mb-1"></p>
+            <p class="lead text-muted"></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 mb-4 mb-md-6 pt-lg-3"><a href="./calendario/calendario.php"><img class="img-fluid" src="assets/img/8-tinte-y-mechas.jpg" alt=""></a>
+            <div class="px-4 position-relative z-index-2 mt-n3"><a class="text-dark text-decoration-none" href="./calendario/calendario.php">
+                <h3>Tinte<br>y Mechas   </h3>
+                <p style="font-size: 20px;" class="text-muted">40€</p></a>
+                <p> <a class="btn btn-link text-dark text-decoration-none px-0" href="./calendario/calendario.php"> Pedir Cita                      </a></p>
+            </div>
+          </div>
+          <div class="col-md-7 ms-auto mb-4 mb-md-5">
+            <div class="position-absolute z-index-5 py-6"><a class="text-dark text-decoration-none" href="./calendario/calendario.php">
+                <h2>Moldeador     </h2>
+                <p style="font-size: 20px;" class="text-muted">35€</p></a>
+                <p> <a class="btn btn-link text-dark text-decoration-none px-0" href="./calendario/calendario.php"> Pedir Cita                      </a></p>
+            </div>
+            <div class="ms-6"><a href="./calendario/calendario.php"><img class="img-fluid" src="assets/img/9-moldeador.jpg" alt=""></a></div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4 mb-4 mb-md-6 pt-lg-3"><a href="./calendario/calendario.php"><img class="img-fluid" src="assets/img/10-recogidos.jpg" alt=""></a>
+            <div class="px-4 position-relative z-index-2 mt-n3"><a class="text-dark text-decoration-none" href="./calendario/calendario.php">
+                <h3>Recogidos   </h3>
+                <p style="font-size: 20px;" class="text-muted">32€</p></a>
+                <p> <a class="btn btn-link text-dark text-decoration-none px-0" href="./calendario/calendario.php"> Pedir Cita                      </a></p>
+            </div>
+          </div>
+          </div>
+      </div>
+    </section>
+
+  
+
+  <section class="position-relative py-6 mb-4"><img class="bg-image" src="assets/img/banner2-peluqueria.jpg" alt="">
       <div class="container position-relative">
         <div class="row">
           <div class="col-lg-6">
-            <div class="bg-white p-5"><strong class="text-uppercase text-muted d-inline-block mb-2 text-sm">Featured</strong>
-              <h2 class="mb-3">Fashion, purpose & freedom</h2>
-              <p class="text-muted">As am hastily invited settled at limited civilly fortune me. Really spring in extent an by. Judge but built party world. Of so am he remember although required. Bachelor unpacked be advanced at. Confined in declared marianne is vicinity</p><a class="btn btn-link text-dark p-0" href="post.html">Continue reading <i class="fa fa-long-arrow-alt-right"></i></a>
+            <div class="bg-white p-5"><strong class="text-uppercase text-muted d-inline-block mb-2 text-sm">Tu peluquería en Colmenar Viejo</strong>
+              <h2 class="mb-3">Servicios</h2>
+              <p class="text-muted">Todos nuestros servicios a tu disposición, no dudes en contactárnos.</p><a class="btn btn-link text-dark p-0" href="./calendario/calendario.php">Pedir cita <i class="fa fa-long-arrow-alt-right"></i></a>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-     <!-- ABOUT
-    ================================================== -->
-    <section class="section pb-0">
+    
 
-      <!-- Content -->
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-md-6 col-lg-5 offset-lg-1">
-            
-            <!-- Image -->
-            <div class="img-effect img-effect-solid mb-5 mb-md-0">
-              <img src="assets/img/tools.jpg" class="img-fluid" alt="...">
-            </div>
-
-          </div>
-          <div class="col-md-6 col-lg-4 offset-lg-1">
-
-            <!-- Heading -->
-            <h2 class="mb-4">
-              Swiss-made engineering excellence
-            </h2>
-
-            <!-- Content -->
-            <p class="text-muted">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint, maiores, aperiam. Excepturi assumenda non quasi ipsa quidem harum debitis aut alias dicta. Laudantium reprehenderit ea, suscipit nulla deleniti excepturi repudiandae!
-            </p>
-
-            <!-- Button -->
-            <a href="#modal-video" data-toggle="modal" class="btn btn-outline-primary btn-circle mr-3">
-              <i class="fas fa-play"></i>
-            </a> Play video
-            
-          </div>
-        </div> <!-- / .row -->
-      </div> <!-- / .container -->
-
-    </section>
-
-    <!-- ABOUT
-    ================================================== -->
-    <section class="section" style="padding-bottom: 40px;">
-
-      <!-- Content -->
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-md-6 col-lg-5 offset-lg-1 order-md-2">
-            
-            <!-- Image -->
-            <div class="img-effect img-effect-border mb-5 mb-md-0">
-              <img src="assets/img/tools.jpg" class="img-fluid" alt="...">
-            </div>
-
-          </div>
-          <div class="col-md-6 col-lg-4 offset-lg-1 order-md-1">
-
-            <!-- Heading -->
-            <h2 class="mb-4">
-              Stylish high-quality timepieces
-            </h2>
-
-            <!-- Content -->
-            <p class="text-muted">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima tenetur, non ea, nobis minus distinctio eveniet libero fugiat, ullam deserunt dolores exercitationem quae eum? Alias quaerat rerum, quasi nulla odit?
-            </p>
-
-            <!-- Button -->
-            <a href="contact.html" class="btn btn-outline-primary">
-              Contact us
-            </a>
-            
-          </div>
-        </div> <!-- / .row -->
-      </div> <!-- / .container -->
-
-    </section>
 
 <!-- IMPORTS FOOTER BEGIN -->
 <?php include "includes/importFooter.php"; ?>
