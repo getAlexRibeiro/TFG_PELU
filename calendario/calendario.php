@@ -1,6 +1,6 @@
 <?php
 function build_calendar($month, $year) {
-    $mysqli = new mysqli('localhost', 'root', '', 'peluqueria'); 
+    $mysqli = new mysqli('localhost', 'root', '', 'bookingcalendar'); 
     //$mysqli = new mysqli('localhost', 'u954547757_Maria', 'Peludemaria2021', 'u954547757_peludemaria');
        
     
@@ -283,7 +283,7 @@ function checkSlots($mysqli,$date){
                          $month = $_GET['month']; 			     
                          $year = $_GET['year'];
                      }else{
-                         $month = $dateComponents['month']; 			     
+                         $month = $dateComponents['mon']; 			     
                          $year = $dateComponents['year'];
                      }
                     echo build_calendar($month,$year);

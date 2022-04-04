@@ -1,5 +1,5 @@
 <?php
-$mysqli = new mysqli('localhost', 'root', '', 'peluqueria');
+$mysqli = new mysqli('localhost', 'root', '', 'bookingcalendar');
 //$mysqli = new mysqli('localhost', 'u954547757_Maria', 'Peludemaria2021', 'u954547757_peludemaria');
 if(isset($_GET['date'])){
     $date = $_GET['date'];
