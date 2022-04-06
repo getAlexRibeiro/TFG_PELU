@@ -28,30 +28,30 @@ $datos= mysqli_query ($con,$consulta_servicios);
         </div>
         <?php while($fila=mysqli_fetch_array($datos)) : ?>
         <div class="row">
-          <div class="col-md-4 mb-4 mb-md-6 pt-lg-3"><a href="./calendario/calendario.php"><img class="img-fluid" src="assets/img/photo/ejemplo_ambos.jpeg" alt="pelo adulto"></a>
-            <div class="px-4 position-relative z-index-2 mt-n3"><a class="text-dark text-decoration-none" href="./calendario/calendario.php">
+          <div class="col-md-4 mb-4 mb-md-6 pt-lg-3"><a href="custom-login.php"><img class="img-fluid" src="assets/img/photo/ejemplo_ambos.jpeg" alt="pelo adulto"></a>
+            <div class="px-4 position-relative z-index-2 mt-n3"><a class="text-dark text-decoration-none" href="custom-login.php">
                 <h3><?php echo $fila['name_servicio']; ?></h3>
                 <p style="font-size: 20px;" class="text-muted"><?php echo $fila['price_servicio']; ?>€</p></a>
-              <p> <a class="btn btn-link text-dark text-decoration-none px-0" href="./calendario/calendario.php"> Pedir Cita                      </a></p>
+              <p> <a class="btn btn-link text-dark text-decoration-none px-0" href="custom-login.php"> Pedir Cita                      </a></p>
             </div>
           </div>
           <div class="col-md-7 ms-auto mb-4 mb-md-5">
-            <div class="position-absolute z-index-5 py-6"><a class="text-dark text-decoration-none" href="./calendario/calendario.php">
+            <div class="position-absolute z-index-5 py-6"><a class="text-dark text-decoration-none" href="custom-login.php">
                 <h2><?php echo $fila['name_servicio']; ?></h2>
                 <p style="font-size: 20px;" class="text-muted"><?php echo $fila['price_servicio']; ?>€</p></a>
-              <p> <a class="btn btn-link text-dark text-decoration-none px-0" href="./calendario/calendario.php"> Pedir Cita                      </a></p>
+              <p> <a class="btn btn-link text-dark text-decoration-none px-0" href="custom-login.php"> Pedir Cita                      </a></p>
             </div>
-            <div class="ms-6"><a href="./calendario/calendario.php"><img class="img-fluid" src="assets/img/photo/ejemplo_niño.jpeg" alt="pelu niño"></a></div>
+            <div class="ms-6"><a href="custom-login.php"><img class="img-fluid" src="assets/img/photo/ejemplo_niño.jpeg" alt="pelu niño"></a></div>
           </div>
         </div>
         <div class="row">
           <div class="col-lg-7 mb-4 mb-lg-5">
-            <div class="position-absolute z-index-5 py-6"><a class="text-dark text-decoration-none" href="./calendario/calendario.php">
+            <div class="position-absolute z-index-5 py-6"><a class="text-dark text-decoration-none" href="custom-login.php">
                 <h2><?php echo $fila['name_servicio']; ?><br></h2>
                 <p style="font-size: 20px;" class="text-muted"><?php echo $fila['price_servicio']; ?>€</p></a>
-              <p> <a class="btn btn-link text-dark text-decoration-none px-0" href="./calendario/calendario.php"> Pedir Cita                      </a></p>
+              <p> <a class="btn btn-link text-dark text-decoration-none px-0" href="custom-login.php"> Pedir Cita                      </a></p>
             </div>
-            <div class="ms-6"><a href="./calendario/calendario.php"><img class="img-fluid" src="assets/img/photo/ejemplo_pelo.jpeg" alt="pelo joven"></a></div>
+            <div class="ms-6"><a href="custom-login.php"><img class="img-fluid" src="assets/img/photo/ejemplo_pelo.jpeg" alt="pelo joven"></a></div>
           </div>
           <?php endwhile; ?>        
       </div>

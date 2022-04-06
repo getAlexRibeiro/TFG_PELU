@@ -111,25 +111,20 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-md-6 d-flex align-items-md-stretch mb-4 mb-md-0">
-            <div class="d-flex align-items-center text-white dark-overlay w-100 text-center py-6 py-md-0" style="background: center center url(img/photo/nordwood-themes-481980-unsplash-square.jpg) no-repeat; background-size: cover;"><a class="tile-link" href="servicios.php"> </a>
-              <div class="card-img-overlay w-100 overlay-content">
-                <h2 class="display-2 fw-bold text-uppercase mb-0">Servicios </h2>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="card border-0 text-white text-center mb-4 dark-overlay"> <img class="card-img" src="assets/img/photo/malvestida-magazine-458585-unsplash.jpg" alt="Ladies"><a class="tile-link" href="tienda.php"> </a>
+        <div class="col-md-6 align-items-md-stretch mb-4 mb-md-0">
+            <div class="card border-0 text-white text-center mb-4 dark-overlay"> <img class="card-img" height="500px" width="600" src="assets/img/photo/imgIndex3.jpg" alt="Servicios"><a class="tile-link" href="servicios.php"> </a>
               <div class="card-img-overlay d-flex align-items-center">
                 <div class="text-center w-100 overlay-content">
-                  <h2 class="display-4 fw-bold text-uppercase text-center mb-0">Productos</h2>
+                  <h2 class="display-4 fw-bold text-uppercase text-center mb-0">Servicios</h2>
                 </div>
               </div>
             </div>
-            <div class="card border-0 text-white text-center  dark-overlay"> <img class="card-img" src="assets/img/photo/heather-schwartz-528936-unsplash.jpg" alt="Accessories"><a class="tile-link" href="./custom-login.php"> </a>
+          </div>
+          <div class="col-md-6 align-items-md-stretch mb-4 mb-md-0">
+            <div class="card border-0 text-white text-center mb-4 dark-overlay"> <img class="card-img" height="500px" width="600" src="assets/img/photo/imgIndex2.jpg" alt="barba"><a class="tile-link" href="contacto.php"> </a>
               <div class="card-img-overlay d-flex align-items-center">
                 <div class="text-center w-100 overlay-content">
-                  <h2 class="display-4 fw-bold text-uppercase text-center mb-0">Pedir cita</h2>
+                  <h2 class="display-4 fw-bold text-uppercase text-center mb-0">Contactanos</h2>
                 </div>
               </div>
             </div>

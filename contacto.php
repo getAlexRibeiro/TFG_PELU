@@ -38,7 +38,7 @@
               <use xlink:href="#navigation-map-1"> </use>
             </svg>
             <h4 class="ff-base">Dirección</h4>
-            <a class="text-muted" href="https://www.google.es/maps/place/C.+del+Boalito,+6,+28770+Colmenar+Viejo,+Madrid/@40.6616355,-3.7726229,17z/data=!3m1!4b1!4m5!3m4!1s0xd417ddba397c01b:0x36006c6c956bb8f4!8m2!3d40.6616315!4d-3.7704342?hl=es">Calle del Boalito, 6, Colmenar Viejo, Madrid</a>
+            <a class="text-muted" href="https://www.google.es/maps/place/Famosso+Barber/@40.6620243,-3.7670055,19z/data=!4m5!3m4!1s0xd417df9abbc1963:0x871972d303df646c!8m2!3d40.6620269!4d-3.7666206?hl=es">Av. de la Libertad, 4, 28770 Colmenar Viejo, Madrid</a>
           </div>
           <div class="col-md-4 text-center text-md-start">
             <svg class="svg-icon svg-icon-light text-primary w-3rem h-3rem mb-3">
