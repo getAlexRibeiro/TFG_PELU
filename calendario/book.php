@@ -1,6 +1,6 @@
 <?php
 $con = new mysqli('localhost', 'root', '', 'peluqueria');
-$consulta_servicios = "SELECT * FROM servicios ORDER BY id_servicios ASC";
+$consulta_servicios = "SELECT * FROM servicios ORDER BY id_servicio ASC";
 $datos = mysqli_query($con, $consulta_servicios);
 
 if(isset($_GET['date'])){
@@ -148,10 +148,10 @@ function timeslots($duration,$cleanup,$start,$end){
                                 </div>
                                 <div class="form-group">
                                     <label for="">Servicio</label>
-                                    <select name="Servicios">
+                                    <select name="servicio">
                                     <?php while($fila = mysqli_fetch_array($datos, MYSQLI_ASSOC)) : ?>
 
-                                        <option value="<?php echo $fila["id_servicios"];
+                                        <option value="<?php echo $fila["id_servicio"];
                                             // The value we usually set is the primary key
                                         ?>">
                                             <?php echo $fila["name_servicio"];
