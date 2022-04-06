@@ -18,14 +18,12 @@
 
     <link href="css/estilos.css" rel="stylesheet">
 
-    <title>CRUD PHP Y MYSQL</title>
+    <title>CRUD Famossa Barber</title>
   </head>
   <body>
-  <h1 class="text-center">CRUD PHP Y MYSQL</h1>
-    <p class="text-center"> CRUD(Usuarios)</p>
+  <h1 class="text-center">CRUD Famossa Barber</h1>
+    <p class="text-center"> Tabla Clientes</p>
     <div class="container">
-
-
         <?php if(isset($_GET['mensaje'])) : ?>                
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 <strong><?php echo $_GET['mensaje']; ?>
@@ -38,7 +36,6 @@
                 <a href="crear.php" class="btn btn-success w-100"> Crear Nuevo Registro</a>
             </div>            
         </div>
-
         <div class="row caja">
             <div class="col-sm-12">
                 <table class="table table-striped">

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php include 'conexion.php'; ?>
 <?php
-$consulta_servicios= "SELECT * FROM servicios ORDER BY id_servicios asc";
+$consulta_servicios= "SELECT * FROM servicios ORDER BY id_servicio asc";
 $datos= mysqli_query ($con,$consulta_servicios);
 ?>
 
@@ -26,7 +26,7 @@ $datos= mysqli_query ($con,$consulta_servicios);
             <p class="lead text-muted">Reserva tu cita solicitando el día y la hora que quieras en la sección de citas, escríbenos por Whastapp o llámanos sin compromiso para consultar cualquier duda que pueda surgirte</p>
           </div>
         </div>
-        <?php while($fila=mysqli_fetch_array($datos,MYSQLI_ASSOC)) :; ?>
+        <?php while($fila=mysqli_fetch_array($datos)) : ?>
         <div class="row">
           <div class="col-md-4 mb-4 mb-md-6 pt-lg-3"><a href="./calendario/calendario.php"><img class="img-fluid" src="assets/img/photo/ejemplo_ambos.jpeg" alt="pelo adulto"></a>
             <div class="px-4 position-relative z-index-2 mt-n3"><a class="text-dark text-decoration-none" href="./calendario/calendario.php">
