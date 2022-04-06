@@ -1,13 +1,12 @@
 <?php include 'conexion.php'; ?>
 <?php
     //Crear y seleccionar query
-    $query = "SELECT * FROM clientes ORDER BY id DESC";
+    $query = "SELECT * FROM clientes ORDER BY id asc";
     $usuarios = mysqli_query($con, $query);
-    $query = "SELECT * FROM servicios ORDER BY id_servicio DESC";
+    $query = "SELECT * FROM servicios ORDER BY id_servicio asc";
     $servicios = mysqli_query($con, $query);
-    $query = "SELECT * FROM bookings ORDER BY id_bookings DESC";
+    $query = "SELECT * FROM bookings ORDER BY id_bookings asc";
     $citas = mysqli_query($con, $query);
-
 ?>
 
 <!doctype html>
@@ -39,9 +38,8 @@
          }
       </script>
   <body>
+
   <h1 class="text-center">CRUD Famossa Barber</h1>
-
-
   <br>
 
     <center><input type="button" class="btn btn-primary btn-lg btn-block" value="Tabla Clientes" onClick="showHideDiv('divMsg')"/> </center><br><br>
@@ -113,23 +111,21 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Nombre</th>
-                            <th>Email</th>
-                            <th>Password</th>
+                            <th>Nombre Servicio</th>
+                            <th>Precio</th>
                             <th>Accion</th>
                         </tr>
                     </thead>
                     <tbody>
 
-                        <?php while($fila = mysqli_fetch_assoc($usuarios)) : ?>
+                        <?php while($fila = mysqli_fetch_assoc($servicios)) : ?>
                         <tr>
-                            <td><?php echo $fila['id']; ?></td>
-                            <td><?php echo $fila['nombre']; ?></td>
-                            <td><?php echo $fila['email']; ?></td>
-                            <td><?php echo $fila['password']; ?></td>
+                            <td><?php echo $fila['id_servicio']; ?></td>
+                            <td><?php echo $fila['name_servicio']; ?></td>
+                            <td><?php echo $fila['price_servicio']; ?></td>
                             <td>
-                            <a href="editar.php?id=<?php echo $fila['id']; ?>" class="btn btn-primary"> Editar</a>
-                            <a href="borrar.php?id=<?php echo $fila['id']; ?>" class="btn btn-danger"> Borrar</a>
+                            <a href="editar.php?id=<?php echo $fila['id_servicio']; ?>" class="btn btn-primary"> Editar</a>
+                            <a href="borrar.php?id=<?php echo $fila['id_servicio']; ?>" class="btn btn-danger"> Borrar</a>
                             </td>
                         </tr> 
 
@@ -162,20 +158,23 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Nombre</th>
+                            <th>Nombre cliente</th>
                             <th>Email</th>
-                            <th>Password</th>
-                            <th>Accion</th>
+                            <th>Date</th>
+                            <th>Timeslot</th>
+                            <th>Servicio</th>
                         </tr>
                     </thead>
                     <tbody>
 
-                        <?php while($fila = mysqli_fetch_assoc($usuarios)) : ?>
+                        <?php while($fila = mysqli_fetch_assoc($citas)) : ?>
                         <tr>
-                            <td><?php echo $fila['id']; ?></td>
-                            <td><?php echo $fila['nombre']; ?></td>
+                            <td><?php echo $fila['id_bookings']; ?></td>
+                            <td><?php echo $fila['name']; ?></td>
                             <td><?php echo $fila['email']; ?></td>
-                            <td><?php echo $fila['password']; ?></td>
+                            <td><?php echo $fila['date']; ?></td>
+                            <td><?php echo $fila['timeslot']; ?></td>
+                            <td><?php echo $fila['servicio']; ?></td>
                             <td>
                             <a href="editar.php?id=<?php echo $fila['id']; ?>" class="btn btn-primary"> Editar</a>
                             <a href="borrar.php?id=<?php echo $fila['id']; ?>" class="btn btn-danger"> Borrar</a>
