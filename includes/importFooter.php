@@ -93,7 +93,7 @@
             <div class="col-lg-2 col-md-6 mb-5 mb-lg-0">
               <h6 class="text-uppercase text-dark mb-3">Dirección</h6>
               <ul class="list-unstyled">
-                <li> <a class="text-muted" href="https://www.google.es/maps/place/Famosso+Barber/@40.6620243,-3.7670055,19z/data=!4m5!3m4!1s0xd417df9abbc1963:0x871972d303df646c!8m2!3d40.6620269!4d-3.7666206?hl=es">Av. de la Libertad, 4, 28770 Colmenar Viejo, Madrid</a></li>
+                <li> <a class="text-muted" href="https://www.google.es/maps/place/Famosso+Barber/@40.6620243,-3.7670055,19z/data=!4m5!3m4!1s0xd417df9abbc1963:0x871972d303df646c!8m2!3d40.6620269!4d-3.7666206?hl=es" target="_blank">Av. de la Libertad, 4, 28770 Colmenar Viejo, Madrid</a></li>
                 
               </ul>
             </div>
