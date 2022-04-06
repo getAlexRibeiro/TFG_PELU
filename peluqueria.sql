@@ -52,6 +52,7 @@ CREATE TABLE IF NOT EXISTS `clientes` (
   `nombre` varchar(25) CHARACTER SET utf8mb4 NOT NULL,
   `email` varchar(25) DEFAULT NULL,
   `password` varchar(25) CHARACTER SET utf8mb4 NOT NULL,
+  `rol` varchar(25) CHARACTER SET utf8mb4 default 'cliente',
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4;
