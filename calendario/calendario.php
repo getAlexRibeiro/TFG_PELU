@@ -1,7 +1,6 @@
 <?php
 function build_calendar($month, $year) {
-    $mysqli = new mysqli('localhost', 'root', '', 'bookingcalendar'); 
-    //$mysqli = new mysqli('localhost', 'u954547757_Maria', 'Peludemaria2021', 'u954547757_peludemaria');
+    $con = new mysqli('localhost', 'root', '', 'peluqueria'); 
        
     
     // Creamos array con nombre de los días
@@ -94,7 +93,7 @@ function build_calendar($month, $year) {
             }else{
 
             // Tenemos entre semana 16 slots libres.
-            $totalbookings = checkSlots($mysqli,$date);
+            $totalbookings = checkSlots($con,$date);
             if($totalbookings==16){
                 $calendar.="<td class='$today'><h4>$currentDay</h4> <a href='#' class='btn btn-danger btn-xs'>Todo ocupado</a>";
             }else{
@@ -103,7 +102,7 @@ function build_calendar($month, $year) {
             }
 
             // Tenemos los sábados 8 slots libres.
-            /* $totalbookings = checkSlots($mysqli,$date);
+            /* $totalbookings = checkSlots($con,$date);
             if($totalbookings==8){
                 $calendar.="<td class='$today'><h4>$currentDay</h4> <a href='#' class='btn btn-danger btn-xs'>Todo ocupado</a>";
             }else{
@@ -151,8 +150,8 @@ function build_calendar($month, $year) {
 
 }
 
-function checkSlots($mysqli,$date){
-    $stmt = $mysqli->prepare("select * from bookings where date = ? ");
+function checkSlots($con,$date){
+    $stmt = $con->prepare("select * from bookings where date = ? ");
     $stmt->bind_param('s', $date);
     $totalbookings = 0;
     if($stmt->execute()){

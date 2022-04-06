@@ -1,9 +1,11 @@
 <?php
-$mysqli = new mysqli('localhost', 'root', '', 'bookingcalendar');
-//$mysqli = new mysqli('localhost', 'u954547757_Maria', 'Peludemaria2021', 'u954547757_peludemaria');
+$con = new mysqli('localhost', 'root', '', 'peluqueria');
+$consulta_servicios = "SELECT * FROM servicios ORDER BY id_servicios ASC";
+$datos = mysqli_query($con, $consulta_servicios);
+
 if(isset($_GET['date'])){
     $date = $_GET['date'];
-    $stmt = $mysqli->prepare("select * from bookings where date = ?");
+    $stmt = $con->prepare("select * from bookings where date = ?");
     $stmt->bind_param('s', $date);
     $bookings = array();
     if($stmt->execute()){
@@ -23,7 +25,7 @@ if(isset($_POST['submit'])){
     $email = $_POST['email'];
     $timeslot = $_POST['timeslot'];
     $servicio = $_POST['servicio'];
-    $stmt = $mysqli->prepare("select * from bookings where date = ? AND timeslot = ?");
+    $stmt = $con->prepare("select * from bookings where date = ? AND timeslot = ?");
     $stmt->bind_param('ss', $date, $timeslot);
     if($stmt->execute()){
         $result = $stmt->get_result();
@@ -31,13 +33,13 @@ if(isset($_POST['submit'])){
 
             $msg = "<div class='alert alert-danger'>Ocupado</div>";
         }else{
-            $stmt = $mysqli->prepare("INSERT INTO bookings (name, timeslot, email, date, servicio) VALUES (?,?,?,?,?)");
+            $stmt = $con->prepare("INSERT INTO bookings (name, timeslot, email, date, servicio) VALUES (?,?,?,?,?)");
             $stmt->bind_param('sssss', $name, $timeslot, $email, $date, $servicio);
             $stmt->execute();
             $msg = "<div class='alert alert-success'>Citado correctamente</div>";
             $bookings[] = $timeslot;
             $stmt->close();
-            $mysqli->close();
+            $con->close();
         }
     }
     
@@ -146,7 +148,23 @@ function timeslots($duration,$cleanup,$start,$end){
                                 </div>
                                 <div class="form-group">
                                     <label for="">Servicio</label>
-                                    <input required type="text" name="servicio" class="form-control">
+                                    <select name="Servicios">
+                                    <?php while($fila = mysqli_fetch_array($datos, MYSQLI_ASSOC)) : ?>
+
+                                        <option value="<?php echo $fila["id_servicios"];
+                                            // The value we usually set is the primary key
+                                        ?>">
+                                            <?php echo $fila["name_servicio"];
+                                                // To show the category name to the user
+                                            ?>
+                                        </option>
+                                    <?php endwhile; ?>    
+                                    </select>
+                        
+                                        
+
+                                    
+                                    
                                 </div>
                                 <div class="form-group">
                                 <button class="btn btn-primary" type="submit" name="submit">Enviar</button>

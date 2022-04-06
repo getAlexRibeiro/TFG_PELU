@@ -82,17 +82,17 @@
           <div class="col-lg-5">
             <h6 class="text-uppercase text-muted letter-spacing-5 mb-1">Conócenos un poco más</h6>
             <h2 class="mb-4"> Famosso Barber</h2>
-            <p class="text-lg text-muted">Abierta desde hace 25 años, donde de la nada, María consiguió su sueño y aun sigue haciendo felices a sus clientes.</p>
+            <p class="text-lg text-muted"> Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
           </div>
           <div class="col-lg-6 ms-lg-auto">
             <div class="row">
               <div class="col-sm-6 mb-4">
-                <h4>1995</h4>
-                <p class="text-muted">Apertura de la peluquería después de varios trabajos en otros establecimientos de Colmenar Viejo. Inagurada con el nombre de Pettine.</p>
+                <h4>2019</h4>
+                <p class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, esse!</p>
               </div>
               <div class="col-sm-6 mb-4">
-                <h4>2017</h4>
-                <p class="text-muted">Remodelación completa de la peluquería y cambio de nombre al actual,  Famosso Barber. </p>
+                <h4>2022</h4>
+                <p class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, unde.</p>
               </div>
               
             </div>
@@ -122,14 +122,14 @@
             <div class="card border-0 text-white text-center mb-4 dark-overlay"> <img class="card-img" src="assets/img/photo/malvestida-magazine-458585-unsplash.jpg" alt="Ladies"><a class="tile-link" href="tienda.php"> </a>
               <div class="card-img-overlay d-flex align-items-center">
                 <div class="text-center w-100 overlay-content">
-                  <h2 class="display-4 fw-bold text-uppercase text-center mb-0">Productos                                               </h2>
+                  <h2 class="display-4 fw-bold text-uppercase text-center mb-0">Productos</h2>
                 </div>
               </div>
             </div>
             <div class="card border-0 text-white text-center  dark-overlay"> <img class="card-img" src="assets/img/photo/heather-schwartz-528936-unsplash.jpg" alt="Accessories"><a class="tile-link" href="./custom-login.php"> </a>
               <div class="card-img-overlay d-flex align-items-center">
                 <div class="text-center w-100 overlay-content">
-                  <h2 class="display-4 fw-bold text-uppercase text-center mb-0">Pedir cita                                               </h2>
+                  <h2 class="display-4 fw-bold text-uppercase text-center mb-0">Pedir cita</h2>
                 </div>
               </div>
             </div>

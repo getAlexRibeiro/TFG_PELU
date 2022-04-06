@@ -89,7 +89,7 @@ INSERT INTO `productos` (`id_productos`, `name`, `price`, `cantidad`) VALUES
 
 DROP TABLE IF EXISTS `servicios`;
 CREATE TABLE IF NOT EXISTS `servicios` (
-  `id_servicios` int NOT NULL AUTO_INCREMENT,
+  `id_servicio` int NOT NULL AUTO_INCREMENT,
   `name_servicio` varchar(25) NOT NULL,
   `price_servicio` int NOT NULL,
   PRIMARY KEY (`id_servicios`)
