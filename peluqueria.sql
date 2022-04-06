@@ -100,23 +100,12 @@ CREATE TABLE IF NOT EXISTS `servicios` (
 --
 
 INSERT INTO `servicios` (`id_servicios`, `name_servicio`, `price_servicio`) VALUES
-(1, 'Lavar y Marcar', '15');
+(1, 'Corte Pelo', '8');
 INSERT INTO `servicios` (`id_servicios`, `name_servicio`, `price_servicio`) VALUES
-(2, 'Cortar Señoras', '12');
+(2, 'Corte Barba', '6');
 INSERT INTO `servicios` (`id_servicios`, `name_servicio`, `price_servicio`) VALUES
-(3, 'Cortar Caballeros', '10');
-INSERT INTO `servicios` (`id_servicios`, `name_servicio`, `price_servicio`) VALUES
-(4, 'Corte niños hasta 7 años', '5');
-INSERT INTO `servicios` (`id_servicios`, `name_servicio`, `price_servicio`) VALUES
-(5, 'Tinte', '25');
-INSERT INTO `servicios` (`id_servicios`, `name_servicio`, `price_servicio`) VALUES
-(6, 'Mechas', '32');
-INSERT INTO `servicios` (`id_servicios`, `name_servicio`, `price_servicio`) VALUES
-(7, 'Tinte y mechas', '40');
-INSERT INTO `servicios` (`id_servicios`, `name_servicio`, `price_servicio`) VALUES
-(8, 'Moldeador', '35');
-INSERT INTO `servicios` (`id_servicios`, `name_servicio`, `price_servicio`) VALUES
-(9, 'Recogidos', '32');
+(3, 'Corte Pelo y Barba', '14');
+
 
 
 
