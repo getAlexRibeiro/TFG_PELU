@@ -34,6 +34,7 @@ CREATE TABLE IF NOT EXISTS `bookings` (
   `email` varchar(25) DEFAULT NULL,
   `date` date NOT NULL,
   `timeslot` varchar(255) NOT NULL,
+  `servicio` varchar(25),
   PRIMARY KEY (`id_bookings`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -48,7 +49,7 @@ CREATE TABLE IF NOT EXISTS `bookings` (
 
 DROP TABLE IF EXISTS `clientes`;
 CREATE TABLE IF NOT EXISTS `clientes` (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `id_cliente` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(25) CHARACTER SET utf8mb4 NOT NULL,
   `email` varchar(25) DEFAULT NULL,
   `password` varchar(25) CHARACTER SET utf8mb4 NOT NULL,
