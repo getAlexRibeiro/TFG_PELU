@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS `bookings` (
 --
 
 
--- HOLA VIKERS
+
 DROP TABLE IF EXISTS `clientes`;
 CREATE TABLE IF NOT EXISTS `clientes` (
   `id` int NOT NULL AUTO_INCREMENT,
