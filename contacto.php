@@ -99,7 +99,7 @@
           <div class="col-md-6 col-md-full-right">
 				<!-- Google map -->
 				<div style="height: 100%;" class="position-md-absolute end-0 top-0 w-100 h-400 h-md-800">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3026.5598684094243!2d-3.7726228842595995!3d40.66163147933732!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd417ddba397c01b%3A0x36006c6c956bb8f4!2sC.%20del%20Boalito%2C%206%2C%2028770%20Colmenar%20Viejo%2C%20Madrid!5e0!3m2!1ses!2ses!4v1639078082752!5m2!1ses!2ses" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d756.6355111417523!2d-3.7670055!3d40.6620243!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd417df9abbc1963%3A0x871972d303df646c!2sFamosso%20Barber!5e0!3m2!1ses!2ses!4v1649246028664!5m2!1ses!2ses" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 				</div>
 			</div>
         </div>

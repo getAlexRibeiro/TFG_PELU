@@ -26,10 +26,7 @@
                 <h1 class="display-3 text-serif fw-bold mb-5"> Famosso Barber</h1>
                 <div class="row">
                   <div class="col-xl-6">
-                    <p class="text-lg text-muted mb-lg-0">Más de 25 años de experiencia para ofrecer a nuestros clientes los mejores servicios.
-                      Un 6 de Junio de 1995, María decidió abrir la peluqueria en la localidad madrileña de Colmenar Viejo. Después de años de dedicación y sacrificio sigue en pie con la ilusión del primer día. 
-                      Ven a visitarnos ya  vivir una experiencia única con nosotros.
-                      Estaremos encantados de recibirte.
+                    <p class="text-lg text-muted mb-lg-0">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam molestias a officiis tempore accusantium harum repudiandae optio sed animi sit. Vel fugiat vitae ut cumque rem? Natus, enim laudantium? Nemo voluptas dolor recusandae tempore autem provident architecto aliquid. Veniam, impedit?
                     </p>
                   </div>
                   <div class="col-xl-6">
@@ -51,7 +48,7 @@
             </div>
           </div>
           <div class="col-lg-6 pe-lg-0 order-lg-1">
-            <div class="dark-overlay mh-full-screen-with-header h-100"><img class="bg-image" src="assets/img/aboutme.jpg" alt=""></div>
+            <div class="dark-overlay mh-full-screen-with-header h-100"><img class="bg-image" src="assets/img/photo/local.jpeg" alt=""></div>
           </div>
         </div>
       </div>
