@@ -161,10 +161,6 @@ function timeslots($duration,$cleanup,$start,$end){
                                     <?php endwhile; ?>    
                                     </select>
                         
-                                        
-
-                                    
-                                    
                                 </div>
                                 <div class="form-group">
                                 <button class="btn btn-primary" type="submit" name="submit">Enviar</button>
@@ -196,17 +192,3 @@ function timeslots($duration,$cleanup,$start,$end){
   </body>
 
 </html>
-
-<!-- Crear tabla en localhost por si da problemas en el server.
-
-    CREATE TABLE `bookings` (
- `id` int(11) NOT NULL AUTO_INCREMENT,
- `date` date NOT NULL,
- `name` varchar(255) NOT NULL,
- `email` varchar(255) NOT NULL,
- `timeslot` VARCHAR(255) NOT NULL,
- PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
-
-
--->
