@@ -92,18 +92,18 @@ CREATE TABLE IF NOT EXISTS `servicios` (
   `id_servicio` int NOT NULL AUTO_INCREMENT,
   `name_servicio` varchar(25) NOT NULL,
   `price_servicio` int NOT NULL,
-  PRIMARY KEY (`id_servicios`)
+  PRIMARY KEY (`id_servicio`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `servicios`
 --
 
-INSERT INTO `servicios` (`id_servicios`, `name_servicio`, `price_servicio`) VALUES
+INSERT INTO `servicios` (`id_servicio`, `name_servicio`, `price_servicio`) VALUES
 (1, 'Corte Pelo', '8');
-INSERT INTO `servicios` (`id_servicios`, `name_servicio`, `price_servicio`) VALUES
+INSERT INTO `servicios` (`id_servicio`, `name_servicio`, `price_servicio`) VALUES
 (2, 'Corte Barba', '6');
-INSERT INTO `servicios` (`id_servicios`, `name_servicio`, `price_servicio`) VALUES
+INSERT INTO `servicios` (`id_servicio`, `name_servicio`, `price_servicio`) VALUES
 (3, 'Corte Pelo y Barba', '14');
 
 
