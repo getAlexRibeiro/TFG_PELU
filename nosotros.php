@@ -23,7 +23,7 @@
             <div class="d-flex align-items-center p-5 p-xl-6 bg-gray-100 h-100">
               <div>
                 <h6 class="text-uppercase text-primary letter-spacing-5 mb-3"> Sobre nosotros</h6>
-                <h1 class="display-3 text-serif fw-bold mb-5"> Famoso Barber</h1>
+                <h1 class="display-3 text-serif fw-bold mb-5"> Famosso Barber</h1>
                 <div class="row">
                   <div class="col-xl-6">
                     <p class="text-lg text-muted mb-lg-0">Más de 25 años de experiencia para ofrecer a nuestros clientes los mejores servicios.
@@ -59,23 +59,6 @@
 
    
 
-    
-    <section class="py-6">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 mx-auto">
-            <h2 class="mb-6">Mas de 25 años de experiencia para ofrecer el mejor servicio</h2>
-          </div>
-          <div class="col-lg-6" style="text-align: center;">
-            <p class="text-lg text-muted">Horario: Lunes a Viernes de 10:00 a 14:00 - 15:30 a 18:00 </p>
-            <p class="text-lg text-muted">Sábados: 10:00 a 14:00 </p>
-          </div>
-          <div class="col-lg-6"> 
-            <p class="text-lg text-muted"></p>
-          </div>
-        </div>
-      </div>
-    </section>
 
 <!-- IMPORTS FOOTER BEGIN -->
 <?php include "includes/importFooter.php"; ?>

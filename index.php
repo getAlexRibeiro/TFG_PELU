@@ -53,7 +53,7 @@
             <div class="row">
               <div class="col-lg-8 col-xl-6 mx-auto text-white text-center position-relative">
                 <h5 class="text-uppercase text-white fw-light mb-4 letter-spacing-5"></h5>
-                <h1 class="mb-5 display-2  text-dark text-serif"> Famoso Barber</h1>
+                <h1 class="mb-5 display-2  text-dark text-serif"> Famosso Barber</h1>
                 <p class="lead mb-4  text-dark">Ven y conócenos</p>
                 <p> <a class="btn btn-dark" href="./custom-login.php">Pedir cita</a></p>
               </div>
@@ -64,7 +64,7 @@
           <div class="container py-6">
             <div class="row">
               <div class="col-lg-8 col-xl-6 mx-auto text-white text-center overlay-content">
-                <h1 class="mb-4 display-2 text-uppercase fw-bold"> Famoso Barber</h1>
+                <h1 class="mb-4 display-2 text-uppercase fw-bold"> Famosso Barber</h1>
                 <p class="lead mb-5">Sientete como en casa</p>
                 <p> <a class="btn btn-light" href="servicios.php">Ver servicios</a></p>
               </div>
@@ -81,7 +81,7 @@
         <div class="row">
           <div class="col-lg-5">
             <h6 class="text-uppercase text-muted letter-spacing-5 mb-1">Conócenos un poco más</h6>
-            <h2 class="mb-4"> Famoso Barber</h2>
+            <h2 class="mb-4"> Famosso Barber</h2>
             <p class="text-lg text-muted">Abierta desde hace 25 años, donde de la nada, María consiguió su sueño y aun sigue haciendo felices a sus clientes.</p>
           </div>
           <div class="col-lg-6 ms-lg-auto">
@@ -92,7 +92,7 @@
               </div>
               <div class="col-sm-6 mb-4">
                 <h4>2017</h4>
-                <p class="text-muted">Remodelación completa de la peluquería y cambio de nombre al actual,  Famoso Barber. </p>
+                <p class="text-muted">Remodelación completa de la peluquería y cambio de nombre al actual,  Famosso Barber. </p>
               </div>
               
             </div>
@@ -132,19 +132,6 @@
                   <h2 class="display-4 fw-bold text-uppercase text-center mb-0">Pedir cita                                               </h2>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="position-relative py-6 mb-4"><img class="bg-image" src="assets/img/banner2-peluqueria.jpg" alt="">
-      <div class="container position-relative">
-        <div class="row">
-          <div class="col-lg-6">
-            <div class="bg-white p-5"><strong class="text-uppercase text-muted d-inline-block mb-2 text-sm">Tu peluquería en Colmenar Viejo</strong>
-              <h2 class="mb-3">Servicios</h2>
-              <p class="text-muted">Todos nuestros servicios a tu disposición, no dudes en contactárnos.</p><a class="btn btn-link text-dark p-0" href="./custom-login.php">Pedir cita <i class="fa fa-long-arrow-alt-right"></i></a>
             </div>
           </div>
         </div>

@@ -113,19 +113,6 @@
 
   
 
-  <section class="position-relative py-6 mb-4"><img class="bg-image" src="assets/img/banner2-peluqueria.jpg" alt="">
-      <div class="container position-relative">
-        <div class="row">
-          <div class="col-lg-6">
-            <div class="bg-white p-5"><strong class="text-uppercase text-muted d-inline-block mb-2 text-sm">Tu peluquería en Colmenar Viejo</strong>
-              <h2 class="mb-3">Servicios</h2>
-              <p class="text-muted">Todos nuestros servicios a tu disposición, no dudes en contactárnos.</p><a class="btn btn-link text-dark p-0" href="./calendario/calendario.php">Pedir cita <i class="fa fa-long-arrow-alt-right"></i></a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     
 
 

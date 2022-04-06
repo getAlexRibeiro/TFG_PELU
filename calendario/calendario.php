@@ -298,13 +298,3 @@ function checkSlots($mysqli,$date){
 </body>
 
 </html>
-
-<!--
-        DUDAS Y COSAS A TENER EN CUENTA.
-
-    1. Preguntar cómo cambiar el nombre del mes(sale en inglés). Array o case que reciba nombre inglés y saque el español? --- CASE option
-    2. Entre semana hay 16 slots, el sábado 8, ver con la tutora cómo arreglar eso. --- 
-    5. La base de datos coge la fecha bien pero al almacenarla la guarda como Y/m/d(2021/12/16).
-        Hay que recordar que al sacarla de la base de datos, hay que darle el formato que queramos nosotros.
-    
--->
