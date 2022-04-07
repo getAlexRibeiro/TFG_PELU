@@ -49,7 +49,7 @@ if (isset($_POST['submit'])) {
 			if (!$consulta) { // CASO DE QUE LA CONSULTA ESTE VACIA ES QUE NO EXISTE UN USUARIO CON ESE NOMBRE Y PODEMOS SEGUIR CON EL REGISTRO
 				
 			
-			$statement = $conexion->prepare("INSERT INTO clientes (id, nombre, password, email) VALUES (?,?,?,?)");
+			$statement = $conexion->prepare("INSERT INTO clientes (id_cliente, nombre, password, email) VALUES (?,?,?,?)");
 
 
 
