@@ -157,29 +157,6 @@ if (isset($_POST['submit_login'])) {
   <body>
 
   <header class="header header-absolute">
-      <!-- Top Bar-->
-      <div class="top-bar">
-        <div class="container-fluid">
-          <div class="row d-flex align-items-center">
-            <div class="col-sm-7 d-none d-sm-block">
-              <ul class="list-inline topbar-text mb-0">
-                <!--<li class="list-inline-item px-3 border-start d-none d-lg-inline-block">Free shipping on orders over $300</li>-->
-              </ul>
-            </div>
-            <!--<div class="col-sm-5 d-flex justify-content-end">-->
-              <!-- Language Dropdown-->
-              <!--<div class="dropdown border-end px-3"><a class="dropdown-toggle topbar-link" id="langsDropdown" href="#" data-bs-toggle="dropdown" data-bs-display="static" aria-haspopup="true" aria-expanded="false"><img class="topbar-flag" src="assets/img/flag/gb.svg" alt="english">English</a>
-                <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated" aria-labelledby="langsDropdown"><a class="dropdown-item text-sm" href="#"><img class="topbar-flag" src="assets/img/flag/de.svg" alt="german">German</a><a class="dropdown-item text-sm" href="#"> <img class="topbar-flag" src="assets/img/flag/fr.svg" alt="french">French</a></div>
-              </div>-->
-              <!-- Currency Dropdown-->
-              <!--<div class="dropdown ps-3 ms-0"><a class="dropdown-toggle topbar-link" id="currencyDropdown" href="#" data-bs-toggle="dropdown" data-bs-display="static" aria-haspopup="true" aria-expanded="false"> <i class="fas fa-dollar-sign text-xs align-middle mt-n1 me-2"> </i>USD</a>
-                <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated" aria-labelledby="currencyDropdown"><a class="dropdown-item text-sm" href="#"> <i class="fas fa-euro-sign text-xs align-middle mt-n1 me-2"> </i>EUR</a><a class="dropdown-item text-sm" href="#"><i class="fas fa-pound-sign text-xs align-middle mt-n1 me-2"> </i>GBP</a></div>
-              </div>
-            </div>-->
-          </div>
-        </div>
-      </div>
-      <!-- Top Bar End-->
        <!-- IMPORTS HEADER BEGIN -->
 <?php include "includes/importMenu.php"; ?>
   <!-- IMPORTS HEADER END -->
@@ -189,7 +166,7 @@ if (isset($_POST['submit_login'])) {
       <div class="container">
         <!-- Breadcrumbs -->
         <ol class="breadcrumb justify-content-center">
-          <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+          <li class="breadcrumb-item"><a href="index.php">Inicio</a></li>
           <li class="breadcrumb-item active">Bienvenido</li>
         </ol>
         <!-- Hero Content-->
@@ -202,31 +179,31 @@ if (isset($_POST['submit_login'])) {
     <section>
       <div class="container">
         <div class="row justify-content-center">
-          <div class="col-lg-5">
-            <div class="block">
-              <div class="block-header">
-                <h6 class="text-uppercase mb-0">Login</h6>
+            <div class="col-lg-5">
+              <div class="block">
+                <div class="block-header">
+                  <h6 class="text-uppercase mb-0">Acceso</h6>
+                </div>
+                <div class="block-body">
+                  <p class="lead">¿Ya registrado?</p>
+                  <p class="text-muted"></p>
+                  <hr>
+                  <form action=" " name="formulario" method="post">
+                    <div class="mb-4">
+                      <label class="form-label" for="email1">Nombre Usuario</label>
+                      <input type="text" placeholder="Nombre de usuario:" name="login_Nombre" id="login_Nombre">
+                    </div>
+                    <div class="mb-4">
+                      <label class="form-label" for="password1">Contraseña</label>
+                      <input type="password" placeholder="Contraseña:" name="login_Password" id="login_Password">
+                    </div>
+                    <div class="mb-4 text-center">
+                    <input type="submit" name="submit_login" class="btn btn-primary" value="Send"> <!-- boton para enviar los datos -->
+                    <input type="reset" name="reset" class="btn btn-secundary" value="Reset">
+                    </div>
+                  </form>
+                </div>
               </div>
-              <div class="block-body">
-                <p class="lead">Ya registrado?</p>
-                <p class="text-muted"></p>
-                <hr>
-                <form action=" " name="formulario" method="post">
-                  <div class="mb-4">
-                    <label class="form-label" for="email1">Nombre Usuario</label>
-                    <input type="text" placeholder="Nombre de usuario:" name="login_Nombre" id="login_Nombre">
-                  </div>
-                  <div class="mb-4">
-                    <label class="form-label" for="password1">Password</label>
-                    <input type="password" placeholder="Contraseña:" name="login_Password" id="login_Password">
-                  </div>
-                  <div class="mb-4 text-center">
-                  <input type="submit" name="submit_login" class="btn btn-primary" value="Send"> <!-- boton para enviar los datos -->
-			            <input type="reset" name="reset" class="btn btn-secundary" value="Reset">
-                  </div>
-                </form>
-              </div>
-            </div>
           </div>
           <div class="col-lg-5">
             <div class="block">
@@ -234,7 +211,7 @@ if (isset($_POST['submit_login'])) {
                 <h6 class="text-uppercase mb-0">Registrate</h6>
               </div>
               <div class="block-body"> 
-                <p class="lead">No estas registrado todavia?</p>
+                <p class="lead">¿No estas registrado todavia?</p>
                 <p class="text-muted"></p>
                 <p class="text-muted">Registrate para recibir nuestras ofertas en tu correo y pedir tu cita online. Si no desea registrase puede contactar con nosotros a través del siguiente enlace.
                   <br><a href="contacto.php">Contacto</a></p>
