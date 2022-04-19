@@ -66,9 +66,6 @@ if (isset($_POST['submit'])) {
 				exit;
 			} else { //sino sale
 				echo "<script type='text/javascript'>alert('El usuario ya existe');</script>";
-        exit;
-        sleep(3);
-        echo"<script>location.reload();</script>";
 			}
 		}
 	}
@@ -136,7 +133,7 @@ if (isset($_POST['submit_login'])) {
 				header("Location: ./calendario/calendario.php");
 				exit;
 			} else {
-				echo " Usuario incorrecto o no existe";
+				echo "<script type='text/javascript'>alert('El usuario no existe');</script>";
 			}
 		}
 	}
