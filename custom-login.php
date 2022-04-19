@@ -181,6 +181,7 @@ if (isset($_POST['submit_login'])) {
         <div class="row justify-content-center">
             <div class="col-lg-5">
               <div class="block">
+              <div class="form-group"> <!---->
                 <div class="block-header">
                   <h6 class="text-uppercase mb-0">Acceso</h6>
                 </div>
@@ -203,7 +204,7 @@ if (isset($_POST['submit_login'])) {
                     </div>
                   </form>
                 </div>
-              </div>
+            </div>
           </div>
           <div class="col-lg-5">
             <div class="block">
