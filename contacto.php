@@ -68,7 +68,7 @@
         </header>
         <div class="row">
           <div class="col-md-6 mb-5 mb-md-0">
-            <form class="form" id="contact-form" method="post" action="contact.php">
+            <form class="form" id="contact-form" method="post" action="contacto.php">
               <div class="controls">
                 <div class="row">
                   <div class="col-sm-6">
