@@ -6,7 +6,7 @@
     $idRegistro = $_GET['id'];
 
     //Seleccionar datos
-    $query = "SELECT * FROM clientes where id='".$idRegistro."'";
+    $query = "SELECT * FROM clientes where id_cliente='".$idRegistro."'";
     $clientes = mysqli_query($con, $query) or die (mysqli_error());
 
     //Volcamos los datos de ese registro en una fila
@@ -17,7 +17,7 @@
     if(isset($_POST['borrarRegistro'])){        
 
         //Validar si no están vacíos
-        $query = "DELETE FROM clientes where id='$idRegistro'";
+        $query = "DELETE FROM clientes where id_cliente='$idRegistro'";
 
             if(!mysqli_query($con, $query)){
                 die('Error: ' . mysqli_error($con));

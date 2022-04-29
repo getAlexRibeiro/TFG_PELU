@@ -1,7 +1,7 @@
 <?php include 'conexion.php'; ?>
 <?php
     //Crear y seleccionar query
-    $query = "SELECT * FROM clientes ORDER BY id asc";
+    $query = "SELECT * FROM clientes ORDER BY id_cliente asc";
     $usuarios = mysqli_query($con, $query);
     $query = "SELECT * FROM servicios ORDER BY id_servicio asc";
     $servicios = mysqli_query($con, $query);

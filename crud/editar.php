@@ -6,7 +6,7 @@
     $idRegistro = $_GET['id'];
 
     //Seleccionar datos
-    $query = "SELECT * FROM clientes where id='".$idRegistro."'";
+    $query = "SELECT * FROM clientes where id_cliente='".$idRegistro."'";
     $clientes = mysqli_query($con, $query) or die (mysqli_error());
 
     //Volcamos los datos de ese registro en una fila
@@ -27,7 +27,7 @@
         if(!isset($nombre) || $nombre == '' || !isset($password) || $password == '' ){
             $error = "Algunos campos están vacíos";
         }else{
-            $query = "UPDATE clientes set nombre='$nombre', password='$password' where id='$idRegistro'";
+            $query = "UPDATE clientes set nombre='$nombre', password='$password' where id_cliente='$idRegistro'";
 
             if(!mysqli_query($con, $query)){
                 die('Error: ' . mysqli_error($con));
