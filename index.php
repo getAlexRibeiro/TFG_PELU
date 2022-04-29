@@ -82,17 +82,17 @@
           <div class="col-lg-5">
             <h6 class="text-uppercase text-muted letter-spacing-5 mb-1">Conócenos un poco más</h6>
             <h2 class="mb-4"> Famosso Barber</h2>
-            <p class="text-lg text-muted"> Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+            <p class="text-lg text-muted"> Barbería abierta recientemente que ofrece los mejores servicios tanto en cortes de pelo cómo en perfilados de barba. </p>
           </div>
           <div class="col-lg-6 ms-lg-auto">
             <div class="row">
               <div class="col-sm-6 mb-4">
                 <h4>2019</h4>
-                <p class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, esse!</p>
+                <p class="text-muted">Apertura de la barbería después de varios trabajos en otros establecimientos de Colmenar Viejo.</p>
               </div>
               <div class="col-sm-6 mb-4">
-                <h4>2022</h4>
-                <p class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, unde.</p>
+                <h4>2021</h4>
+                <p class="text-muted">Lavado de cara al establecimiento.</p>
               </div>
               
             </div>
