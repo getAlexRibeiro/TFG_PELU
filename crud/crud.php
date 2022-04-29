@@ -21,7 +21,7 @@
 
     <link href="css/estilos.css" rel="stylesheet">
 
-    <title>CRUD Famossa Barber</title>
+    <title>CRUD Famosso Barber</title>
   </head>
   <script type="text/javascript">
          function showHideDiv(ele) {
@@ -39,7 +39,7 @@
       </script>
   <body>
 
-  <h1 class="text-center">CRUD Famossa Barber</h1>
+  <h1 class="text-center">CRUD Famosso Barber</h1>
   <br>
 
     <center><input type="button" class="btn btn-primary btn-lg btn-block" value="Tabla Clientes" onClick="showHideDiv('divMsg')"/> </center><br><br>
