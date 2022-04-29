@@ -72,13 +72,13 @@
 
                         <?php while($fila = mysqli_fetch_assoc($usuarios)) : ?>
                         <tr>
-                            <td><?php echo $fila['id']; ?></td>
+                            <td><?php echo $fila['id_cliente']; ?></td>
                             <td><?php echo $fila['nombre']; ?></td>
                             <td><?php echo $fila['email']; ?></td>
                             <td><?php echo $fila['password']; ?></td>
                             <td>
-                            <a href="editar.php?id=<?php echo $fila['id']; ?>" class="btn btn-primary"> Editar</a>
-                            <a href="borrar.php?id=<?php echo $fila['id']; ?>" class="btn btn-danger"> Borrar</a>
+                            <a href="editar.php?id=<?php echo $fila['id_cliente']; ?>" class="btn btn-primary"> Editar</a>
+                            <a href="borrar.php?id=<?php echo $fila['id_cliente']; ?>" class="btn btn-danger"> Borrar</a>
                             </td>
                         </tr> 
 
@@ -176,8 +176,8 @@
                             <td><?php echo $fila['timeslot']; ?></td>
                             <td><?php echo $fila['servicio']; ?></td>
                             <td>
-                            <a href="editar.php?id=<?php echo $fila['id']; ?>" class="btn btn-primary"> Editar</a>
-                            <a href="borrar.php?id=<?php echo $fila['id']; ?>" class="btn btn-danger"> Borrar</a>
+                            <a href="editar.php?id=<?php echo $fila['id_cliente']; ?>" class="btn btn-primary"> Editar</a>
+                            <a href="borrar.php?id=<?php echo $fila['id_cliente']; ?>" class="btn btn-danger"> Borrar</a>
                             </td>
                         </tr> 
 
