@@ -15,6 +15,6 @@ Mejoras futuras: hecho 1H
 Bibliografía: internet 1H
 Anexo: ya se verá. 0-1H
 
-Calendario: hacer un book2 donde se pongan las horas de 1 en 1, comprobar si las recoge
-bien en la bbdd y ya estaría. Hacer un if en el calendario de que sí clickas la opcion 
-barba y pelo, te lleve a book2 y sino, te lleva a book1.
+Calendario: hacer un book2 donde se pongan las horas de 1 en 1, comprobar si 
+las recoge bien en la bbdd y ya estaría. Hacer un if en el calendario de
+que sí clickas la opcion barba y pelo, te lleve a book2 y sino, te lleva a book1.
