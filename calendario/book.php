@@ -118,6 +118,9 @@ function timeslots($duration,$cleanup,$start,$end){
     <div class="form-group">
         <center><button><a href="calendario.php">Volver al calendario</a></button></center>
     </div>
+    <div class="form-group">
+        <center><button><a href="http://localhost/TFG_PELU/index.php">Volver al inicio</a></button></center>
+    </div>
 
 
     <!-- Modal -->
