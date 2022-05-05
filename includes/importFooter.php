@@ -24,42 +24,8 @@
 
 <!-- Footer-->
 <footer class="main-footer">
-      <!-- Services block-->
-      <!--<div class="bg-gray-100 text-dark-700 py-6">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-4 service-column">
-              <svg class="svg-icon service-icon">
-                <use xlink:href="#delivery-time-1"> </use>
-              </svg>
-              <div class="service-text">
-                <h6 class="text-uppercase">Free shipping &amp; return</h6>
-                <p class="text-muted fw-light text-sm mb-0">Free Shipping over $300</p>
-              </div>
-            </div>
-            <div class="col-lg-4 service-column">
-              <svg class="svg-icon service-icon">
-                <use xlink:href="#money-1"> </use>
-              </svg>
-              <div class="service-text">
-                <h6 class="text-uppercase">Money back guarantee</h6>
-                <p class="text-muted fw-light text-sm mb-0">30 Days Money Back Guarantee</p>
-              </div>
-            </div>
-            <div class="col-lg-4 service-column">
-              <svg class="svg-icon service-icon">
-                <use xlink:href="#customer-support-1"> </use>
-              </svg>
-              <div class="service-text">
-                <h6 class="text-uppercase">020-800-456-747</h6>
-                <p class="text-muted fw-light text-sm mb-0">24/7 Available Support</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>-->
-      <!-- Main block - menus, subscribe form-->
-      <div class="py-6 bg-gray-300 text-muted"> 
+      
+      <div class="py-6 bg-gray-300 text-muted" > 
         <div class="container">
           <div class="row">
             <div class="col-lg-4 mb-5 mb-lg-0">
