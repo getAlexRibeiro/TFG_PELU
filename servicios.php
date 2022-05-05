@@ -10,36 +10,40 @@ $datos= mysqli_query ($con,$consulta_servicios);
   <!-- IMPORTS HEADER BEGIN -->
 <?php include "includes/importHead.php"; ?>
   <!-- IMPORTS HEADER END -->
+
   </head>
   <body>
 
-    
        <!-- IMPORTS HEADER BEGIN -->
 <?php include "includes/importMenu.php"; ?>
   <!-- IMPORTS HEADER END -->
-  
-  <section class="py-6">
-      <div class="container">
-        <div class="row">
-          <div class="col-xl-8 mb-5">
-            <p class="text-uppercase text-muted fw-bold mb-1">Todos nuestros servicios</p>
-            <p class="lead text-muted">Reserva tu cita solicitando el día y la hora que quieras en la sección de citas, escríbenos por Whastapp o llámanos sin compromiso para consultar cualquier duda que pueda surgirte</p>
-          </div>
-        </div>
+
+
+    
+  <div class="album py-5 bg-light">
+    <div class="container ">
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <div class="row ">
         <?php while($fila=mysqli_fetch_array($datos)) : ?>
-        <div class="row">
-          <div class="col-md-4 mb-4 mb-md-6 pt-lg-3"><a href="custom-login.php"><img class="img-fluid" src="assets/img/photo/ejemplo_ambos.jpeg" alt="pelo adulto"></a>
-            <div class="px-4 position-relative z-index-2 mt-n3"><a class="text-dark text-decoration-none" href="custom-login.php">
-                <h3><?php echo $fila['name_servicio']; ?></h3>
-                <p style="font-size: 20px;" class="text-muted"><?php echo $fila['price_servicio']; ?>€</p></a>
-              <p> <a class="btn btn-link text-dark text-decoration-none px-0" href="custom-login.php"> Pedir Cita</a></p>
+          <div class="card shadow-sm">
+            <img class="img-fluid d-flex justify-content-between align-items-center" src="assets/img/photo/ejemplo_ambos.jpeg" alt="pelo adulto">
+
+            <div class="card-body">
+              <h3><?php echo $fila['name_servicio']; ?></h3>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Pedir cita</font></font></button>
+                </div>
+                <small class="text-muted"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><?php echo $fila['price_servicio']; ?>€</font></font></small>
+              </div>
             </div>
           </div>
+          <?php endwhile; ?> 
         </div>
-          <?php endwhile; ?>        
-
-    </section>
-
+    </div>
+  </div>
+  
 
 <!-- IMPORTS FOOTER BEGIN -->
 <?php include "includes/importFooter.php"; ?>
