@@ -82,7 +82,7 @@ if (isset($_POST['submit_login'])) {
         header("Location: ./calendario/calendario.php");
         exit;
       } else {
-        echo "<script type='text/javascript'>alert('El usuario no existe');</script>";
+        echo "<script type='text/javascript'>alert('Usuario o contraseña inválido');</script>";
       }
     }
   }
