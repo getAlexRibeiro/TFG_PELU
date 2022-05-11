@@ -1,6 +1,6 @@
 <?php
 function build_calendar($month, $year) {
-    $con = new mysqli('localhost', 'root', '', 'peluqueria'); 
+    $con = new mysqli('localhost:3307', 'root', '', 'peluqueria'); 
     $consulta_servicios = "SELECT * FROM servicios ORDER BY id_servicio ASC";
     $datos = mysqli_query($con, $consulta_servicios);
        
@@ -41,8 +41,19 @@ function build_calendar($month, $year) {
     
     $calendar.= "<a class='btn btn-xs btn-primary' href='?month=".date('m', mktime(0, 0, 0, $month+1, 1, $year))."&year=".date('Y', mktime(0, 0, 0, $month+1, 1, $year))."'>Siguiente Mes</a></center><br>";
 
-    $calendar.= "<center><label for=''>Servicio</label><select name='servicio'>"?><?php while($fila=mysqli_fetch_array($datos,MYSQLI_ASSOC)):
-        "<option value='"?><?php echo $fila["id_servicio"];echo $fila["name_servicio"];"</option>"?><?php endwhile;"</select></center>";
+    $calendar.= "<center><label for=''>Servicio</label><select name='servicio'>"
+
+            ?>
+            <?php while($fila=mysqli_fetch_array($datos,MYSQLI_ASSOC)):?><?php
+
+    $calendar.= "<option value=''>$fila[name_servicio]</option>";;
+
+            
+            ?><?php endwhile;?><?php  
+            /* Meter un if para lo de la seleccion del servicio,
+            hacer un GET de un campo nuevo de la tabla bookings para que determine la duraccion del servicio.*/ 
+
+    $calendar.= "</select></center>";
     
     
         
@@ -106,23 +117,11 @@ function build_calendar($month, $year) {
                 $calendar.="<td class='$today'><h4>$currentDay</h4> <a href='book.php?date=".$date."' class='btn btn-success btn-xs'>Disponible</a> <span style='font-size:11px;'><i>$avaiableslots citas</i></span>";
             }
 
-            // Tenemos los sábados 8 slots libres.
-            /* $totalbookings = checkSlots($con,$date);
-            if($totalbookings==8){
-                $calendar.="<td class='$today'><h4>$currentDay</h4> <a href='#' class='btn btn-danger btn-xs'>Todo ocupado</a>";
-            }else{
-                $avaiableslotsSaturday = 8 - $totalbookings;
-                $calendar.="<td class='$today'><h4>$currentDay</h4> <a href='book.php?date=".$date."' class='btn btn-success btn-xs'>Disponible</a> <span style='font-size:11px;'><i>$avaiableslotsSaturday citas</i></span>";
-            }
-            */
+            
              
             }
 
-        /*
-            $meses_ES = array("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre");
-            $nombreMes = str_replace($month, $meses_ES, $mes); 
-            
-        */
+        
            
             
           $calendar .="</td>";

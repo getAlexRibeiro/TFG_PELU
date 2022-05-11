@@ -1,5 +1,5 @@
 <?php
-$con = new mysqli('localhost', 'root', '', 'peluqueria');
+$con = new mysqli('localhost:3307', 'root', '', 'peluqueria');
 $consulta_servicios = "SELECT * FROM servicios ORDER BY id_servicio ASC";
 $datos = mysqli_query($con, $consulta_servicios);
 
@@ -19,6 +19,26 @@ if(isset($_GET['date'])){
         }
     }
 }
+
+/*
+if(isset($_GET['date'])){
+    $date = $_GET['date'];
+    $stmt = $con->prepare("select * from bookings where date = ?");
+    $stmt->bind_param('s', $date);
+    $bookings = array();
+    if($stmt->execute()){
+        $result = $stmt->get_result();
+        if($result->num_rows>0){
+            while($row = $result->fetch_assoc()){
+                $bookings[] = $row['timeslot'];
+            }
+            
+            $stmt->close();
+        }
+    }
+}
+*/ /* Hacer un get del tiempo */
+
 
 if(isset($_POST['submit'])){
     $name = $_POST['name'];
