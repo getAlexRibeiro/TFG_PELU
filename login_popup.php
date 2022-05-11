@@ -1,13 +1,5 @@
 <?php
 include 'conexion.php';
-$errores = '';
-$enviado = true;
-// Comprobamos que el formulario haya sido enviado con las variables que hayamos puesto en index.view, deben llamarse igual!
-
-
-
-
-
 if (isset($_POST['submit'])) {
 	$Nombre = $_POST['nombre'];
 	$Password= $_POST['password'];
@@ -74,3 +66,67 @@ if ($enviado == false) { //lanzamos los errores que hayan podido ocurrir
 }
 }
 ?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- IMPORTS HEADER BEGIN -->
+  <?php include "includes/importHead.php"; ?>
+  <!-- IMPORTS HEADER END -->
+</head>
+
+<body>
+
+  <header class="header header-absolute">
+    <!-- IMPORTS HEADER BEGIN -->
+    <?php include "includes/importMenu.php"; ?>
+    <!-- IMPORTS HEADER END -->
+
+    <!-- Hero Section-->
+    <section class="hero">
+      <div class="container">
+        <!-- Breadcrumbs -->
+        <ol class="breadcrumb justify-content-center">
+          <li class="breadcrumb-item"><a href="index.php">Inicio</a></li>
+          <li class="breadcrumb-item active">Bienvenido</li>
+        </ol>
+        <!-- Hero Content-->
+        <div class="hero-content pb-5 text-center">
+          <h1 class="hero-heading mb-0">Bienvenido</h1>
+        </div>
+      </div>
+    </section>
+    <!-- customer login-->
+    <section>
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-5">
+            <div class="block">
+              <div class="form-group">
+                <!---->
+                <div class="block-header">
+                  <h6 class="text-uppercase mb-0">Acceso</h6>
+                </div>
+                <div class="block-body">
+                  <p class="lead">¿Ya registrado?</p>
+                  <p class="text-muted"></p>
+                  <hr>
+                  <form action=" " name="formulario" method="post">
+                    <div class="mb-4">
+                      <label class="form-label" for="email1">Nombre Usuario</label>
+                      <input type="text" placeholder="Nombre de usuario:" name="login_Nombre" id="login_Nombre">
+                    </div>
+                    <div class="mb-4">
+                      <label class="form-label" for="password1">Contraseña</label>
+                      <input type="password" placeholder="Contraseña:" name="login_Password" id="login_Password">
+                    </div>
+                    <div class="mb-4 text-center">
+                      <input type="submit" name="submit_login" class="btn btn-primary" value="Send"> <!-- boton para enviar los datos -->
+                      <input type="reset" name="reset" class="btn btn-secundary" value="Reset">
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+ 
