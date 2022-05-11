@@ -1,6 +1,7 @@
 <?php
+
 function build_calendar($month, $year) {
-    $con = new mysqli('localhost:3307', 'root', '', 'peluqueria'); 
+    include '../conexion.php';
     $consulta_servicios = "SELECT * FROM servicios ORDER BY id_servicio ASC";
     $datos = mysqli_query($con, $consulta_servicios);
        
@@ -41,7 +42,7 @@ function build_calendar($month, $year) {
     
     $calendar.= "<a class='btn btn-xs btn-primary' href='?month=".date('m', mktime(0, 0, 0, $month+1, 1, $year))."&year=".date('Y', mktime(0, 0, 0, $month+1, 1, $year))."'>Siguiente Mes</a></center><br>";
 
-    $calendar.= "<center><label for=''>Servicio</label><select name='servicio'>"
+    $calendar.= "<center><label for=''>Servicio </label><select name='servicio'>"
 
             ?>
             <?php while($fila=mysqli_fetch_array($datos,MYSQLI_ASSOC)):?><?php

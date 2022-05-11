@@ -26,7 +26,10 @@
                 <h1 class="display-3 text-serif fw-bold mb-5"> Famosso Barber</h1>
                 <div class="row">
                   <div class="col-xl-6">
-                    <p class="text-lg text-muted mb-lg-0">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam molestias a officiis tempore accusantium harum repudiandae optio sed animi sit. Vel fugiat vitae ut cumque rem? Natus, enim laudantium? Nemo voluptas dolor recusandae tempore autem provident architecto aliquid. Veniam, impedit?
+                    <p class="text-lg text-muted mb-lg-0">
+                      Preocupados por lograr la satisfacción de nuestros clientes, nos esforzamos día a día por dar un gran servicio, gracias a unos precios razonables al alcance de su bolsillo, y ofreciendo los tratamientos más avanzados impartidos por profesionales cualificados.
+                      Nos adaptamos a las exigencias del cliente ofreciendo un amplio horario de servicio y utilizando solo productos de primeras marcas.</p>
+                      <p class="text-lg text-muted mb-lg-0">Esto nos convierte en la firma de peluquería que cuenta con un mayor número de visitas a nuestros salones.
                     </p>
                   </div>
                   <div class="col-xl-6">

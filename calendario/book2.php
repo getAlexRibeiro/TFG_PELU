@@ -1,5 +1,5 @@
 <?php
-$con = new mysqli('localhost', 'root', '', 'peluqueria');
+include '../conexion.php';
 $consulta_servicios = "SELECT * FROM servicios ORDER BY id_servicio ASC";
 $datos = mysqli_query($con, $consulta_servicios);
 
@@ -45,7 +45,7 @@ if(isset($_POST['submit'])){
     
 }
 
-$duration = 50;
+$duration = 60;
 $cleanup = 0;
 $start = "10:00";
 $end = "18:00";

@@ -1,5 +1,5 @@
 <?php
-$con = new mysqli('localhost:3307', 'root', '', 'peluqueria');
+include '../conexion.php';
 $consulta_servicios = "SELECT * FROM servicios ORDER BY id_servicio ASC";
 $datos = mysqli_query($con, $consulta_servicios);
 
