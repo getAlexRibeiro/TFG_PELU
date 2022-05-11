@@ -58,31 +58,6 @@ CREATE TABLE IF NOT EXISTS `clientes` (
   UNIQUE KEY `email` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4;
 
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `productos`
---
-
-DROP TABLE IF EXISTS `productos`;
-CREATE TABLE IF NOT EXISTS `productos` (
-  `id_productos` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(25) NOT NULL,
-  `price` int DEFAULT NULL,
-  `cantidad` int NOT NULL,
-  PRIMARY KEY (`id_productos`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `servicios`
---
-
-INSERT INTO `productos` (`id_productos`, `name`, `price`, `cantidad`) VALUES
-(1, 'champú', 10, 100),
-(2, 'secador', 10, 100);
-
-
 -- --------------------------------------------------------
 
 --

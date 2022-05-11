@@ -122,7 +122,7 @@ if (isset($_POST['submit_login'])) {
     <section>
       <div class="container">
         <div class="row justify-content-center">
-          <div class="col-lg-5">
+          <div class="col-lg-6">
             <div class="block">
               <div class="form-group">
                 <!---->
@@ -150,7 +150,7 @@ if (isset($_POST['submit_login'])) {
                 </div>
               </div>
             </div>
-            <div class="col-lg-5">
+            <div class="col-lg-6">
               <div class="block">
                 <div class="block-header">
                   <h6 class="text-uppercase mb-0">Registrate</h6>
