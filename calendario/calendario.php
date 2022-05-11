@@ -50,7 +50,13 @@ function build_calendar($month, $year) {
     $calendar.= "<option value=''>$fila[name_servicio]</option>";;
 
             
-            ?><?php endwhile;?><?php  
+            ?><?php /*if($fila=['name_servicio']=="Cortar Pelo y Barba"){
+
+
+            }
+            */
+                endwhile;?><?php
+
             /* Meter un if para lo de la seleccion del servicio,
             hacer un GET de un campo nuevo de la tabla bookings para que determine la duraccion del servicio.*/ 
 
@@ -78,7 +84,7 @@ function build_calendar($month, $year) {
 
      if ($dayOfWeek > 0) { 
          for($k=0;$k<$dayOfWeek;$k++){
-                $calendar .= "<td  class='empty'></td>"; 
+                $calendar .= "<td class='empty'></td>"; 
 
          }
      }
