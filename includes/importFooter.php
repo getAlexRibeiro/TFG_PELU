@@ -65,7 +65,7 @@
             </div>
             <div class="col-lg-4">
               <h6 class="text-uppercase text-dark mb-3">Horario</h6>
-              <p class="mb-3"> Lunes - Sábado => 10:00-18:00</p>
+              <p class="mb-3"> Lunes - Sábado → 10:00-18:00</p>
                   <div class="input-group-append">
                     <a href="./contacto.php" class="btn btn-outline-secondary">Contacto</a>
                   </div>
