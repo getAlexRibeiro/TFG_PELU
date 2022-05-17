@@ -8,7 +8,6 @@
     $query = "SELECT * FROM bookings ORDER BY id_bookings asc";
     $citas = mysqli_query($con, $query);
 ?>
-
 <!doctype html>
 <html lang="es">
   <head>
@@ -23,6 +22,7 @@
 
     <title>CRUD Famosso Barber</title>
   </head>
+  
   <script type="text/javascript">
          function showHideDiv(ele) {
          	var srcElement = document.getElementById(ele);
@@ -38,7 +38,6 @@
          }
       </script>
   <body>
-
   <h1 class="text-center">CRUD Famosso Barber</h1>
   <br>
 
@@ -53,7 +52,7 @@
 
         <div class="row">
             <div class="col-sm-4 offset-8">
-                <a href="crear.php" class="btn btn-success w-100"> Crear Nuevo Registro</a>
+                <a href="./Clientes/crear.php" class="btn btn-success w-100">Crear Nuevo Cliente</a>
             </div>            
         </div>
         <div class="row caja">
@@ -102,7 +101,7 @@
 
         <div class="row">
             <div class="col-sm-4 offset-8">
-                <a href="crear.php" class="btn btn-success w-100"> Crear Nuevo Registro</a>
+                <a href="crear_servicio.php" class="btn btn-success w-100">Crear Nuevo Servicio</a>
             </div>            
         </div>
         <div class="row caja">
@@ -124,8 +123,8 @@
                             <td><?php echo $fila['name_servicio']; ?></td>
                             <td><?php echo $fila['price_servicio']; ?></td>
                             <td>
-                            <a href="editar.php?id=<?php echo $fila['id_servicio']; ?>" class="btn btn-primary"> Editar</a>
-                            <a href="borrar.php?id=<?php echo $fila['id_servicio']; ?>" class="btn btn-danger"> Borrar</a>
+                            <a href="editar_servicio.php?id=<?php echo $fila['id_servicio']; ?>" class="btn btn-primary"> Editar</a>
+                            <a href="borrar_servicio.php?id=<?php echo $fila['id_servicio']; ?>" class="btn btn-danger"> Borrar</a>
                             </td>
                         </tr> 
 
@@ -149,7 +148,7 @@
 
         <div class="row">
             <div class="col-sm-4 offset-8">
-                <a href="crear.php" class="btn btn-success w-100"> Crear Nuevo Registro</a>
+                <a href="crear.php" class="btn btn-success w-100">Crear Nuevo Registro</a>
             </div>            
         </div>
         <div class="row caja">
