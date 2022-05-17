@@ -24,7 +24,7 @@
                 $error = "Error, no se pudo crear el registros";
             }else{
                 $mensaje = "Registro borrado correctamente";
-                header('Location: ../crud/index.php');
+                header('Location: ../index.php');
                 exit();
             }
     }   
