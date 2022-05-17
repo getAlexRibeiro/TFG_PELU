@@ -1,6 +1,6 @@
 <?php
     //Incluimos conexión
-    include 'conexion.php';
+    include '../conexion.php';
 
     //Obtener el id enviado de index
     $idRegistro = $_GET['id'];
@@ -35,7 +35,7 @@
                 $error = "Error, no se pudo crear el registros";
             }else{
                 $mensaje = "Registro editado correctamente";
-                header('Location: crud.php');
+                header('Location: ../index.php');
                 exit();
             }
         }

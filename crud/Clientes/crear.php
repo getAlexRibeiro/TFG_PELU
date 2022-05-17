@@ -1,6 +1,6 @@
 <?php
     //Incluimos conexión
-    include 'conexion.php';
+    include '../conexion.php';
 
     if(isset($_POST['crearRegistro'])){
         $nombre = mysqli_real_escape_string($con, $_POST['nombre']);
@@ -22,7 +22,7 @@
                 $error = "Error, no se pudo crear el registro";
             }else{
                 $mensaje = "Registro creado correctamente";
-                header('Location: ../crud/crud.php');
+                header('Location: ../index.php');
                 exit();
             }
         }

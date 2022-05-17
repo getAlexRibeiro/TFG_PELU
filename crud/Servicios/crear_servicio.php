@@ -1,28 +1,27 @@
 <?php
     //Incluimos conexión
-    include 'conexion.php';
+    include '../conexion.php';
 
     if(isset($_POST['crearRegistro'])){
-        $nombre = mysqli_real_escape_string($con, $_POST['nombre']);
-        $password = mysqli_real_escape_string($con, $_POST['password']);
-        $email = mysqli_real_escape_string($con, $_POST['email']);
+        $nombre_servicio = mysqli_real_escape_string($con, $_POST['nombre_servicio']);
+        $precio_servicio = mysqli_real_escape_string($con, $_POST['precio_servicio']);
 
         //Configurar tiempo zona horaria
         date_default_timezone_set('DEFAULT');
         $time = date('h:i:s a', time());
 
         //Validar si no están vacíos
-        if(!isset($nombre) || $nombre == '' || !isset($password) || $password == '' ){
+        if(!isset($nombre_servicio) || $nombre_servicio == '' || !isset($precio_servicio) || $precio_servicio == '' ){
             $error = "Algunos campos están vacíos";
         }else{
-            $query = "INSERT INTO clientes(nombre, password, email)VALUES('$nombre', '$password', '$email')";
+            $query = "INSERT INTO servicios(name_servicio, price_servicio)VALUES('$nombre_servicio', '$precio_servicio')";
 
             if(!mysqli_query($con, $query)){
                 die('Error: ' . mysqli_error($con));
                 $error = "Error, no se pudo crear el registro";
             }else{
                 $mensaje = "Registro creado correctamente";
-                header('Location: ../crud/crud.php');
+                header('Location: ../index.php');
                 exit();
             }
         }
@@ -47,7 +46,7 @@
   </head>
   <body>
     <h1 class="text-center">CRUD PHP Y MYSQL</h1>
-    <p class="text-center"> CRUD(Create, Read, Update, Delete) Usuarios</p>
+    <p class="text-center"> CRUD(Create, Read, Update, Delete) Servicios</p>
 
     <div class="container">
 
@@ -65,21 +64,16 @@
             <div class="col-sm-6 offset-3">
             <form method="POST" action="<?php $_SERVER['PHP_SELF']; ?>">
                 <div class="mb-3">
-                    <label for="nombre" class="form-label">Nombre:</label>
-                    <input type="text" class="form-control" name="nombre" placeholder="Ingresa el nombre">                    
+                    <label for="nombre_servicio" class="form-label">Nombre Servicio:</label>
+                    <input type="text" class="form-control" name="nombre_servicio" placeholder="Ingresa el nombre del servicio">                    
                 </div>
                 
                 <div class="mb-3">
-                    <label for="email" class="form-label">Correo:</label>
-                    <input type="text" class="form-control" name="email" placeholder="Ingresa el correo">                    
+                    <label for="precio_servicio" class="form-label">Precio de servicio:</label>
+                    <input type="text" class="form-control" name="precio_servicio" placeholder="Ingresa el precio">                    
                 </div>
 
-                <div class="mb-3">
-                    <label for="password" class="form-label">Password:</label>
-                    <input type="text" class="form-control" name="password" placeholder="Ingresa el password">                    
-                </div>
-
-                <button type="submit" class="btn btn-primary w-100" name="crearRegistro">Crear Registro</button>
+                <button type="submit" class="btn btn-primary w-100" name="crearRegistro">Crear Servicio</button>
 
                 </form>
             </div>

@@ -1,6 +1,6 @@
 <?php
     //Incluimos conexión
-    include 'conexion.php';
+    include '../conexion.php';
 
     //Obtener el id enviado de index
     $idRegistro = $_GET['id'];
@@ -24,7 +24,7 @@
                 $error = "Error, no se pudo crear el registros";
             }else{
                 $mensaje = "Registro borrado correctamente";
-                header('Location: crud.php');
+                header('Location: ../index.php');
                 exit();
             }
     }   
@@ -52,8 +52,7 @@
     <div class="row">
         <h4>Borrar un Registro Existente</h4>
     </div>
-
-
+    
         <div class="row caja">
             <div class="col-sm-6 offset-3">
             <form method="POST" action="<?php $_SERVER['PHP_SELF']; ?>">

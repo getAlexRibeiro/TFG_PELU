@@ -1,9 +1,9 @@
 <?php
     //Incluimos conexión
-    include 'conexion.php';
+    include '../conexion.php';
 
     //Obtener el id enviado de index
-    $idServicio = $_GET['id_servicio'];
+    $idServicio = $_GET['id'];
 
     //Seleccionar datos
     $query = "SELECT * FROM servicios where id_servicio='".$idServicio."'";
@@ -24,7 +24,7 @@
         $time = date('h:i:s a', time());
 
         //Validar si no están vacíos
-        if(!isset($nombre_servicio) || $nombre_servicio == '' || !isset($precio_servicio) || $precio_servicio == '' || !isset($email) || $email == ''){
+        if(!isset($nombre_servicio) || $nombre_servicio == '' || !isset($precio_servicio) || $precio_servicio == ''){
             $error = "Algunos campos están vacíos";
         }else{
             $query = "UPDATE servicios set name_servicio='$nombre_servicio', price_servicio='$precio_servicio' where id_servicio='$idServicio'";
@@ -34,7 +34,7 @@
                 $error = "Error, no se pudo crear el registros";
             }else{
                 $mensaje = "Registro editado correctamente";
-                header('Location: crud.php');
+                header('Location: ../index.php');
                 exit();
             }
         }
@@ -76,13 +76,13 @@
             <div class="col-sm-6 offset-3">
             <form method="POST" action="<?php $_SERVER['PHP_SELF']; ?>">
                 <div class="mb-3">
-                    <label for="nombre_servicio" class="form-label">nombre_servicio:</label>
-                    <input type="text" class="form-control" name="nombre_servicio" placeholder="Ingresa el nombre_servicio" value="<?php echo $fila['nombre_servicio']; ?>">                    
+                    <label for="nombre_servicio" class="form-label">Nombre_servicio:</label>
+                    <input type="text" class="form-control" name="nombre_servicio" placeholder="Ingresa el nombre_servicio" value="<?php echo $fila['name_servicio']; ?>">                    
                 </div>
                 
                 <div class="mb-3">
-                    <label for="precio_servicio" class="form-label">precio_servicio:</label>
-                    <input type="text" class="form-control" name="precio_servicio" placeholder="Ingresa la precio_servicio" value="<?php echo $fila['precio_servicio']; ?>">                    
+                    <label for="precio_servicio" class="form-label">Precio_servicio:</label>
+                    <input type="text" class="form-control" name="precio_servicio" placeholder="Ingresa la precio_servicio" value="<?php echo $fila['price_servicio']; ?>">                    
                 </div>
 
                 <button type="submit" class="btn btn-primary w-100" name="editarRegistro">Editar Registro</button>

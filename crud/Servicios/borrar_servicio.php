@@ -1,12 +1,12 @@
 <?php
     //Incluimos conexión
-    include 'conexion.php';
+    include '../conexion.php';
 
     //Obtener el id enviado de index
-    $idRegistro = $_GET['id'];
+    $idServicio = $_GET['id'];
 
     //Seleccionar datos
-    $query = "SELECT * FROM clientes where id_cliente='".$idRegistro."'";
+    $query = "SELECT * FROM servicios where id_servicio='".$idServicio."'";
     $clientes = mysqli_query($con, $query) or die (mysqli_error());
 
     //Volcamos los datos de ese registro en una fila
@@ -17,14 +17,14 @@
     if(isset($_POST['borrarRegistro'])){        
 
         //Validar si no están vacíos
-        $query = "DELETE FROM clientes where id_cliente='$idRegistro'";
+        $query = "DELETE FROM servicios where id_servicio='$idServicio'";
 
             if(!mysqli_query($con, $query)){
                 die('Error: ' . mysqli_error($con));
                 $error = "Error, no se pudo crear el registros";
             }else{
                 $mensaje = "Registro borrado correctamente";
-                header('Location: crud.php');
+                header('Location: ../index.php');
                 exit();
             }
     }   
@@ -58,13 +58,13 @@
             <div class="col-sm-6 offset-3">
             <form method="POST" action="<?php $_SERVER['PHP_SELF']; ?>">
                 <div class="mb-3">
-                    <label for="nombre" class="form-label">Nombre:</label>
-                    <input type="text" class="form-control" name="nombre" placeholder="Ingresa el nombre" value="<?php echo $fila['nombre']; ?>" readonly>                    
+                    <label for="nombre_servicio" class="form-label">Nombre Servicio:</label>
+                    <input type="text" class="form-control" name="nombre_servicio" placeholder="Ingresa el nombre del servicio" value="<?php echo $fila['name_servicio']; ?>" readonly>                    
                 </div>
                 
                 <div class="mb-3">
-                    <label for="password" class="form-label">Password:</label>
-                    <input type="text" class="form-control" name="password" placeholder="Ingresa los password" value="<?php echo $fila['password']; ?>" readonly>                    
+                    <label for="precio_servicio" class="form-label">Precio Servicio:</label>
+                    <input type="text" class="form-control" name="precio_servicio" placeholder="Ingresa el precio del servicio" value="<?php echo $fila['price_servicio']; ?>" readonly>                    
                 </div>
               
                 <button type="submit" class="btn btn-primary w-100" name="borrarRegistro">Borrar Registro</button>
