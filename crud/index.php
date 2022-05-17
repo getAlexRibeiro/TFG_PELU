@@ -145,7 +145,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         <?php endif; ?>
-            </div>            
+        <div class="row"> 
         </div>
         <div class="row caja">
             <div class="col-sm-12">
@@ -174,6 +174,7 @@
                             </td>
                         </tr> 
                         <?php endwhile; ?>
+
                     </tbody>
                 </table>
             </div>
