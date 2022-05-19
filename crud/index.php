@@ -51,6 +51,10 @@ if (isset($_POST['submit_login_admin'])) {
 
 <head>
   <!-- IMPORTS HEADER BEGIN -->
+<<<<<<< HEAD
+=======
+  <?php include "../includes/importHead.php"; ?>
+>>>>>>> 5aaec2746a218f331366e9637617828e7c710d0f
   <!-- IMPORTS HEADER END -->
 </head>
 
@@ -58,6 +62,10 @@ if (isset($_POST['submit_login_admin'])) {
 
   <header class="header header-absolute">
     <!-- IMPORTS HEADER BEGIN -->
+<<<<<<< HEAD
+=======
+    <?php include "../includes/importMenu.php"; ?>
+>>>>>>> 5aaec2746a218f331366e9637617828e7c710d0f
     <!-- IMPORTS HEADER END -->
 
     <!-- Hero Section-->
@@ -108,6 +116,10 @@ if (isset($_POST['submit_login_admin'])) {
 
 
     <!-- IMPORTS FOOTER BEGIN -->
+<<<<<<< HEAD
+=======
+    <?php include "../includes/importFooter.php"; ?>
+>>>>>>> 5aaec2746a218f331366e9637617828e7c710d0f
     <!-- IMPORTS FOOTER END -->
     <!-- /Footer end-->
     <div id="scrollTop"><i class="fa fa-long-arrow-alt-up"></i></div>
