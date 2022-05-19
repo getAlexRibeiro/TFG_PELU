@@ -91,6 +91,7 @@
                 <div class="mb-4">
                   <label class="form-label" for="message">Mensaje *</label>
                   <textarea class="form-control" rows="4" name="message" id="message" placeholder="¿En qué podemos ayudarte?" required="required"></textarea>
+                  <small class="text-muted">Los campos con * son obligatorios.</small>
                 </div>
                 <button class="btn btn-outline-dark" type="submit">Contactar</button>
               </div>
