@@ -1,197 +1,122 @@
-<?php include './conexion.php'; ?>
 <?php
-    //Crear y seleccionar query
-    $query_cliente = "SELECT * FROM clientes ORDER BY id_cliente asc";
-    $usuarios = mysqli_query($con, $query_cliente);
-    $query_servicio = "SELECT * FROM servicios ORDER BY id_servicio asc";
-    $servicios = mysqli_query($con, $query_servicio);
-    $query_citas = "SELECT * FROM bookings ORDER BY id_bookings asc";
-    $citas = mysqli_query($con, $query_citas);
+include 'conexion.php';
+$errores = '';
+$enviado = true;
+// Comprobamos que el formulario haya sido enviado con las variables que hayamos puesto en index.view, deben llamarse igual!
+if (isset($_POST['submit_login_admin'])) {
+
+  $login_admin = $_POST['login_admin'];
+  $login_admin_pass = $_POST['login_admin_pass'];
+
+  if (!empty($login_admin)) { //comprabamos nombre login
+
+    $login_admin = filter_var($login_admin, FILTER_SANITIZE_STRING); //limpia o verifica que es un texto
+
+  } else {
+    $errores .= 'Por ingresa un nombre <br />';
+    $enviado = false;
+  }
+
+  if (!empty($login_admin_pass)) { //comprobamos contraseña
+
+    $login_admin_pass = filter_var($login_admin_pass, FILTER_SANITIZE_STRING); //limpia o verifica que es un texto
+  } else {
+    $errores .= 'Por ingresa un nombre <br />';
+    $enviado = false;
+  }
+  if ($enviado == false) { //lanzamos los errores que hayan podido ocurrir
+    echo "<script type='text/javascript'>alert('Usuario o contraseña inválido');</script>";
+  } else {
+    // Comprobamos que el usuario existe
+    $conexion = new mysqli("localhost", "root", "", "peluqueria");
+
+    if ($conexion->connect_errno) {
+      die('Lo siento hubo un problema con el servidor');
+    } else {
+      $consulta = mysqli_query($conexion, "SELECT * FROM clientes WHERE Nombre = '$login_admin' and password = '$login_admin_pass' and rol = 'admin'");
+      if ($login_admin = mysqli_fetch_assoc($consulta)) {
+        session_start();
+        $_SESSION['ADMIN'] =  $_POST['login_admin'];
+        header("Location: ./crud.php");
+      } else {
+        echo "<script type='text/javascript'>alert('Usuario o contraseña inválido');</script>";
+      }
+    }
+  }
+}
+
 ?>
-<!doctype html>
-<html lang="es">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!DOCTYPE html>
+<html lang="en">
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+<head>
+  <!-- IMPORTS HEADER BEGIN -->
+  <?php include "includes/importHead.php"; ?>
+  <!-- IMPORTS HEADER END -->
+</head>
 
-    <link href="css/estilos.css" rel="stylesheet">
+<body>
 
-    <title>CRUD Famosso Barber</title>
-  </head>
-  
-  <script type="text/javascript">
-         function showHideDiv(ele) {
-         	var srcElement = document.getElementById(ele);
-         	if (srcElement != null) {
-         		if (srcElement.style.display == 'none') {
-         			srcElement.style.display = 'block';
-         		}
-         		else {
-         			srcElement.style.display = 'none';
-         		}
-         		return false;
-         	}
-         }
-      </script>
-  <body>
-  <h1 class="text-center">CRUD Famosso Barber</h1>
-  <br>
+  <header class="header header-absolute">
+    <!-- IMPORTS HEADER BEGIN -->
+    <?php include "includes/importMenu.php"; ?>
+    <!-- IMPORTS HEADER END -->
 
-    <center><input type="button" class="btn btn-primary btn-lg btn-block" value="Tabla Clientes" onClick="showHideDiv('divMsg')"/> </center><br><br>
-    <div style="display: none; class="container" id = 'divMsg'>
-        <?php if(isset($_GET['mensaje'])) : ?>                
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                <strong><?php echo $_GET['mensaje']; ?>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        <?php endif; ?>
-
-        <div class="row">
-            <div class="col-sm-4 offset-8">
-                <a href="./Clientes/crear.php" class="btn btn-success w-100">Crear Nuevo Cliente</a>
-            </div>            
+    <!-- Hero Section-->
+    <section class="hero">
+      <div class="container">
+        <!-- Breadcrumbs -->
+        <ol class="breadcrumb justify-content-center">
+          <li class="breadcrumb-item"><a href="index.php">Inicio</a></li>
+          <li class="breadcrumb-item active">Acceso Admin</li>
+        </ol>
+        <!-- Hero Content-->
+        <div class="hero-content pb-5 text-center">
+          <h1 class="hero-heading mb-0">Acceso para administrador</h1>
         </div>
-        <div class="row caja">
-            <div class="col-sm-12">
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Nombre</th>
-                            <th>Email</th>
-                            <th>Password</th>
-                            <th>Accion</th>
-                        </tr>   
-                    </thead>
-                    <tbody>
-
-                        <?php while($fila_cliente = mysqli_fetch_assoc($usuarios)) : ?>
-                        <tr>
-                            <td><?php echo $fila_cliente['id_cliente']; ?></td>
-                            <td><?php echo $fila_cliente['nombre']; ?></td>
-                            <td><?php echo $fila_cliente['email']; ?></td>
-                            <td><?php echo $fila_cliente['password']; ?></td>
-                            <td>
-                            <a href="./Clientes/editar.php?id=<?php echo $fila_cliente['id_cliente']; ?>" class="btn btn-primary"> Editar</a>
-                            <a href="./Clientes/borrar.php?id=<?php echo $fila_cliente['id_cliente']; ?>" class="btn btn-danger"> Borrar</a>
-                            </td>
-                        </tr> 
-
-                        <?php endwhile; ?>
-
-                    </tbody>
-                </table>
+      </div>
+    </section>
+    <!-- customer login-->
+    <section>
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-5">
+            <div class="block">
+              <div class="form-group">
+                <!---->
+                </div>
+                <div class="block-body">
+                  <form action=" " name="formulario" method="post">
+                    <div class="mb-4">
+                      <label class="form-label" for="admin">Administrador</label>
+                      <input type="text" placeholder="Cuenta administrador:" name="login_admin" id="login_admin">
+                    </div>
+                    <div class="mb-4">
+                      <label class="form-label" for="password">Contraseña</label>
+                      <input type="password" placeholder="Contraseña Administrador:" name="login_admin_pass" id="login_admin_pass">
+                    </div>
+                    <div class="mb-4 text-center">
+                      <input type="submit" name="submit_login_admin" class="btn btn-primary" value="Send"> <!-- boton para enviar los datos -->
+                      <input type="reset" name="reset" class="btn btn-secundary" value="Reset">
+                    </div>
+                  </form>
+                </div>
+              </div>
             </div>
-        </div>
-    </div>
-    <br>
-    <!-- Tabla Servicios --> 
-    <center><input type="button" class="btn btn-primary btn-lg btn-block" value="Tabla Servicios" onClick="showHideDiv('divMsg2')"/> </center><br><br>
-    <div style="display: none; class="container" id = 'divMsg2'>
-        <?php if(isset($_GET['mensaje'])) : ?>                
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                <strong><?php echo $_GET['mensaje']; ?>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+              </div>
             </div>
-        <?php endif; ?>
-
-        <div class="row">
-            <div class="col-sm-4 offset-8">
-                <a href="./Servicios/crear_servicio.php" class="btn btn-success w-100">Crear Nuevo Servicio</a>
-            </div>            
+          </div>
         </div>
-        <div class="row caja">
-            <div class="col-sm-12">
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Nombre Servicio</th>
-                            <th>Precio</th>
-                            <th>Accion</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+    </section>
 
-                        <?php while($fila_servicio = mysqli_fetch_assoc($servicios)) : ?>
-                        <tr>
-                            <td><?php echo $fila_servicio['id_servicio']; ?></td>
-                            <td><?php echo $fila_servicio['name_servicio']; ?></td>
-                            <td><?php echo $fila_servicio['price_servicio']; ?></td>
-                            <td>
-                            <a href="./Servicios/editar_servicio.php?id=<?php echo $fila_servicio['id_servicio']; ?>" class="btn btn-primary"> Editar</a>
-                            <a href="./Servicios/borrar_servicio.php?id=<?php echo $fila_servicio['id_servicio']; ?>" class="btn btn-danger"> Borrar</a>
-                            </td>
-                        </tr> 
 
-                        <?php endwhile; ?>
+    <!-- IMPORTS FOOTER BEGIN -->
+    <?php include "includes/importFooter.php"; ?>
+    <!-- IMPORTS FOOTER END -->
+    <!-- /Footer end-->
+    <div id="scrollTop"><i class="fa fa-long-arrow-alt-up"></i></div>
+    <!-- JavaScript files-->
+</body>
 
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-    <br>
-    <!-- Tabla Citas --> 
-    <center><input type="button" class="btn btn-primary btn-lg btn-block" value="Tabla Citas" onClick="showHideDiv('divMsg1')"/> </center><br><br>
-    <div style="display: none; class="container" id = 'divMsg1'>
-        <?php if(isset($_GET['mensaje'])) : ?>                
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                <strong><?php echo $_GET['mensaje']; ?>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        <?php endif; ?>
-        <div class="row"> 
-        </div>
-        <div class="row caja">
-            <div class="col-sm-12">
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Nombre cliente citado</th>
-                            <th>Email</th>
-                            <th>Date</th>
-                            <th>Timeslot</th>
-                            <th>Servicio</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php while($fila_citas = mysqli_fetch_assoc($citas)) : ?>
-                        <tr>
-                            <td><?php echo $fila_citas['id_bookings']; ?></td>
-                            <td><?php echo $fila_citas['name']; ?></td>
-                            <td><?php echo $fila_citas['email']; ?></td>
-                            <td><?php echo $fila_citas['date']; ?></td>
-                            <td><?php echo $fila_citas['timeslot']; ?></td>
-                            <td><?php echo $fila_citas['servicio']; ?></td>
-                            <td>
-                            <a href="./Citas/borrar_cita.php?id=<?php echo $fila_citas['id_bookings']; ?>" class="btn btn-danger"> Borrar</a>
-                            </td>
-                        </tr> 
-                        <?php endwhile; ?>
-
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-    
-
-    <!-- Optional JavaScript; choose one of the two! -->
-
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
-    -->
-
-  </body>
 </html>
