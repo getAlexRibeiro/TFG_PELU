@@ -177,7 +177,7 @@
                             <td><?php echo $fila['timeslot']; ?></td>
                             <td><?php echo $fila['servicio']; ?></td>
                             <td>
-                            <a href="./Citas/borrar.php?id=<?php echo $fila['id_cliente']; ?>" class="btn btn-danger"> Borrar</a>
+                            <a href="./Citas/borrar_cita.php?id=<?php echo $fila['id_bookings']; ?>" class="btn btn-danger"> Borrar</a>
                             </td>
                         </tr> 
 
