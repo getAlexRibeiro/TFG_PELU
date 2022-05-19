@@ -51,7 +51,6 @@ if (isset($_POST['submit_login_admin'])) {
 
 <head>
   <!-- IMPORTS HEADER BEGIN -->
-  <?php include "includes/importHead.php"; ?>
   <!-- IMPORTS HEADER END -->
 </head>
 
@@ -59,7 +58,6 @@ if (isset($_POST['submit_login_admin'])) {
 
   <header class="header header-absolute">
     <!-- IMPORTS HEADER BEGIN -->
-    <?php include "includes/importMenu.php"; ?>
     <!-- IMPORTS HEADER END -->
 
     <!-- Hero Section-->
@@ -67,8 +65,6 @@ if (isset($_POST['submit_login_admin'])) {
       <div class="container">
         <!-- Breadcrumbs -->
         <ol class="breadcrumb justify-content-center">
-          <li class="breadcrumb-item"><a href="index.php">Inicio</a></li>
-          <li class="breadcrumb-item active">Acceso Admin</li>
         </ol>
         <!-- Hero Content-->
         <div class="hero-content pb-5 text-center">
@@ -112,7 +108,6 @@ if (isset($_POST['submit_login_admin'])) {
 
 
     <!-- IMPORTS FOOTER BEGIN -->
-    <?php include "includes/importFooter.php"; ?>
     <!-- IMPORTS FOOTER END -->
     <!-- /Footer end-->
     <div id="scrollTop"><i class="fa fa-long-arrow-alt-up"></i></div>
