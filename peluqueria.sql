@@ -57,6 +57,10 @@ CREATE TABLE IF NOT EXISTS `clientes` (
   PRIMARY KEY (`id_cliente`),
   UNIQUE KEY `email` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4;
+--
+-- admin para tabla de `clientes`
+--
+INSERT INTO `servicios` (`id_cliente`, `nombre`, `email`, `password`, `rol`) VALUES (1,'alex','alex@mail.com','1234','admin');
 
 -- --------------------------------------------------------
 
