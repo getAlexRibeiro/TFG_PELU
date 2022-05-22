@@ -175,10 +175,10 @@ function timeslots($duration,$cleanup,$start,$end){
                                     <?php while($fila = mysqli_fetch_array($datos, MYSQLI_ASSOC)) : ?>
 
                                         <option value="<?php echo $fila["id_servicio"];
-                                            // The value we usually set is the primary key
+                                            
                                         ?>">
                                             <?php echo $fila["name_servicio"];
-                                                // To show the category name to the user
+                                                
                                             ?>
                                         </option>
                                     <?php endwhile; ?>    
