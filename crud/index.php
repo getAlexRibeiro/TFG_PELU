@@ -1,5 +1,5 @@
 <?php
-include 'conexion.php';
+include '../conexion.php'; 
 $errores = '';
 $enviado = true;
 // Comprobamos que el formulario haya sido enviado con las variables que hayamos puesto en index.view, deben llamarse igual!
@@ -35,8 +35,11 @@ if (isset($_POST['submit_login_admin'])) {
     } else {
       $consulta = mysqli_query($conexion, "SELECT * FROM clientes WHERE Nombre = '$login_admin' and password = '$login_admin_pass' and rol = 'admin'");
       if ($login_admin = mysqli_fetch_assoc($consulta)) {
-        session_start();
-        $_SESSION['ADMIN'] = $_POST['login_admin'];
+        //session_start();
+        //$_SESSION['ADMIN'] = $_POST['login_admin'];
+        $cookie_name = $_POST['login_admin'];
+        $cookie_value = "ADMIN";
+        setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
         header("Location: ./crud.php");
       } else {
         echo "<script type='text/javascript'>alert('Usuario o contraseña inválido');</script>";
@@ -50,17 +53,13 @@ if (isset($_POST['submit_login_admin'])) {
 <html lang="en">
 
 <head>
-  <!-- IMPORTS HEADER BEGIN -->
-  <!-- IMPORTS HEADER END -->
+
 </head>
 
 
 <body>
 
   <header class="header header-absolute">
-    <!-- IMPORTS HEADER BEGIN -->
-    <!-- IMPORTS HEADER END -->
-
     <!-- Hero Section-->
     <section class="hero">
       <div class="container">
@@ -73,7 +72,7 @@ if (isset($_POST['submit_login_admin'])) {
         </div>
       </div>
     </section>
-    <!-- customer login-->
+    <!-- Admin login-->
     <section>
       <div class="container">
         <div class="row justify-content-center">
