@@ -1,11 +1,20 @@
 
 <?php
 
- if(empty($_SESSION['ADMIN'])) {
-    header("Location: ./index.php");
- } elseif (!empty($_SESSION['ADMIN'])){
-    include 'conexion.php'; 
- }
+    if(!isset($_COOKIE[$cookie_name])) {
+        echo "Cookie named '" . $cookie_name . "' is not set!";
+    } else {
+        echo "Cookie '" . $cookie_name . "' is set!<br>";
+        echo "Value is: " . $_COOKIE[$cookie_name];
+    }
+
+
+// if(empty($_SESSION['ADMIN'])) {
+//    header("Location: ./index.php");
+// } elseif (!empty($_SESSION['ADMIN'])){
+//    
+// }
+    include '../conexion.php';  
     //Crear y seleccionar query
     $query = "SELECT * FROM clientes ORDER BY id_cliente asc";
     $usuarios = mysqli_query($con, $query);
