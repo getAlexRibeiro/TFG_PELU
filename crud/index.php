@@ -1,6 +1,13 @@
 <?php
-session_start();
-include '../conexion.php'; 
+include '../conexion.php';
+session_start(); 
+
+if (isset($_GET['cerrar_sesion'])) {
+  session_unset();
+
+  session_destroy();
+}
+
 $errores = '';
 $enviado = true;
 // Comprobamos que el formulario haya sido enviado con las variables que hayamos puesto en index.view, deben llamarse igual!

@@ -1,10 +1,22 @@
 
 <?php
- if(!empty($_SESSION['usuario'])) {
-    header("Location: ./index.php");
- } elseif (empty($_SESSION['usuario'])){
-    include '../conexion.php';  
+ if (isset($_SESSION['usuario'])) {
+        switch ($_SESSION['usuario']) {
+            case 'admin':
+                include '../conexion.php'; 
+                break;
+            
+            case 'cliente':
+                header("Location: ./index.php");
+                break;
+        }
  }
+
+//if(!empty($_SESSION['usuario'])) {
+//   header("Location: ./index.php");
+//} elseif (empty($_SESSION['usuario'])){
+//   include '../conexion.php';  
+//}
     include '../conexion.php';
     //Crear y seleccionar query
     $query = "SELECT * FROM clientes ORDER BY id_cliente asc";
