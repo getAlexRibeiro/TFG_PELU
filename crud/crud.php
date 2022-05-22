@@ -1,14 +1,18 @@
-<?php include 'conexion.php'; ?>
+
 <?php
 
-//(if (!empty($_SESSION['ADMIN'])) {
+ if(empty($_SESSION['ADMIN'])) {
+    header("Location: ./index.php");
+ } elseif (!empty($_SESSION['ADMIN'])){
+    include 'conexion.php'; 
+ }
     //Crear y seleccionar query
-     $query = "SELECT * FROM clientes ORDER BY id_cliente asc";
-     $usuarios = mysqli_query($con, $query);
-     $query = "SELECT * FROM servicios ORDER BY id_servicio asc";
-     $servicios = mysqli_query($con, $query);
-     $query = "SELECT * FROM bookings ORDER BY id_bookings asc";
-     $citas = mysqli_query($con, $query);
+    $query = "SELECT * FROM clientes ORDER BY id_cliente asc";
+    $usuarios = mysqli_query($con, $query);
+    $query = "SELECT * FROM servicios ORDER BY id_servicio asc";
+    $servicios = mysqli_query($con, $query);
+    $query = "SELECT * FROM bookings ORDER BY id_bookings asc";
+    $citas = mysqli_query($con, $query);
 
 ?>
 <!doctype html>
@@ -43,7 +47,6 @@
   <body>
   <h1 class="text-center">CRUD Famosso Barber</h1>
   <br>
-
     <center><input type="button" class="btn btn-primary btn-lg btn-block" value="Tabla Clientes" onClick="showHideDiv('divMsg')"/> </center><br><br>
     <div style="display: none; class="container" id = 'divMsg'>
         <?php if(isset($_GET['mensaje'])) : ?>                

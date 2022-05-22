@@ -36,7 +36,7 @@ if (isset($_POST['submit_login_admin'])) {
       $consulta = mysqli_query($conexion, "SELECT * FROM clientes WHERE Nombre = '$login_admin' and password = '$login_admin_pass' and rol = 'admin'");
       if ($login_admin = mysqli_fetch_assoc($consulta)) {
         session_start();
-        $_SESSION['ADMIN'] =  $_POST['login_admin'];
+        $_SESSION['ADMIN'] = $_POST['login_admin'];
         header("Location: ./crud.php");
       } else {
         echo "<script type='text/javascript'>alert('Usuario o contraseña inválido');</script>";
@@ -51,21 +51,14 @@ if (isset($_POST['submit_login_admin'])) {
 
 <head>
   <!-- IMPORTS HEADER BEGIN -->
-<<<<<<< HEAD
-=======
-  <?php include "../includes/importHead.php"; ?>
->>>>>>> 5aaec2746a218f331366e9637617828e7c710d0f
   <!-- IMPORTS HEADER END -->
 </head>
+
 
 <body>
 
   <header class="header header-absolute">
     <!-- IMPORTS HEADER BEGIN -->
-<<<<<<< HEAD
-=======
-    <?php include "../includes/importMenu.php"; ?>
->>>>>>> 5aaec2746a218f331366e9637617828e7c710d0f
     <!-- IMPORTS HEADER END -->
 
     <!-- Hero Section-->
@@ -89,7 +82,7 @@ if (isset($_POST['submit_login_admin'])) {
               <div class="form-group">
                 <!---->
                 </div>
-                <div class="block-body">
+                <div class="form-signin w-100 m-auto">
                   <form action=" " name="formulario" method="post">
                     <div class="mb-4">
                       <label class="form-label" for="admin">Administrador</label>
@@ -116,10 +109,6 @@ if (isset($_POST['submit_login_admin'])) {
 
 
     <!-- IMPORTS FOOTER BEGIN -->
-<<<<<<< HEAD
-=======
-    <?php include "../includes/importFooter.php"; ?>
->>>>>>> 5aaec2746a218f331366e9637617828e7c710d0f
     <!-- IMPORTS FOOTER END -->
     <!-- /Footer end-->
     <div id="scrollTop"><i class="fa fa-long-arrow-alt-up"></i></div>
