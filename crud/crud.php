@@ -1,6 +1,7 @@
 
 <?php
 
+    // Verificamos si la sesión está vacía, si lo está redireccionamos al index(login) del crud
  if(empty($_SESSION['ADMIN'])) {
     header("Location: ./index.php");
  } elseif (!empty($_SESSION['ADMIN'])){
