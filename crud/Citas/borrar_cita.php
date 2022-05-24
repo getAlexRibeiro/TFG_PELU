@@ -1,6 +1,6 @@
 <?php
     //Incluimos conexión
-    include '../conexion.php';
+    include '../../conexion.php';
 
     //Obtener el id enviado de index
     $idBookings = $_GET['id'];

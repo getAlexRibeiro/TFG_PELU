@@ -1,5 +1,6 @@
 <?php
-include 'conexion.php';
+session_start();
+include '../conexion.php'; 
 $errores = '';
 $enviado = true;
 // Comprobamos que el formulario haya sido enviado con las variables que hayamos puesto en index.view, deben llamarse igual!
@@ -7,11 +8,8 @@ if (isset($_POST['submit_login_admin'])) {
 
   $login_admin = $_POST['login_admin'];
   $login_admin_pass = $_POST['login_admin_pass'];
-
   if (!empty($login_admin)) { //comprabamos nombre login
-
     $login_admin = filter_var($login_admin, FILTER_SANITIZE_STRING); //limpia o verifica que es un texto
-
   } else {
     $errores .= 'Por ingresa un nombre <br />';
     $enviado = false;
@@ -28,15 +26,12 @@ if (isset($_POST['submit_login_admin'])) {
     echo "<script type='text/javascript'>alert('Usuario o contraseña inválido');</script>";
   } else {
     // Comprobamos que el usuario existe
-    $conexion = new mysqli("localhost", "root", "", "peluqueria");
-
-    if ($conexion->connect_errno) {
+    if ($con->connect_errno) {
       die('Lo siento hubo un problema con el servidor');
     } else {
-      $consulta = mysqli_query($conexion, "SELECT * FROM clientes WHERE Nombre = '$login_admin' and password = '$login_admin_pass' and rol = 'admin'");
+      $consulta = mysqli_query($con, "SELECT * FROM clientes WHERE Nombre = '$login_admin' and password = '$login_admin_pass' and rol = 'admin'");
       if ($login_admin = mysqli_fetch_assoc($consulta)) {
-        session_start();
-        $_SESSION['ADMIN'] = $_POST['login_admin'];
+        $_SESSION['usuario'] = $_POST['login_admin'];
         header("Location: ./crud.php");
       } else {
         echo "<script type='text/javascript'>alert('Usuario o contraseña inválido');</script>";
@@ -50,17 +45,13 @@ if (isset($_POST['submit_login_admin'])) {
 <html lang="en">
 
 <head>
-  <!-- IMPORTS HEADER BEGIN -->
-  <!-- IMPORTS HEADER END -->
+
 </head>
 
 
 <body>
 
   <header class="header header-absolute">
-    <!-- IMPORTS HEADER BEGIN -->
-    <!-- IMPORTS HEADER END -->
-
     <!-- Hero Section-->
     <section class="hero">
       <div class="container">
@@ -73,7 +64,7 @@ if (isset($_POST['submit_login_admin'])) {
         </div>
       </div>
     </section>
-    <!-- customer login-->
+    <!-- Admin login-->
     <section>
       <div class="container">
         <div class="row justify-content-center">

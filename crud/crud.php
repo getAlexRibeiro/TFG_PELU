@@ -4,9 +4,10 @@
     // Verificamos si la sesión está vacía, si lo está redireccionamos al index(login) del crud
  if(empty($_SESSION['ADMIN'])) {
     header("Location: ./index.php");
- } elseif (!empty($_SESSION['ADMIN'])){
-    include 'conexion.php'; 
+ } elseif (empty($_SESSION['usuario'])){
+    include '../conexion.php';  
  }
+    include '../conexion.php';
     //Crear y seleccionar query
     $query = "SELECT * FROM clientes ORDER BY id_cliente asc";
     $usuarios = mysqli_query($con, $query);

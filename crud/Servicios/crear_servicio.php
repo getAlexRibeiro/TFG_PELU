@@ -1,6 +1,6 @@
 <?php
     //Incluimos conexión
-    include '../conexion.php';
+    include '../../conexion.php';
 
     if(isset($_POST['crearRegistro'])){
         $nombre_servicio = mysqli_real_escape_string($con, $_POST['nombre_servicio']);
