@@ -1,8 +1,8 @@
 <?php
-session_start();
-include '../conexion.php'; 
-$errores = '';
-$enviado = true;
+    session_start();
+    include '../conexion.php'; 
+    $errores = '';
+    $enviado = true;
 // Comprobamos que el formulario haya sido enviado con las variables que hayamos puesto en index.view, deben llamarse igual!
 if (isset($_POST['submit_login_admin'])) {
 
@@ -39,7 +39,6 @@ if (isset($_POST['submit_login_admin'])) {
     }
   }
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
