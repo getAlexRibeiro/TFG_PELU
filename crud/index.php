@@ -32,6 +32,7 @@ if (isset($_POST['submit_login_admin'])) {
       $consulta = mysqli_query($con, "SELECT * FROM clientes WHERE Nombre = '$login_admin' and password = '$login_admin_pass' and rol = 'admin'");
       if ($login_admin = mysqli_fetch_assoc($consulta)) {
         $_SESSION['usuario'] = $_POST['login_admin'];
+        echo $_SESSION['usuario'];
         header("Location: ./crud.php");
       } else {
         echo "<script type='text/javascript'>alert('Usuario o contraseña inválido');</script>";

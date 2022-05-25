@@ -5,6 +5,7 @@ $enviado = true;
 // Comprobamos que el formulario haya sido enviado con las variables que hayamos puesto en index.view, deben llamarse igual!
 if (isset($_POST['submit'])) {
   $Nombre = $_POST['nombre'];
+  // Añadimos password hash
   $Password = $_POST['password'];
   $Email = $_POST['email'];
 
@@ -50,6 +51,7 @@ if (isset($_POST['submit'])) {
 if (isset($_POST['submit_login'])) {
 
   $login_Nombre = $_POST['login_Nombre'];
+  // PAssword verify
   $login_Password = $_POST['login_Password'];
 
   if (!empty($login_Nombre)) { //comprabamos nombre login

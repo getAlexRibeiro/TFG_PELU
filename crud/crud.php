@@ -1,8 +1,8 @@
 
 <?php
-
+ session_start();
     // Verificamos si la sesión está vacía, si lo está redireccionamos al index(login) del crud
- if(empty($_SESSION['ADMIN'])) {
+ if(empty($_SESSION['usuario'])) {
     header("Location: ./index.php");
  } elseif (empty($_SESSION['usuario'])){
     include '../conexion.php';  
