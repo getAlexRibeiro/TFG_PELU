@@ -6,7 +6,7 @@ $enviado = true;
 if (isset($_POST['submit'])) {
   $Nombre = $_POST['nombre'];
   // Añadimos password hash
-  $Password = $_POST['password'];
+  $Password =  password_hash($_POST['password'], PASSWORD_DEFAULT);
   $Email = $_POST['email'];
 
 
@@ -51,43 +51,37 @@ if (isset($_POST['submit'])) {
 if (isset($_POST['submit_login'])) {
 
   $login_Nombre = $_POST['login_Nombre'];
-  // PAssword verify
   $login_Password = $_POST['login_Password'];
-
   if (!empty($login_Nombre)) { //comprabamos nombre login
-
     $login_Nombre = filter_var($login_Nombre, FILTER_SANITIZE_STRING); //limpia o verifica que es un texto
-
-  } else {
-    $errores .= 'Por ingresa un nombre <br />';
-    $enviado = false;
-  }
-
-  if (!empty($login_Password)) { //comprobamos contraseña
-
-    $login_Password = filter_var($login_Password, FILTER_SANITIZE_STRING); //limpia o verifica que es un texto
   } else {
     $errores .= 'Por ingresa un nombre <br />';
     $enviado = false;
   }
   if ($enviado == false) { //lanzamos los errores que hayan podido ocurrir
-    echo "Error";
+    echo "<script type='text/javascript'>alert('Usuario o contraseña inválido');</script>";
+    header("Location: ./index.php");
   } else {
     // Comprobamos que el usuario existe
     $conexion = new mysqli("localhost", "root", "", "peluqueria");
-
-    if ($conexion->connect_errno) {
-      die('Lo siento hubo un problema con el servidor');
-    } else {
-      $consulta = mysqli_query($conexion, "SELECT * FROM clientes WHERE Nombre = '$login_Nombre' and password = '$login_Password'");
-      if ($login_Nombre = mysqli_fetch_assoc($consulta)) {
-        header("Location: ./calendario/calendario.php");
-        exit;
+    // Password verify
+   // if(password_verify($login_Password , $cifrado)) {
+      if ($conexion->connect_errno) {
+        die('Lo siento hubo un problema con el servidor');
+        exit();
       } else {
-        echo "<script type='text/javascript'>alert('Usuario o contraseña inválido');</script>";
+        $sql = "SELECT * FROM clientes WHERE Nombre = '$login_Nombre' and password = '$login_Password'";
+        $consulta = mysqli_query($conexion, $sql);
+        //if (password_verify($login_Password , $cifrado)) {
+          if($login_Nombre = mysqli_fetch_assoc($consulta) && $login_Password       =mysqli_fetch_assoc($consulta) ) {
+            echo "hoolaa";
+            header("Location: ./calendario/calendario.php");
+            exit();
+        } else {
+          echo "<script type='text/javascript'>alert('Usuario o contraseña inválido');</script>";
+        }
       }
     }
-  }
 }
 ?>
 <!DOCTYPE html>
@@ -138,11 +132,11 @@ if (isset($_POST['submit_login'])) {
                   <form action=" " name="formulario" method="post">
                     <div class="mb-4">
                       <label class="form-label" for="email1">Nombre Usuario</label>
-                      <input type="text" placeholder="Nombre de usuario:" name="login_Nombre" id="login_Nombre">
+                      <input type="text" placeholder="Nombre de usuario:" name="login_Nombre" id="login_Nombre" required>
                     </div>
                     <div class="mb-4">
                       <label class="form-label" for="password1">Contraseña</label>
-                      <input type="password" placeholder="Contraseña:" name="login_Password" id="login_Password">
+                      <input type="password" placeholder="Contraseña:" name="login_Password" id="login_Password" required>
                     </div>
                     <div class="mb-4 text-center">
                       <input type="submit" name="submit_login" class="btn btn-primary" value="Send"> <!-- boton para enviar los datos -->
