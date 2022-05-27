@@ -1,8 +1,22 @@
 <?php
+<<<<<<< HEAD
+include '../conexion.php';
+session_start(); 
+
+if (isset($_GET['cerrar_sesion'])) {
+  session_unset();
+
+  session_destroy();
+}
+
+$errores = '';
+$enviado = true;
+=======
     session_start();
     include '../conexion.php'; 
     $errores = '';
     $enviado = true;
+>>>>>>> f7abc603f0d85fbef9466bebc8830ffbd370205a
 // Comprobamos que el formulario haya sido enviado con las variables que hayamos puesto en index.view, deben llamarse igual!
 if (isset($_POST['submit_login_admin'])) {
 

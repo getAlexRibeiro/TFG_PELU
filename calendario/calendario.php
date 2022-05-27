@@ -42,7 +42,7 @@ function build_calendar($month, $year) {
     
     $calendar.= "<a class='btn btn-xs btn-primary' href='?month=".date('m', mktime(0, 0, 0, $month+1, 1, $year))."&year=".date('Y', mktime(0, 0, 0, $month+1, 1, $year))."'>Siguiente Mes</a></center><br>";
 
-    $calendar.= "<center><label for=''>Servicio </label><select name='servicio'>"
+    /*$calendar.= "<center><label for=''>Servicio </label><select name='servicio'>"
 
             ?>
             <?php while($fila=mysqli_fetch_array($datos,MYSQLI_ASSOC)):?><?php
@@ -54,17 +54,15 @@ function build_calendar($month, $year) {
                     
 
             }
-            */
+            *//*
                 endwhile;?><?php
 
-            /* Meter un if para lo de la seleccion del servicio,
-            hacer un GET de un campo nuevo de la tabla bookings para que determine la duraccion del servicio.*/ 
 
     $calendar.= "</select></center>";
     
-    
+    */
         
-      $calendar .= "<tr>";
+    $calendar .= "<tr>";
 
     // Creamos los headers del calendario
 
