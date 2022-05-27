@@ -52,7 +52,6 @@
           <div class="container py-6">
             <div class="row">
               <div class="col-lg-8 col-xl-6 mx-auto text-white text-center position-relative">
-                <h5 class="text-uppercase text-white fw-light mb-4 letter-spacing-5"></h5>
                 <h1 class="mb-5 display-2  text-dark text-serif"> Famosso Barber</h1>
                 <p class="lead mb-4  text-dark">Ven y conócenos</p>
                 <p> <a class="btn btn-dark" href="./custom-login.php">Pedir cita</a></p>

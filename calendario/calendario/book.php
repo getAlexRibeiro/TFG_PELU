@@ -20,6 +20,26 @@ if(isset($_GET['date'])){
     }
 }
 
+/*
+if(isset($_GET['date'])){
+    $date = $_GET['date'];
+    $stmt = $con->prepare("select * from bookings where date = ?");
+    $stmt->bind_param('s', $date);
+    $bookings = array();
+    if($stmt->execute()){
+        $result = $stmt->get_result();
+        if($result->num_rows>0){
+            while($row = $result->fetch_assoc()){
+                $bookings[] = $row['timeslot'];
+            }
+            
+            $stmt->close();
+        }
+    }
+}
+*/ /* Hacer un get del tiempo */
+
+
 if(isset($_POST['submit'])){
     $name = $_POST['name'];
     $email = $_POST['email'];
@@ -38,18 +58,33 @@ if(isset($_POST['submit'])){
             $stmt->execute();
             $msg = "<div class='alert alert-success'>Citado correctamente</div>";
             $bookings[] = $timeslot;
+            
+            # Creamos un if para que cuando se seleccione el servicio de corte pelo y barba, se añada 30 minutos a la duración y nos coja dos slots de tiempo en vez de uno.
+               if($servicio==3){
+                    #$timeslot2 = timeslots(30,0,$);
+                    /* hacer substr para sacar los valores de 11:00 , si los minutos son 00 añadir 30 min, si
+es 30, añadir 1 hora y poner 00. */
+                    $stmt = $con->prepare("INSERT INTO bookings (name, timeslot, email, date, servicio) VALUES (?,?,?,?,?)");
+                    $stmt->bind_param('sssss', $name, $timeslot, $email, $date, $servicio);
+                    $stmt->execute();
+                    $msg = "<div class='alert alert-success'>Citado correctamente</div>";
+                    $bookings[] = $timeslot;
+            
+            }
+            
             $stmt->close();
             $con->close();
+            
         }
     }
     
 }
 
-$duration = 60;
+$duration = 30;
 $cleanup = 0;
 $start = "10:00";
 $end = "18:00";
-
+// $endSaturday = "14:00";
 
 
 
@@ -67,7 +102,7 @@ function timeslots($duration,$cleanup,$start,$end){
             break;
         }
 
-        $slots[] = $intStart->format("H:i A")." - ".$endPeriod->format("H:i A");
+        $slots[] = $intStart->format("H:i")." - ".$endPeriod->format("H:i A");
     }
     return $slots;
 }
@@ -118,6 +153,9 @@ function timeslots($duration,$cleanup,$start,$end){
     <div class="form-group">
         <center><button><a href="calendario.php">Volver al calendario</a></button></center>
     </div>
+    <div class="form-group">
+        <center><button><a href="http://localhost/TFG_PELU/index.php">Volver al inicio</a></button></center>
+    </div>
 
 
     <!-- Modal -->
@@ -155,9 +193,14 @@ function timeslots($duration,$cleanup,$start,$end){
                                             // The value we usually set is the primary key
                                         ?>">
                                             <?php echo $fila["name_servicio"];
+
+                                    
                                                 // To show the category name to the user
                                             ?>
                                         </option>
+                                        <?php if($servicio==3){
+                                                    echo "Al seleccionar este servicio cogerá la siguiente media hora también.";
+                                                }?>
                                     <?php endwhile; ?>    
                                     </select>
                         
