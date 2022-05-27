@@ -48,41 +48,82 @@ if (isset($_POST['submit'])) {
     }
   }
 // PARA LOGIN
-if (isset($_POST['submit_login'])) {
+if (isset($_POST['submit_login'])) 
+{
 
   $login_Nombre = $_POST['login_Nombre'];
   $login_Password = $_POST['login_Password'];
-  if (!empty($login_Nombre)) { //comprabamos nombre login
-    $login_Nombre = filter_var($login_Nombre, FILTER_SANITIZE_STRING); //limpia o verifica que es un texto
-  } else {
-    $errores .= 'Por ingresa un nombre <br />';
-    $enviado = false;
-  }
-  if ($enviado == false) { //lanzamos los errores que hayan podido ocurrir
+  if (!empty($login_Nombre)) 
+    {
+      //comprabamos nombre login
+      $login_Nombre = filter_var($login_Nombre, FILTER_SANITIZE_STRING); //limpia o verifica que es un texto
+    } 
+    else 
+      {
+        $errores .= 'Por ingresa un nombre <br />';
+        $enviado = false;
+      }
+
+  if ($enviado == false) 
+  { //lanzamos los errores que hayan podido ocurrir
     echo "<script type='text/javascript'>alert('Usuario o contraseña inválido');</script>";
     header("Location: ./index.php");
-  } else {
-    // Comprobamos que el usuario existe
+  } else 
+  {
+    // Verificamos problemas de conexión
     $conexion = new mysqli("localhost", "root", "", "peluqueria");
-    // Password verify
-   // if(password_verify($login_Password , $cifrado)) {
-      if ($conexion->connect_errno) {
+    if ($conexion->connect_errno) 
+      {
         die('Lo siento hubo un problema con el servidor');
         exit();
-      } else {
-        $sql = "SELECT * FROM clientes WHERE Nombre = '$login_Nombre' and password = '$login_Password'";
-        $consulta = mysqli_query($conexion, $sql);
-        //if (password_verify($login_Password , $cifrado)) {
-          if($login_Nombre = mysqli_fetch_assoc($consulta) && $login_Password       =mysqli_fetch_assoc($consulta) ) {
-            echo "hoolaa";
-            header("Location: ./calendario/calendario.php");
-            exit();
-        } else {
-          echo "<script type='text/javascript'>alert('Usuario o contraseña inválido');</script>";
+      } 
+      else 
+      {
+        // Buscamos el usuario insertado
+        if($cliente = "SELECT * FROM CLIENTES WHERE NOMBRE = '$login_Nombre' AND ROL = 'cliente'") 
+        {
+          $result = $conexion->query($cliente);
+            if($result->num_rows>0) 
+            {
+              $row = $result->fetch_array(MYSQLI_ASSOC);
+              echo "Contraseña: ", $row['password'];
+              echo "Rol: ",$row['rol'];
+              echo "Contraseña introducida",$login_Password;
+              if(password_verify($login_Password, $row['password'])) 
+              {
+                  session_id('cliente');
+                  session_start();
+                  echo"bienvenido" . $_SESSION['cliente'];
+                  header('Location: ./calendario/calendario.php');
+              } else 
+              {
+                echo "<script type='text/javascript'>alert('Usuario o contraseña inválido');</script>";
+              }
+          }
+          elseif ($admin ="SELECT * FROM CLIENTES WHERE NOMBRE = '$login_Nombre' AND ROL = 'admin'") 
+          {
+            $result = $conexion->query($admin);
+              if($result->num_rows>0) {
+                $row = $result->fetch_array(MYSQLI_ASSOC);
+                echo "Contraseña: ", $row['password'];
+                echo "Rol: ",$row['rol'];
+                echo "Contraseña introducida ",$login_Password;
+                if(password_verify($login_Password,$row['password'])) 
+                {
+                  session_id('admin');
+                  session_start();
+                  echo"bienvenido" . $_SESSION['admin'];
+                  header('Location: ./crud/crud.php');
+                } else 
+                {
+                  echo "<script type='text/javascript'>alert('Usuario o contraseña inválido');</script>";
+                } 
         }
-      }
-    }
+        } 
+        
+      } 
 }
+}}
 ?>
 <!DOCTYPE html>
 <html lang="en">
