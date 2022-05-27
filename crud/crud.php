@@ -1,6 +1,5 @@
 
 <?php
-<<<<<<< HEAD
  if (isset($_SESSION['usuario'])) {
         switch ($_SESSION['usuario']) {
             case 'admin':
@@ -11,14 +10,6 @@
                 header("Location: ./index.php");
                 break;
         }
-=======
- session_start();
-    // Verificamos si la sesión está vacía, si lo está redireccionamos al index(login) del crud
- if(empty($_SESSION['usuario'])) {
-    header("Location: ./index.php");
- } elseif (empty($_SESSION['usuario'])){
-    include '../conexion.php';  
->>>>>>> f7abc603f0d85fbef9466bebc8830ffbd370205a
  }
 
 //if(!empty($_SESSION['usuario'])) {

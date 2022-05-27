@@ -72,58 +72,63 @@ if (isset($_POST['submit_login']))
   {
     // Verificamos problemas de conexión
     $conexion = new mysqli("localhost", "root", "", "peluqueria");
-    if ($conexion->connect_errno) 
-      {
-        die('Lo siento hubo un problema con el servidor');
-        exit();
-      } 
-      else 
-      {
-        // Buscamos el usuario insertado
-        if($cliente = "SELECT * FROM CLIENTES WHERE NOMBRE = '$login_Nombre' AND ROL = 'cliente'") 
+      if ($conexion->connect_errno) 
         {
-          $result = $conexion->query($cliente);
-            if($result->num_rows>0) 
-            {
-              $row = $result->fetch_array(MYSQLI_ASSOC);
-              echo "Contraseña: ", $row['password'];
-              echo "Rol: ",$row['rol'];
-              echo "Contraseña introducida",$login_Password;
-              if(password_verify($login_Password, $row['password'])) 
-              {
-                  session_id('cliente');
-                  session_start();
-                  echo"bienvenido" . $_SESSION['cliente'];
-                  header('Location: ./calendario/calendario.php');
-              } else 
-              {
-                echo "<script type='text/javascript'>alert('Usuario o contraseña inválido');</script>";
-              }
-          }
-          elseif ($admin ="SELECT * FROM CLIENTES WHERE NOMBRE = '$login_Nombre' AND ROL = 'admin'") 
+          die('Lo siento hubo un problema con el servidor');
+          exit();
+        } 
+        else 
+        {
+          // Buscamos el usuario insertado
+          if($cliente = "SELECT * FROM CLIENTES WHERE NOMBRE = '$login_Nombre' AND ROL = 'cliente'") 
           {
-            $result = $conexion->query($admin);
-              if($result->num_rows>0) {
+            $result = $conexion->query($cliente);
+              if($result->num_rows>0) 
+              {
                 $row = $result->fetch_array(MYSQLI_ASSOC);
-                echo "Contraseña: ", $row['password'];
+                $pass_hash = $row['password'];
+                echo "Contraseña: ", $pass_hash;
                 echo "Rol: ",$row['rol'];
-                echo "Contraseña introducida ",$login_Password;
-                if(password_verify($login_Password,$row['password'])) 
+                echo "Contraseña introducida",$login_Password;
+                if(password_verify($login_Password, $pass_hash)) 
                 {
-                  session_id('admin');
-                  session_start();
-                  echo"bienvenido" . $_SESSION['admin'];
-                  header('Location: ./crud/crud.php');
+                    session_id('cliente');
+                    session_start();
+                    echo"bienvenido" . $_SESSION['cliente'];
+                    header('Location: ./calendario/calendario.php');
                 } else 
                 {
                   echo "<script type='text/javascript'>alert('Usuario o contraseña inválido');</script>";
-                } 
-        }
-        } 
+                }
+              }else {echo "<script type='text/javascript'>alert('Usuario o contraseña inválido');</script>";}
+            }
+            elseif ($admin ="SELECT * FROM CLIENTES WHERE NOMBRE = '$login_Nombre' AND ROL = 'admin'") 
+            {
+              $result = $conexion->query($admin);
+                if($result->num_rows>0) 
+                {
+                  $row = $result->fetch_array(MYSQLI_ASSOC);
+                  $pass_hash = $row['password'];
+                  echo "Contraseña: ", $row['password'];
+                  echo "Rol: ",$row['rol'];
+                  echo "Contraseña introducida ",$login_Password;
+                  if(password_verify($login_Password,$pass_hash)) 
+                  {
+                    session_id('admin');
+                    session_start();
+                    echo"bienvenido" . $_SESSION['admin'];
+                    header('Location: ./crud/crud.php');
+                  } else 
+                  {
+                    echo "<script type='text/javascript'>alert('Usuario o contraseña inválido');</script>";
+                  } 
+                }else {echo "<script type='text/javascript'>alert('Usuario o contraseña inválido');</script>";}
+            } 
         
-      } 
+    } 
 }
-}}
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
