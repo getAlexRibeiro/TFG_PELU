@@ -1,16 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-
   <!-- IMPORTS HEADER BEGIN -->
 <?php include "includes/importHead.php"; ?>
   <!-- IMPORTS HEADER END -->
-
- 
-
   </head>
   <body>
-
        <!-- IMPORTS HEADER BEGIN -->
 <?php include "includes/importMenu.php"; ?>
   <!-- IMPORTS HEADER END -->
@@ -19,7 +14,7 @@
       <div class="container">
         <!-- Breadcrumbs -->
         <ol class="breadcrumb justify-content-center">
-          <li class="breadcrumb-item"><a href="index.php">Inicio</a></li>
+          <li class="breadcrumb-item"><a href="index.php">Inicio</a></li> 
           <li class="breadcrumb-item active">Contacto        </li>
         </ol>
         <!-- Hero Content-->
@@ -68,19 +63,14 @@
         </header>
         <div class="row">
           <div class="col-md-6 mb-5 mb-md-0">
-            <form class="form" id="contact-form" method="post" action="contacto.php">
+
+            <form class="form" id="contact-form" method="post"       action="contacto.php">
               <div class="controls">
                 <div class="row">
                   <div class="col-sm-6">
                     <div class="mb-4">
-                      <label class="form-label" for="name">Nombre *</label>
+                      <label class="form-label" for="name" pattern=[A-Z\sa-z]{3,20}>Nombre</label>
                       <input class="form-control" type="text" name="name" id="name" placeholder="Nombre" required="required">
-                    </div>
-                  </div>
-                  <div class="col-sm-6">
-                    <div class="mb-4">
-                      <label class="form-label" for="surname">Apellidos *</label>
-                      <input class="form-control" type="text" name="surname" id="surname" placeholder="Apellidos" required="required">
                     </div>
                   </div>
                 </div>
@@ -96,6 +86,49 @@
                 <button class="btn btn-outline-dark" type="submit">Contactar</button>
               </div>
             </form>
+<?php
+     ini_set( 'sendmail_from', "myself@my.com" ); // My usual e-mail address
+     ini_set( 'SMTP', "mail.bigpond.com" );  // My usual sender
+     ini_set( 'smtp_port', 25 );
+ 
+if($_POST) {
+    $name = "";
+    $email = "";
+    $message = "";
+     
+    if(isset($_POST['name'])) {
+      $name = filter_var($_POST['name'], FILTER_SANITIZE_STRING);
+    }
+     
+    if(isset($_POST['email'])) {
+        $email = str_replace(array("\r", "\n", "%0a", "%0d"), '', $_POST['email']);
+        $email = filter_var($email, FILTER_VALIDATE_EMAIL);
+    }
+     
+    if(isset($_POST['message'])) {
+        $message = htmlspecialchars($_POST['message']);
+    }
+     
+    $recipient = "contact@domain.com";
+
+     
+    $headers  = 'MIME-Version: 1.0' . "\r\n"
+    .'Content-type: text/html; charset=utf-8' . "\r\n"
+    .'From: ' . $email . "\r\n";
+     
+    if(mail($recipient, $message, $headers)) {
+        echo "<p>Thank you for contacting us, $name. You will get a reply within 24 hours.</p>";
+    } else {
+        echo '<p>We are sorry but the email did not go through.</p>';
+    }
+     
+} else {
+    echo '<p>Something went wrong</p>';
+}
+ 
+?>
+
+
           </div>
           <div class="col-md-6 col-md-full-right">
 				<!-- Google map -->
@@ -109,6 +142,7 @@
 
       </div>
     </section>
+    
     <!--<div id="map" style="height: 400px;"></div>-->
 <!-- IMPORTS FOOTER BEGIN -->
 <?php include "includes/importFooter.php"; ?>

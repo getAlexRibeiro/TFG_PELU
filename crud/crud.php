@@ -1,5 +1,6 @@
 
 <?php
+<<<<<<< HEAD
  if (isset($_SESSION['usuario'])) {
         switch ($_SESSION['usuario']) {
             case 'admin':
@@ -10,6 +11,14 @@
                 header("Location: ./index.php");
                 break;
         }
+=======
+ session_start();
+    // Verificamos si la sesión está vacía, si lo está redireccionamos al index(login) del crud
+ if(empty($_SESSION['usuario'])) {
+    header("Location: ./index.php");
+ } elseif (empty($_SESSION['usuario'])){
+    include '../conexion.php';  
+>>>>>>> f7abc603f0d85fbef9466bebc8830ffbd370205a
  }
 
 //if(!empty($_SESSION['usuario'])) {
@@ -25,6 +34,7 @@
     $servicios = mysqli_query($con, $query);
     $query = "SELECT * FROM bookings ORDER BY id_bookings asc";
     $citas = mysqli_query($con, $query);
+
 
 ?>
 <!doctype html>
@@ -57,8 +67,27 @@
          }
       </script>
   <body>
-  <h1 class="text-center">CRUD Famosso Barber</h1>
+<div class="text-center">
+        <h1>
+      <span style="color:green">GeeksforGeek</span>
+      <div class="position-absolute top-0 end-0">
+      <FORM method="POST">
+        <input class='btn btn-success pull-right' type="submit" name="Submit3" value="Destroy Session">
+    </FORM>
+    <?php
+            if(isset($_POST['Submit3']))
+            { 
+            session_destroy();
+            header("Location: ./index.php");
+            }
+    ?>
+      </div>
+    </h1>
+    </div>
+
+ 
   <br>
+  
     <center><input type="button" class="btn btn-primary btn-lg btn-block" value="Tabla Clientes" onClick="showHideDiv('divMsg')"/> </center><br><br>
     <div style="display: none; class="container" id = 'divMsg'>
         <?php if(isset($_GET['mensaje'])) : ?>                
@@ -202,8 +231,7 @@
                 </table>
             </div>
         </div>
-    </div>
-    
+
 
     <!-- Optional JavaScript; choose one of the two! -->
 

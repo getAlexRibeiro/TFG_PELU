@@ -1,4 +1,12 @@
 <?php
+
+    session_start();
+    // Verificamos si la sesión está vacía, si lo está redireccionamos al index(login) del crud
+    if(empty($_SESSION['usuario'])) {
+    header("Location: ./index.php");
+    } elseif (empty($_SESSION['usuario'])){
+    include '../conexion.php';  
+    }
     //Incluimos conexión
     include '../../conexion.php';
 
@@ -24,7 +32,7 @@
                 $error = "Error, no se pudo crear el registros";
             }else{
                 $mensaje = "Registro borrado correctamente";
-                header('Location: ../index.php');
+                header('Location: ../crud.php');
                 exit();
             }
     }   

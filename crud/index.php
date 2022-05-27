@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 include '../conexion.php';
 session_start(); 
 
@@ -10,6 +11,12 @@ if (isset($_GET['cerrar_sesion'])) {
 
 $errores = '';
 $enviado = true;
+=======
+    session_start();
+    include '../conexion.php'; 
+    $errores = '';
+    $enviado = true;
+>>>>>>> f7abc603f0d85fbef9466bebc8830ffbd370205a
 // Comprobamos que el formulario haya sido enviado con las variables que hayamos puesto en index.view, deben llamarse igual!
 if (isset($_POST['submit_login_admin'])) {
 
@@ -39,6 +46,7 @@ if (isset($_POST['submit_login_admin'])) {
       $consulta = mysqli_query($con, "SELECT * FROM clientes WHERE Nombre = '$login_admin' and password = '$login_admin_pass' and rol = 'admin'");
       if ($login_admin = mysqli_fetch_assoc($consulta)) {
         $_SESSION['usuario'] = $_POST['login_admin'];
+        echo $_SESSION['usuario'];
         header("Location: ./crud.php");
       } else {
         echo "<script type='text/javascript'>alert('Usuario o contraseña inválido');</script>";
@@ -46,7 +54,6 @@ if (isset($_POST['submit_login_admin'])) {
     }
   }
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
