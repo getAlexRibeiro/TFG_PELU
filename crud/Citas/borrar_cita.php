@@ -1,10 +1,10 @@
 <?php
     session_start();
     // Verificamos si la sesión está vacía, si lo está redireccionamos al index(login) del crud
-    if(empty($_SESSION['usuario'])) {
-    header("Location: ./index.php");
+    if(!empty($_SESSION['usuario'])) {
+        header("Location: ../index.php");
     } elseif (empty($_SESSION['usuario'])){
-    include '../conexion.php';  
+    
     }
     //Incluimos conexión
     include '../../conexion.php';
@@ -28,7 +28,7 @@
 
             if(!mysqli_query($con, $query)){
                 die('Error: ' . mysqli_error($con));
-                $error = "Error, no se pudo crear el registros";
+                $error = "Error, no se pudo borrar el registros";
             }else{
                 $mensaje = "Registro borrado correctamente";
                 header('Location: ../crud.php');

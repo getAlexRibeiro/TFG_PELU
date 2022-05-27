@@ -1,58 +1,83 @@
 <?php
-<<<<<<< HEAD
+session_start();
 include '../conexion.php';
-session_start(); 
 
-if (isset($_GET['cerrar_sesion'])) {
+if (!isset($_GET['cerrar_sesion'])) {
   session_unset();
-
   session_destroy();
 }
 
 $errores = '';
 $enviado = true;
-=======
-    session_start();
-    include '../conexion.php'; 
-    $errores = '';
-    $enviado = true;
->>>>>>> f7abc603f0d85fbef9466bebc8830ffbd370205a
-// Comprobamos que el formulario haya sido enviado con las variables que hayamos puesto en index.view, deben llamarse igual!
-if (isset($_POST['submit_login_admin'])) {
 
-  $login_admin = $_POST['login_admin'];
-  $login_admin_pass = $_POST['login_admin_pass'];
-  if (!empty($login_admin)) { //comprabamos nombre login
-    $login_admin = filter_var($login_admin, FILTER_SANITIZE_STRING); //limpia o verifica que es un texto
-  } else {
-    $errores .= 'Por ingresa un nombre <br />';
-    $enviado = false;
-  }
+if (isset($_POST['submit_login_admin'])) 
+{
 
-  if (!empty($login_admin_pass)) { //comprobamos contraseña
-
-    $login_admin_pass = filter_var($login_admin_pass, FILTER_SANITIZE_STRING); //limpia o verifica que es un texto
-  } else {
-    $errores .= 'Por ingresa un nombre <br />';
-    $enviado = false;
-  }
-  if ($enviado == false) { //lanzamos los errores que hayan podido ocurrir
-    echo "<script type='text/javascript'>alert('Usuario o contraseña inválido');</script>";
-  } else {
-    // Comprobamos que el usuario existe
-    if ($con->connect_errno) {
-      die('Lo siento hubo un problema con el servidor');
-    } else {
-      $consulta = mysqli_query($con, "SELECT * FROM clientes WHERE Nombre = '$login_admin' and password = '$login_admin_pass' and rol = 'admin'");
-      if ($login_admin = mysqli_fetch_assoc($consulta)) {
-        $_SESSION['usuario'] = $_POST['login_admin'];
-        echo $_SESSION['usuario'];
-        header("Location: ./crud.php");
-      } else {
-        echo "<script type='text/javascript'>alert('Usuario o contraseña inválido');</script>";
+  $login_Nombre = $_POST['login_admin'];
+  $login_Password = $_POST['login_admin_pass'];
+  if (!empty($login_Nombre)) 
+    {
+      //comprabamos nombre login
+      $login_Nombre = filter_var($login_Nombre, FILTER_SANITIZE_STRING); //limpia o verifica que es un texto
+    } 
+    else 
+      {
+        $errores .= 'Por ingresa un nombre <br />';
+        $enviado = false;
       }
-    }
-  }
+
+  if ($enviado == false) 
+  { //lanzamos los errores que hayan podido ocurrir
+    echo "<script type='text/javascript'>alert('Usuario o contraseña inválido');</script>";
+    header("Location: ./index.php");
+  } else 
+  {
+    // Verificamos problemas de conexión
+    $conexion = new mysqli("localhost", "root", "", "peluqueria");
+      if ($conexion->connect_errno) 
+        {
+          die('Lo siento hubo un problema con el servidor');
+          exit();
+        } 
+        else 
+        {
+          // Buscamos el usuario insertado
+          if($cliente = "SELECT * FROM CLIENTES WHERE NOMBRE = '$login_Nombre' AND ROL = 'cliente'") 
+          {
+            $result = $conexion->query($cliente);
+              if($result->num_rows>0) 
+              {
+                $row = $result->fetch_array(MYSQLI_ASSOC);
+                $pass_hash = $row['password'];
+                if(password_verify($login_Password, $pass_hash)) 
+                {
+                    $_SESSION["cliente"];
+                    header('Location: ../index.php');
+                } else 
+                {
+                  echo "<script type='text/javascript'>alert('Usuario o contraseña 2');</script>";
+                }
+              } 
+              elseif ($cliente = "SELECT * FROM CLIENTES WHERE NOMBRE = '$login_Nombre' AND ROL = 'admin'") 
+              {
+              $result = $conexion->query($cliente);
+                if($result->num_rows>0) 
+                {
+                  $row = $result->fetch_array(MYSQLI_ASSOC);
+                  $pass_hash = $row['password'];
+                  if(password_verify($login_Password, $pass_hash)) 
+                  {
+                      $_SESSION["admin"];
+                      header('Location: ./crud.php');
+                  } else 
+                  {
+                    echo "<script type='text/javascript'>alert('Usuario o contraseña inválido');</script>";
+                  }
+                }else {echo "<script type='text/javascript'>alert('Usuario o contraseña inválido');</script>";}
+              }
+        
+    } 
+  }}
 }
 ?>
 <!DOCTYPE html>

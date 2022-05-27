@@ -1,4 +1,5 @@
 <?php
+session_start();
 include 'conexion.php';
 $errores = '';
 $enviado = true;
@@ -47,6 +48,8 @@ if (isset($_POST['submit'])) {
       }
     }
   }
+
+  
 // PARA LOGIN
 if (isset($_POST['submit_login'])) 
 {
@@ -87,46 +90,35 @@ if (isset($_POST['submit_login']))
               {
                 $row = $result->fetch_array(MYSQLI_ASSOC);
                 $pass_hash = $row['password'];
-                echo "Contraseña: ", $pass_hash;
-                echo "Rol: ",$row['rol'];
-                echo "Contraseña introducida",$login_Password;
                 if(password_verify($login_Password, $pass_hash)) 
                 {
-                    session_id('cliente');
-                    session_start();
-                    echo"bienvenido" . $_SESSION['cliente'];
+                  $_SESSION["cliente"] = "cliente";
                     header('Location: ./calendario/calendario.php');
                 } else 
                 {
                   echo "<script type='text/javascript'>alert('Usuario o contraseña inválido');</script>";
                 }
-              }else {echo "<script type='text/javascript'>alert('Usuario o contraseña inválido');</script>";}
-            }
-            elseif ($admin ="SELECT * FROM CLIENTES WHERE NOMBRE = '$login_Nombre' AND ROL = 'admin'") 
-            {
-              $result = $conexion->query($admin);
+              } 
+              elseif ($cliente = "SELECT * FROM CLIENTES WHERE NOMBRE = '$login_Nombre' AND ROL = 'admin'") 
+              {
+              $result = $conexion->query($cliente);
                 if($result->num_rows>0) 
                 {
                   $row = $result->fetch_array(MYSQLI_ASSOC);
                   $pass_hash = $row['password'];
-                  echo "Contraseña: ", $row['password'];
-                  echo "Rol: ",$row['rol'];
-                  echo "Contraseña introducida ",$login_Password;
-                  if(password_verify($login_Password,$pass_hash)) 
+                  if(password_verify($login_Password, $pass_hash)) 
                   {
-                    session_id('admin');
-                    session_start();
-                    echo"bienvenido" . $_SESSION['admin'];
-                    header('Location: ./crud/crud.php');
+                      $_SESSION["admin"] = "admin";
+                      header('Location: ./crud/crud.php');
                   } else 
                   {
                     echo "<script type='text/javascript'>alert('Usuario o contraseña inválido');</script>";
-                  } 
+                  }
                 }else {echo "<script type='text/javascript'>alert('Usuario o contraseña inválido');</script>";}
-            } 
+              }
         
     } 
-}
+  }}
 }
 
 ?>

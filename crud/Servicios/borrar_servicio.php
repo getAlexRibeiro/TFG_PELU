@@ -2,9 +2,9 @@
     session_start();
         // Verificamos si la sesión está vacía, si lo está redireccionamos al index(login) del crud
     if(empty($_SESSION['usuario'])) {
-        header("Location: ./index.php");
+        header("Location: ../index.php");
     } elseif (empty($_SESSION['usuario'])){
-        include '../conexion.php';  
+        
     }
     //Incluimos conexión
     include '../../conexion.php';
@@ -15,11 +15,7 @@
     //Seleccionar datos
     $query = "SELECT * FROM servicios where id_servicio='".$idServicio."'";
     $clientes = mysqli_query($con, $query) or die (mysqli_error());
-
-    //Volcamos los datos de ese registro en una fila
     $fila = mysqli_fetch_assoc($clientes);
-
-
 
     if(isset($_POST['borrarRegistro'])){        
 
@@ -59,8 +55,6 @@
     <div class="row">
         <h4>Borrar un Registro Existente</h4>
     </div>
-
-
         <div class="row caja">
             <div class="col-sm-6 offset-3">
             <form method="POST" action="<?php $_SERVER['PHP_SELF']; ?>">
