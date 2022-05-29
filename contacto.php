@@ -41,7 +41,7 @@
             </svg>
             <h4 class="ff-base">Teléfono</h4>
             <p class="text-muted">Llámanos y pide tu cita</p>
-            <a class="text-muted" href="tel: +34647761117">+34 666 666 666</a>
+            <a class="text-muted" href="tel: +34665656566">+34 665 656 566</a>
           </div>
           <div class="col-md-4 text-center text-md-start">
             <svg class="svg-icon svg-icon-light text-primary w-3rem h-3rem mb-3">
@@ -50,7 +50,7 @@
             <h4 class="ff-base">Correo electrónico</h4>
             <p class="text-muted">Contáctanos para cualquier tipo de duda o problema que pueda surgirte</p>
             <ul class="list-unstyled text-muted">
-              <li><a class="text-muted" href="mailto: Famosobarber@gmail.com" target="_blank">Famosobarber@gmail.com</a></li>
+              <li><a class="text-muted" href="mailto:famossobarber2@gmail.com" target="_blank">famossobarber2@gmail.com</a></li>
             </ul>
           </div>
         </div>
@@ -64,7 +64,7 @@
         <div class="row">
           <div class="col-md-6 mb-5 mb-md-0">
 
-            <form class="form" id="contact-form" method="post"       action="contacto.php">
+            <form class="form" id="contact-form" method="post"  action="contacto.php">
               <div class="controls">
                 <div class="row">
                   <div class="col-sm-6">
@@ -87,8 +87,8 @@
               </div>
             </form>
 <?php
-     ini_set( 'sendmail_from', "myself@my.com" ); // My usual e-mail address
-     ini_set( 'SMTP', "mail.bigpond.com" );  // My usual sender
+     ini_set( 'sendmail_from', "famossobarber2@gmail.com" ); // My usual e-mail address
+     ini_set( 'SMTP', $_POST['email'] );  // My usual sender
      ini_set( 'smtp_port', 25 );
  
 if($_POST) {
@@ -109,7 +109,7 @@ if($_POST) {
         $message = htmlspecialchars($_POST['message']);
     }
      
-    $recipient = "contact@domain.com";
+    $recipient = "famossobarber2@gmail.com";
 
      
     $headers  = 'MIME-Version: 1.0' . "\r\n"
@@ -117,13 +117,13 @@ if($_POST) {
     .'From: ' . $email . "\r\n";
      
     if(mail($recipient, $message, $headers)) {
-        echo "<p>Thank you for contacting us, $name. You will get a reply within 24 hours.</p>";
+        echo "<p>Gracias por contactar con nosotros, $name. Te responderemos lo antes posible.</p>";
     } else {
-        echo '<p>We are sorry but the email did not go through.</p>';
+        echo '<p>Lo lamentamos, el correo no se pudo enviar correctamente.</p>';
     }
      
 } else {
-    echo '<p>Something went wrong</p>';
+    echo '<p>Algo ha salido mal.</p>';
 }
  
 ?>
