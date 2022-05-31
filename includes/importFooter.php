@@ -29,7 +29,7 @@
         <div class="container">
           <div class="row">
             <div class="col-lg-4 mb-5 mb-lg-0">
-              <div class="fw-bold text-uppercase text-lg text-dark mb-3"><a class="navbar-brand" href="index.html"><img class="nav-brand-logo" src="assets/logos/logo-peluqueria.jpeg" alt=" Famosso Barber" style="width: 120px;"></a></div>
+              <div class="fw-bold text-uppercase text-lg text-dark mb-3"><a class="navbar-brand" href="index.php"><img class="nav-brand-logo" src="assets/logos/logo-peluqueria.jpeg" alt=" Famosso Barber" style="width: 120px;"></a></div>
               
 
             </div>
