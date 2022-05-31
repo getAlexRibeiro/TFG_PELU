@@ -48,7 +48,7 @@ if (isset($_POST['submit'])) {
             exit;
           }
       } else {
-        echo "<script type='text/javascript'>alert('El usuario o correo ya está registrado');</script>";
+        echo "<script type='text/javascript'>alert('El usuario o correo ya está registrado')</script>";
       }
     }
   }
@@ -57,7 +57,6 @@ if (isset($_POST['submit'])) {
 // PARA LOGIN
 if (isset($_POST['submit_login'])) 
 {
-
   $login_Nombre = $_POST['login_Nombre'];
   $login_Password = $_POST['login_Password'];
   if (!empty($login_Nombre)) 
@@ -152,7 +151,7 @@ if (isset($_POST['submit_login']))
         <!-- Breadcrumbs -->
         <ol class="breadcrumb justify-content-center">
           <li class="breadcrumb-item"><a href="index.php">Inicio</a></li>
-          <li class="breadcrumb-item active">Bienvenido</li>
+          <li class="breadcrumb-item active">Bienvenido</li<>
         </ol>
         <!-- Hero Content-->
         <div class="hero-content pb-5 text-center">
@@ -164,10 +163,9 @@ if (isset($_POST['submit_login']))
     <section>
       <div class="container">
         <div class="row justify-content-center">
-          <div class="col-lg-6">
+          <div class="col-lg-8 ">
             <div class="block">
-              <div class="form-group">
-                <!---->
+              <div class="form-group ">
                 <div class="block-header">
                   <h6 class="text-uppercase mb-0">Acceso</h6>
                 </div>
@@ -192,9 +190,9 @@ if (isset($_POST['submit_login']))
                 </div>
               </div>
             </div>
-            <div class="col-lg-6">
-              <div class="block">
-                <div class="block-header">
+            <div class="col-lg-8">
+              <div class="block-center">
+                <div class="block-header" >
                   <h6 class="text-uppercase mb-0">Registrate</h6>
                 </div>
                 <div class="block-body">
@@ -204,6 +202,7 @@ if (isset($_POST['submit_login']))
                     <br><a href="contacto.php">Contacto</a>
                   </p>
                   <hr>
+                <div class="form-group ">
                   <form action=" " name="formulario" method="post">
                     <!-- Usamos el método post para recoger lo que seleccione el usuario en unas variables -->
                     <div class="mb-4">
@@ -224,6 +223,7 @@ if (isset($_POST['submit_login']))
                     </div>
                   </form>
                 </div>
+              </div>
               </div>
             </div>
           </div>
