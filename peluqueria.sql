@@ -52,7 +52,7 @@ CREATE TABLE IF NOT EXISTS `clientes` (
   `id_cliente` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(25) CHARACTER SET utf8mb4 NOT NULL,
   `email` varchar(25) DEFAULT NULL,
-  `password` varchar(25) CHARACTER SET utf8mb4 NOT NULL,
+  `password` varchar(255) CHARACTER SET utf8mb4 NOT NULL,
   `rol` varchar(25) CHARACTER SET utf8mb4 default 'cliente',
   PRIMARY KEY (`id_cliente`),
   UNIQUE KEY `email` (`email`)
@@ -60,7 +60,8 @@ CREATE TABLE IF NOT EXISTS `clientes` (
 --
 -- admin para tabla de `clientes`
 --
-INSERT INTO `clientes` (`id_cliente`, `nombre`, `email`, `password`, `rol`) VALUES (1,'alex','alex@mail.com','1234','admin');
+INSERT INTO `clientes` (`id_cliente`, `nombre`, `email`, `password`, `rol`) VALUES
+(13, 'admin', 'ad@ad', '$2y$10$9Qv5c3Cn82oUOTHraagskONUWn784gVDg/UEIbtb27wWpL/3LfO..', 'admin');
 
 -- --------------------------------------------------------
 

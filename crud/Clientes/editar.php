@@ -1,14 +1,14 @@
 <?php
 
     session_start();
-    // Verificamos si la sesión está vacía, si lo está redireccionamos al index(login) del crud
-    if(!empty($_SESSION['usuario'])) {
-    header("Location: ./index.php");
-    } elseif (empty($_SESSION['usuario'])){
-  
+    // Verificamos si ha iniciado sesión como admin o cliente 
+    if (!isset($_SESSION["sname"])) {
+        header("Location: ../../index.php");
+    } else {
+        //Incluimos conexión
+        include '../../conexion.php'; 
     }
-    //Incluimos conexión
-    include '../../conexion.php';
+    
 
     //Obtener el id enviado de index
     $idRegistro = $_GET['id'];
@@ -26,6 +26,7 @@
         $nombre = mysqli_real_escape_string($con, $_POST['nombre']);
         $password = mysqli_real_escape_string($con, $_POST['password']);
         $email = mysqli_real_escape_string($con, $_POST['email']);
+        $rol = mysqli_real_escape_string($con, $_POST['rol']);
 
 
         //Configurar tiempo zona horaria
@@ -97,6 +98,13 @@
                 <div class="mb-3">
                     <label for="password" class="form-label">password:</label>
                     <input type="text" class="form-control" name="password" placeholder="Ingresa la password" value="<?php echo $fila['password']; ?>">                    
+                </div>
+
+
+               
+                <div class="mb-3">
+                    <label for="rol" class="form-label">Rol:</label>
+                    <input type="text" class="form-control" name="rol" placeholder="Ingresa el rol del cliente" value="<?php echo $fila['password']; ?>">                    
                 </div>
 
                 <button type="submit" class="btn btn-primary w-100" name="editarRegistro">Editar Registro</button>

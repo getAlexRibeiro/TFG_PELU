@@ -1,22 +1,16 @@
 
 <?php
+session_start();
 
 
+// Verificamos si ha iniciado sesión como admin o cliente 
+if (!isset($_SESSION["sname"])) {
+    header("Location: ./index.php");
+} else {
+    include '../conexion.php'; 
+}
 
 
- if (isset($_SESSION['usuario'])) {
-        switch ($_SESSION['usuario']) {
-            case 'admin':
-                include '../conexion.php'; 
-                break;
-            
-            case 'cliente':
-                header("Location: ./index.php");
-                break;
-        }
- }
-
-    include '../conexion.php';
     //Crear y seleccionar query
     $query = "SELECT * FROM clientes ORDER BY id_cliente asc";
     $usuarios = mysqli_query($con, $query);
@@ -67,6 +61,7 @@
     <?php
             if(isset($_POST['Submit3']))
             { 
+            unset($_SESSION["sname"]);
             session_destroy();
             header("Location: ./index.php");
             }

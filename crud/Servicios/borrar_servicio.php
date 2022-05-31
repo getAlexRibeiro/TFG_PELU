@@ -1,13 +1,12 @@
 <?php
     session_start();
-        // Verificamos si la sesión está vacía, si lo está redireccionamos al index(login) del crud
-    if(empty($_SESSION['usuario'])) {
-        header("Location: ../index.php");
-    } elseif (empty($_SESSION['usuario'])){
-        
+    // Verificamos si ha iniciado sesión como admin o cliente 
+    if (!isset($_SESSION["sname"])) {
+        header("Location: ../../index.php");
+    } else {
+        //Incluimos conexión
+        include '../../conexion.php'; 
     }
-    //Incluimos conexión
-    include '../../conexion.php';
 
     //Obtener el id enviado de index
     $idServicio = $_GET['id'];

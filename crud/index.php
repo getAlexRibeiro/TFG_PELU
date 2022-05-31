@@ -1,15 +1,12 @@
 <?php
 session_start();
+
 include '../conexion.php';
-
-if (!isset($_GET['cerrar_sesion'])) {
-  session_unset();
-  session_destroy();
-}
-
 $errores = '';
 $enviado = true;
 
+
+// Login del administrador, que en caso de insertar datos de cliente nos lleva al calendario
 if (isset($_POST['submit_login_admin'])) 
 {
 
@@ -41,7 +38,7 @@ if (isset($_POST['submit_login_admin']))
         } 
         else 
         {
-          // Buscamos el usuario insertado
+          // En caso de que el usuario insertado sea un cliente nos redirecciona al indice
           if($cliente = "SELECT * FROM CLIENTES WHERE NOMBRE = '$login_Nombre' AND ROL = 'cliente'") 
           {
             $result = $conexion->query($cliente);
@@ -51,13 +48,14 @@ if (isset($_POST['submit_login_admin']))
                 $pass_hash = $row['password'];
                 if(password_verify($login_Password, $pass_hash)) 
                 {
-                    $_SESSION["cliente"];
+                    $_SESSION["sname"] = 'cliente';
                     header('Location: ../index.php');
                 } else 
                 {
                   echo "<script type='text/javascript'>alert('Usuario o contraseña 2');</script>";
                 }
               } 
+              // En caso de que el usuario insertado sea un administrador nos lleva al CRUD
               elseif ($cliente = "SELECT * FROM CLIENTES WHERE NOMBRE = '$login_Nombre' AND ROL = 'admin'") 
               {
               $result = $conexion->query($cliente);
@@ -67,7 +65,7 @@ if (isset($_POST['submit_login_admin']))
                   $pass_hash = $row['password'];
                   if(password_verify($login_Password, $pass_hash)) 
                   {
-                      $_SESSION["admin"];
+                      $_SESSION["sname"] = 'admin';
                       header('Location: ./crud.php');
                   } else 
                   {

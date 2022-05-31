@@ -1,18 +1,19 @@
 <?php
     session_start();
-    // Verificamos si la sesión está vacía, si lo está redireccionamos al index(login) del crud
-    if(!empty($_SESSION['usuario'])) {
-    header("Location: ./index.php");
-    } elseif (empty($_SESSION['usuario'])){
-   
+    // Verificamos si ha iniciado sesión como admin o cliente 
+    if (!isset($_SESSION["sname"])) {
+        header("Location: ../../index.php");
+    } else {
+        //Incluimos conexión
+        include '../../conexion.php'; 
     }
-    //Incluimos conexión
-    include '../../conexion.php';
+
 
     if(isset($_POST['crearRegistro'])){
         $nombre = mysqli_real_escape_string($con, $_POST['nombre']);
         $password = mysqli_real_escape_string($con, $_POST['password']);
         $email = mysqli_real_escape_string($con, $_POST['email']);
+        $rol = mysqli_real_escape_string($con, $_POST['rol']);
 
         //Configurar tiempo zona horaria
         date_default_timezone_set('DEFAULT');
@@ -22,7 +23,7 @@
         if(!isset($nombre) || $nombre == '' || !isset($password) || $password == '' ){
             $error = "Algunos campos están vacíos";
         }else{
-            $query = "INSERT INTO clientes(nombre, password, email)VALUES('$nombre', '$password', '$email')";
+            $query = "INSERT INTO clientes(nombre, password, email, rol)VALUES('$nombre', '$password', '$email', '$rol')";
 
             if(!mysqli_query($con, $query)){
                 die('Error: ' . mysqli_error($con));
@@ -84,6 +85,11 @@
                 <div class="mb-3">
                     <label for="password" class="form-label">Password:</label>
                     <input type="text" class="form-control" name="password" placeholder="Ingresa el password">                    
+                </div>
+
+                <div class="mb-3">
+                    <label for="rol" class="form-label">Rol:</label>
+                    <input type="text" class="form-control" name="rol" placeholder="Ingresa el rol del cliente">                    
                 </div>
 
                 <button type="submit" class="btn btn-primary w-100" name="crearRegistro">Crear Registro</button>

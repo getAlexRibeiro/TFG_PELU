@@ -12,7 +12,6 @@ if (isset($_POST['submit'])) {
 
 
   // Registro de usuario nuevo
-
   if (!empty($Nombre)) { //Comprobamos que nombre haya sido ingresasdo
     $Nombre = filter_var($Nombre, FILTER_SANITIZE_STRING); //limpia o verifica que es un texto
   } else {
@@ -27,6 +26,7 @@ if (isset($_POST['submit'])) {
     $enviado = false;
   }
  
+  // Realizamos la conexión
   $conexion = new mysqli("localhost", "root", "", "peluqueria");
   if ($conexion->connect_errno) {
       die('Lo siento hubo un problema con el servidor');
@@ -34,12 +34,16 @@ if (isset($_POST['submit'])) {
        // Comprobamos que el usuario existe
         $consulta = mysqli_query($conexion, "SELECT * FROM clientes WHERE Nombre = '$Nombre' or email ='$Email' "); // VERIFICAMOS QUE EL NOMBRE INTRODUCIDO NO ESTA REGISTRADO
         if (mysqli_num_rows($consulta)==0) { // CASO DE QUE LA CONSULTA ESTE VACIA ES QUE NO EXISTE UN USUARIO CON ESE NOMBRE Y PODEMOS SEGUIR CON EL REGISTRO
+          // Usamos consultas preparadas para mejorar la seguridad
           $statement = $conexion->prepare("INSERT INTO clientes (id_cliente, nombre, password, email) VALUES (?,?,?,?)");
           $ID = null;
+          // Usamos la función BIND_PARAM para mejorar la seguridad de la aplicación
           $statement->bind_param('isss', $ID, $Nombre, $Password, $Email);
           $statement->execute();
           if ($statement->affected_rows >= 1) {  //si todo va bien carga la pagina principal
-            sleep(5); //Damos unos segundos para redireccionar
+            sleep(3); //Damos unos segundos para redireccionar
+            // Damos el valor a la sesión
+            $_SESSION["sname"] = 'cliente';
             header("Location: ./calendario/calendario.php");
             exit;
           }
@@ -82,7 +86,6 @@ if (isset($_POST['submit_login']))
         } 
         else 
         {
-          // Buscamos el usuario insertado
           if($cliente = "SELECT * FROM CLIENTES WHERE NOMBRE = '$login_Nombre' AND ROL = 'cliente'") 
           {
             $result = $conexion->query($cliente);
@@ -92,7 +95,9 @@ if (isset($_POST['submit_login']))
                 $pass_hash = $row['password'];
                 if(password_verify($login_Password, $pass_hash)) 
                 {
-                  $_SESSION["cliente"] = "cliente";
+                    // Damos el valor a la sesión
+                    $_SESSION["sname"] = 'cliente';
+                    // Redireccionamos al calendario al ser un cliente
                     header('Location: ./calendario/calendario.php');
                 } else 
                 {
@@ -108,7 +113,9 @@ if (isset($_POST['submit_login']))
                   $pass_hash = $row['password'];
                   if(password_verify($login_Password, $pass_hash)) 
                   {
-                      $_SESSION["admin"] = "admin";
+                      // Damos el valor a la sesión
+                      $_SESSION["sname"] = 'admin';
+                      // Redireccionamos al CRUD al se un admin
                       header('Location: ./crud/crud.php');
                   } else 
                   {
@@ -116,9 +123,9 @@ if (isset($_POST['submit_login']))
                   }
                 }else {echo "<script type='text/javascript'>alert('Usuario o contraseña inválido');</script>";}
               }
-        
-    } 
-  }}
+            }
+          }
+        }
 }
 
 ?>
@@ -128,6 +135,7 @@ if (isset($_POST['submit_login']))
 <head>
   <!-- IMPORTS HEADER BEGIN -->
   <?php include "includes/importHead.php"; ?>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />;
   <!-- IMPORTS HEADER END -->
 </head>
 
