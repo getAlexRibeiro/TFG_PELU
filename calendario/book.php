@@ -20,24 +20,6 @@ if(isset($_GET['date'])){
     }
 }
 
-/*
-if(isset($_GET['date'])){
-    $date = $_GET['date'];
-    $stmt = $con->prepare("select * from bookings where date = ?");
-    $stmt->bind_param('s', $date);
-    $bookings = array();
-    if($stmt->execute()){
-        $result = $stmt->get_result();
-        if($result->num_rows>0){
-            while($row = $result->fetch_assoc()){
-                $bookings[] = $row['timeslot'];
-            }
-            
-            $stmt->close();
-        }
-    }
-}
-*/ /* Hacer un get del tiempo */
 
 
 if(isset($_POST['submit'])){
@@ -60,10 +42,11 @@ if(isset($_POST['submit'])){
             $bookings[] = $timeslot;
             
             # Creamos un if para que cuando se seleccione el servicio de corte pelo y barba, se añada 30 minutos a la duración y nos coja dos slots de tiempo en vez de uno.
-               if($servicio==3){
-                    #$timeslot2 = timeslots(30,0,$);
+              if($servicio==3){ /*  && ($timeslot!="17:30 - 18:00")*/
+                    #$startTimeslot = substr($timeslot,-5,5);
+                    #$timeslot2 = timeslots(30,0,$startTimeslot,); 
                     /* hacer substr para sacar los valores de 11:00 , si los minutos son 00 añadir 30 min, si
-es 30, añadir 1 hora y poner 00. */
+    es 30, añadir 1 hora y poner 00. Utilizar la opción inval para pasar de string a int. */
                     $stmt = $con->prepare("INSERT INTO bookings (name, timeslot, email, date, servicio) VALUES (?,?,?,?,?)");
                     $stmt->bind_param('sssss', $name, $timeslot, $email, $date, $servicio);
                     $stmt->execute();
@@ -102,7 +85,7 @@ function timeslots($duration,$cleanup,$start,$end){
             break;
         }
 
-        $slots[] = $intStart->format("H:i")." - ".$endPeriod->format("H:i A");
+        $slots[] = $intStart->format("H:i")." - ".$endPeriod->format("H:i");
     }
     return $slots;
 }
@@ -198,11 +181,9 @@ function timeslots($duration,$cleanup,$start,$end){
                                                 // To show the category name to the user
                                             ?>
                                         </option>
-                                        <?php if($servicio==3){
-                                                    echo "Al seleccionar este servicio cogerá la siguiente media hora también.";
-                                                }?>
                                     <?php endwhile; ?>    
                                     </select>
+                                    <br><small><strong>* Si seleccionas la opción 'Cortar Pelo y Barba' y reservas cita, automaticamente se te reservará la franja horaria seleccionada y la siguiente.</strong></small>
                         
                                 </div>
                                 <div class="form-group">
