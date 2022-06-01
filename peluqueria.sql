@@ -75,6 +75,7 @@ CREATE TABLE IF NOT EXISTS `servicios` (
   `name_servicio` varchar(25) NOT NULL,
   `price_servicio` int NOT NULL,
   `imagen_servicio` longblob NOT NULL,
+  `tipo_imagen` varchar(30),
   PRIMARY KEY (`id_servicio`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
