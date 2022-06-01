@@ -84,12 +84,12 @@
             <form method="POST" action="<?php $_SERVER['PHP_SELF']; ?>">
                 <div class="mb-3">
                     <label for="nombre_servicio" class="form-label">Nombre_servicio:</label>
-                    <input type="text" class="form-control" name="nombre_servicio" placeholder="Ingresa el nombre_servicio" value="<?php echo $fila['name_servicio']; ?>">                    
+                    <input type="text" required class="form-control" name="nombre_servicio" placeholder="Ingresa el nombre_servicio" value="<?php echo $fila['name_servicio']; ?>">                    
                 </div>
                 
                 <div class="mb-3">
                     <label for="precio_servicio" class="form-label">Precio_servicio:</label>
-                    <input type="text" class="form-control" name="precio_servicio" placeholder="Ingresa la precio_servicio" value="<?php echo $fila['price_servicio']; ?>">                    
+                    <input type="text" required class="form-control" name="precio_servicio" placeholder="Ingresa la precio_servicio" value="<?php echo $fila['price_servicio']; ?>">                    
                 </div>
 
                 <button type="submit" class="btn btn-primary w-100" name="editarRegistro">Editar Registro</button>

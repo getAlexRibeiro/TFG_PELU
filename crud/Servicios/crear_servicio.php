@@ -71,12 +71,12 @@
             <form method="POST" action="<?php $_SERVER['PHP_SELF']; ?>">
                 <div class="mb-3">
                     <label for="nombre_servicio" class="form-label">Nombre Servicio:</label>
-                    <input type="text" class="form-control" name="nombre_servicio" placeholder="Ingresa el nombre del servicio">                    
+                    <input type="text" required class="form-control" name="nombre_servicio" placeholder="Ingresa el nombre del servicio">                    
                 </div>
                 
                 <div class="mb-3">
                     <label for="precio_servicio" class="form-label">Precio de servicio:</label>
-                    <input type="text" class="form-control" name="precio_servicio" placeholder="Ingresa el precio">                    
+                    <input type="text" required class="form-control" name="precio_servicio" placeholder="Ingresa el precio">                    
                 </div>
 
                 <button type="submit" class="btn btn-primary w-100" name="crearRegistro">Crear Servicio</button>

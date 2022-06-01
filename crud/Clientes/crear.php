@@ -79,7 +79,7 @@
                 
                 <div class="mb-3">
                     <label for="email" class="form-label">Correo:</label>
-                    <input type="text" class="form-control" name="email" placeholder="Ingresa el correo">                    
+                    <input type="email" required class="form-control" name="email" placeholder="Ingresa el correo">                    
                 </div>
 
                 <div class="mb-3">

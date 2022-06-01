@@ -88,12 +88,12 @@
             <form method="POST" action="<?php $_SERVER['PHP_SELF']; ?>">
                 <div class="mb-3">
                     <label for="nombre" class="form-label">Nombre:</label>
-                    <input type="text" class="form-control" name="nombre" placeholder="Ingresa el nombre" value="<?php echo $fila['nombre']; ?>">                    
+                    <input type="text" required class="form-control" name="nombre" placeholder="Ingresa el nombre" value="<?php echo $fila['nombre']; ?>">                    
                 </div>
 
                 <div class="mb-3">
                     <label for="email" class="form-label">Correo:</label>
-                    <input type="text" class="form-control" name="email" placeholder="Ingresa el correo" value="<?php echo $fila['email']; ?>">                    
+                    <input type="email" required class="form-control" name="email" placeholder="Ingresa el correo" value="<?php echo $fila['email']; ?>">                    
                 </div>
                 
                 <div class="mb-3">
