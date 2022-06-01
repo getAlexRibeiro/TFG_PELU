@@ -1,16 +1,13 @@
 <?php
 
 session_start();
-
-// destroy every 2 minutes
-//
-//    if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 20)) {
-//        // last request was more than 2 minutes ago
-//        session_destroy();   // destroy session data in storage
-//        header("Location: http://localhost/TFG_PELU/index.php");
-//    }
-//    $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
-
+// Verificamos si ha iniciado sesión como admin o cliente 
+if (!isset($_SESSION["sname"])) {
+    header("Location: ../index.php");
+} else {
+    //Incluimos conexión
+    include '../conexion.php'; 
+}
 
 include '../conexion.php';
 $consulta_servicios = "SELECT * FROM servicios ORDER BY id_servicio ASC";

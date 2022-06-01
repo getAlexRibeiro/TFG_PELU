@@ -88,7 +88,7 @@
             </form>
 <?php
      ini_set( 'sendmail_from', "famossobarber2@gmail.com" ); // My usual e-mail address
-     ini_set( 'SMTP', $_POST['email'] );  // My usual sender
+     //ini_set( 'SMTP', $_POST['email'] );  // My usual sender
      ini_set( 'smtp_port', 25 );
  
 if($_POST) {
