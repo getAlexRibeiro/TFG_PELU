@@ -194,7 +194,7 @@ function timeslots($duration,$cleanup,$start,$end){
                                         </option>
                                     <?php endwhile; ?>    
                                     </select>
-                                    <br><small><strong>* Si seleccionas la opción 'Cortar Pelo y Barba' y reservas cita, automaticamente se te reservará la franja horaria seleccionada y la siguiente.</strong></small>
+                                    <br><small><strong>* Si seleccionas la opción 'Cortar Pelo y Barba' y reservas cita, automaticamente se te reservará la franja horaria seleccionada y la siguiente; a excepción de la última cita 17:30 - 18:00 .</strong></small>
                         
                                 </div>
                                 <div class="form-group">
