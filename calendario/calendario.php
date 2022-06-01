@@ -1,7 +1,6 @@
 <?php
 
 session_start();
-
 // destroy every 2 minutes
 
 //if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 5)) {
@@ -315,6 +314,19 @@ function checkSlots($con,$date){
 
     <div class="form-group">
         <center><button><a href="../index.php">Volver al inicio</a></button></center>
+    </div>
+
+    <div class="form-group">
+        <center><button><a href="../index.php">Cerrar sesión</a></button></center>
+        <?php
+        // destroy every 2 minutes
+            if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 5)) {
+                // last request was more than 2 minutes ago
+                session_destroy();   // destroy session data in storage
+                header('Location: ../index.php');
+            }
+            $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
+            ?>
     </div>
         
 </body>
