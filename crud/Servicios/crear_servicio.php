@@ -9,18 +9,44 @@
     }
 
     if(isset($_POST['crearRegistro'])){
+
+
         $nombre_servicio = mysqli_real_escape_string($con, $_POST['nombre_servicio']);
         $precio_servicio = mysqli_real_escape_string($con, $_POST['precio_servicio']);
+
+        // Verificamos si el tipo de archivo es un tipo de imagen permitido.
+        // y que el tamaño del archivo no exceda los 16MB
+        $permitidos = array("image/jpg", "image/jpeg", "image/gif", "image/png");
+        $limite_kb = 16384;
+
 
         //Configurar tiempo zona horaria
         date_default_timezone_set('DEFAULT');
         $time = date('h:i:s a', time());
 
         //Validar si no están vacíos
-        if(!isset($nombre_servicio) || $nombre_servicio == '' || !isset($precio_servicio) || $precio_servicio == '' ){
+        if(!isset($nombre_servicio) || $nombre_servicio == '' || !isset($precio_servicio) || $precio_servicio == ''){
             $error = "Algunos campos están vacíos";
-        }else{
-            $query = "INSERT INTO servicios(name_servicio, price_servicio)VALUES('$nombre_servicio', '$precio_servicio')";
+        }else if ((in_array($_FILES['imagen']['type'], $permitidos) && $_FILES['imagen']['size'] <= $limite_kb * 1024)){
+
+            // Archivo temporal
+        $imagen_temporal = $_FILES['imagen']['tmp_name'];
+
+        // Tipo de archivo
+        $tipo = $_FILES['imagen']['type'];
+
+        // Leemos el contenido del archivo temporal en binario.
+        $fp = fopen($imagen_temporal, 'r+b');
+        $data = fread($fp, filesize($imagen_temporal));
+        fclose($fp);
+        
+        //Podríamos utilizar también la siguiente instrucción en lugar de las 3 anteriores.
+        // $data=file_get_contents($imagen_temporal);
+
+        // Escapamos los caracteres para que se puedan almacenar en la base de datos correctamente.
+        $data = mysqli_real_escape_string($con, $data);
+
+            $query = "INSERT INTO servicios(name_servicio, price_servicio, imagen_servicio, tipo_imagen )VALUES('$nombre_servicio', '$precio_servicio', '$data', '$tipo')";
 
             if(!mysqli_query($con, $query)){
                 die('Error: ' . mysqli_error($con));
@@ -33,6 +59,8 @@
         }
 
     }
+    
+
     
 
 ?>
@@ -68,7 +96,7 @@
 
 
             <div class="col-sm-6 offset-3">
-            <form method="POST" action="<?php $_SERVER['PHP_SELF']; ?>">
+            <form method="POST" action="<?php $_SERVER['PHP_SELF']; ?>" enctype="multipart/form-data">
                 <div class="mb-3">
                     <label for="nombre_servicio" class="form-label">Nombre Servicio:</label>
                     <input type="text" required class="form-control" name="nombre_servicio" placeholder="Ingresa el nombre del servicio">                    
@@ -77,6 +105,11 @@
                 <div class="mb-3">
                     <label for="precio_servicio" class="form-label">Precio de servicio:</label>
                     <input type="text" required class="form-control" name="precio_servicio" placeholder="Ingresa el precio">                    
+                </div>
+
+                <div class="mb-3">
+                    <label for="imagen">Imagen:</label>
+                    <input type="file" name="imagen" id="imagen" />
                 </div>
 
                 <button type="submit" class="btn btn-primary w-100" name="crearRegistro">Crear Servicio</button>
