@@ -52,7 +52,7 @@ if (isset($_POST['submit_login_admin']))
                     header('Location: ../index.php');
                 } else 
                 {
-                  echo "<script type='text/javascript'>alert('Usuario o contraseña 2');</script>";
+                  echo "<script type='text/javascript'>alert('Usuario o contraseña inválido');</script>";
                 }
               } 
               // En caso de que el usuario insertado sea un administrador nos lleva al CRUD

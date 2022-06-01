@@ -24,7 +24,8 @@
 
     if(isset($_POST['editarRegistro'])){
         $nombre = mysqli_real_escape_string($con, $_POST['nombre']);
-        $password = mysqli_real_escape_string($con, $_POST['password']);
+        // Al introducir una contrase esta también será cifrada
+        $password =password_hash(mysqli_real_escape_string($con, $_POST['password']), PASSWORD_DEFAULT);
         $email = mysqli_real_escape_string($con, $_POST['email']);
         $rol = mysqli_real_escape_string($con, $_POST['rol']);
 

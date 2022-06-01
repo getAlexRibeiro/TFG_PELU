@@ -96,7 +96,8 @@ if (!isset($_SESSION["sname"])) {
                             <th>Nombre</th>
                             <th>Email</th>
                             <th>Password</th>
-                            <th>Accion</th>
+                            <th>Rol</th>
+                            <th>Acción</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -107,6 +108,7 @@ if (!isset($_SESSION["sname"])) {
                             <td><?php echo $fila['nombre']; ?></td>
                             <td><?php echo $fila['email']; ?></td>
                             <td><?php echo $fila['password']; ?></td>
+                            <td><?php echo $fila['rol']; ?></td>
                             <td>
                             <a href="./Clientes/editar.php?id=<?php echo $fila['id_cliente']; ?>" class="btn btn-primary"> Editar</a>
                             <a href="./Clientes/borrar.php?id=<?php echo $fila['id_cliente']; ?>" class="btn btn-danger"> Borrar</a>
@@ -193,6 +195,7 @@ if (!isset($_SESSION["sname"])) {
                             <th>Date</th>
                             <th>Timeslot</th>
                             <th>Servicio</th>
+                            <th>Acción</th>
                         </tr>
                     </thead>
                     <tbody>
