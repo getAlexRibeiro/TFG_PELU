@@ -3,6 +3,9 @@ include '../conexion.php';
 $consulta_servicios = "SELECT * FROM servicios ORDER BY id_servicio ASC";
 $datos = mysqli_query($con, $consulta_servicios);
 
+$consulta_clientes = "SELECT * FROM clientes ORDER BY id_servicio ASC";
+$datos_clientes = mysqli_query($con, $consulta_servicios);
+
 if(isset($_GET['date'])){
     $date = $_GET['date'];
     $stmt = $con->prepare("select * from bookings where date = ?");

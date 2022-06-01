@@ -1,5 +1,6 @@
 <?php
 
+
 function build_calendar($month, $year) {
     include '../conexion.php';
     $consulta_servicios = "SELECT * FROM servicios ORDER BY id_servicio ASC";

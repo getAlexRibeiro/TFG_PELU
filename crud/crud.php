@@ -53,7 +53,7 @@ if (!isset($_SESSION["sname"])) {
   <body>
 <div class="text-center">
         <h1>
-      <span style="color:green">GeeksforGeek</span>
+      <span style="color:green">CRUD FAMOSSO BA</span>
       <div class="position-absolute top-0 end-0">
       <FORM method="POST">
         <input class='btn btn-success pull-right' type="submit" name="Submit3" value="Destroy Session">
