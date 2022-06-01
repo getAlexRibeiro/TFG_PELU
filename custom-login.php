@@ -43,9 +43,10 @@ if (isset($_POST['submit'])) {
           if ($statement->affected_rows >= 1) {  //si todo va bien carga la pagina principal
             sleep(3); //Damos unos segundos para redireccionar
             // Damos el valor a la sesión
-            $_SESSION["sname"] = 'cliente';
+            $_SESSION["sname"] = $_POST['nombre'];
+            $_SESSION["semail"] = $_POST['email'];
             header("Location: ./calendario/calendario.php");
-            exit;
+            exit();
           }
       } else {
         echo "<script type='text/javascript'>alert('El usuario o correo ya está registrado')</script>";
@@ -95,7 +96,8 @@ if (isset($_POST['submit_login']))
                 if(password_verify($login_Password, $pass_hash)) 
                 {
                     // Damos el valor a la sesión
-                    $_SESSION["sname"] = 'cliente';
+                    $_SESSION["sname"] = $_POST['login_Nombre'];
+                    $_SESSION["semail"] = $row['email'];
                     // Redireccionamos al calendario al ser un cliente
                     header('Location: ./calendario/calendario.php');
                 } else 
@@ -113,7 +115,8 @@ if (isset($_POST['submit_login']))
                   if(password_verify($login_Password, $pass_hash)) 
                   {
                       // Damos el valor a la sesión
-                      $_SESSION["sname"] = 'admin';
+                      $_SESSION["sname"] = $_POST['login_Nombre'];
+                      $_SESSION["semail"] = $row['email'];
                       // Redireccionamos al CRUD al se un admin
                       header('Location: ./crud/crud.php');
                   } else 

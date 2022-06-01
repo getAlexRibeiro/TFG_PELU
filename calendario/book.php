@@ -1,10 +1,21 @@
 <?php
+
+session_start();
+
+// destroy every 2 minutes
+//
+//    if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 20)) {
+//        // last request was more than 2 minutes ago
+//        session_destroy();   // destroy session data in storage
+//        header("Location: http://localhost/TFG_PELU/index.php");
+//    }
+//    $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
+
+
 include '../conexion.php';
 $consulta_servicios = "SELECT * FROM servicios ORDER BY id_servicio ASC";
 $datos = mysqli_query($con, $consulta_servicios);
 
-$consulta_clientes = "SELECT * FROM clientes ORDER BY id_servicio ASC";
-$datos_clientes = mysqli_query($con, $consulta_servicios);
 
 if(isset($_GET['date'])){
     $date = $_GET['date'];
@@ -164,11 +175,11 @@ function timeslots($duration,$cleanup,$start,$end){
                                 </div>
                                 <div class="form-group">
                                     <label for="">Nombre</label>
-                                    <input required type="text"  name="name" class="form-control">
+                                    <input required type="text"  name="name" class="form-control" value="<?php echo $_SESSION['sname'];?> ">
                                 </div>
                                 <div class="form-group">
                                     <label for="">Email</label>
-                                    <input required type="email" name="email" class="form-control">
+                                    <input required type="email" name="email" class="form-control" value="<?php echo $_SESSION['semail'];?> ">
                                 </div>
                                 <div class="form-group">
                                     <label for="">Servicio</label>
