@@ -45,7 +45,7 @@ if (isset($_POST['submit'])) {
             // Damos el valor a la sesión
             $_SESSION["sname"] = $_POST['nombre'];
             $_SESSION["semail"] = $_POST['email'];
-            header("Location: ./calendario/calendario.php");
+            header("Location: ./calendario/index.php");
             exit();
           }
       } else {
@@ -99,7 +99,7 @@ if (isset($_POST['submit_login']))
                     $_SESSION["sname"] = $_POST['login_Nombre'];
                     $_SESSION["semail"] = $row['email'];
                     // Redireccionamos al calendario al ser un cliente
-                    header('Location: ./calendario/calendario.php');
+                    header('Location: ./calendario/index.php');
                 } else 
                 {
                   echo "<script type='text/javascript'>alert('Usuario o contraseña inválido');</script>";
