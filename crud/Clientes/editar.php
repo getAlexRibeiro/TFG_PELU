@@ -104,7 +104,7 @@
                
                 <div class="mb-3">
                     <label for="rol" class="form-label">Rol:</label>
-                    <input type="text" class="form-control" name="rol" placeholder="Ingresa el rol del cliente" value="<?php echo $fila['password']; ?>">                    
+                    <input type="text" class="form-control" name="rol" placeholder="Ingresa el rol del cliente" value="<?php echo $fila['rol']; ?>">                    
                 </div>
 
                 <button type="submit" class="btn btn-primary w-100" name="editarRegistro">Editar Registro</button>
