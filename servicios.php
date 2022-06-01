@@ -39,7 +39,7 @@ $datos= mysqli_query ($con,$consulta_servicios);
         <div class="row ">
         <?php while($fila=mysqli_fetch_array($datos)) : ?>
           <div class="card shadow-sm col-md-4 col-sm-4" >
-            <img class="img-fluid d-flex justify-content-between align-items-center" width="100%" height="100%" src="data:image/jpeg;base64,<?php echo  base64_encode($fila['imagen_servicio']) ?>" alt="<?php echo $fila['name_servicio'];?>">
+          <a href="custom-login.php"><img class="img-fluid d-flex justify-content-between align-items-center" width="100%" height="100%" src="data:image/jpeg;base64,<?php echo  base64_encode($fila['imagen_servicio']) ?>" alt="<?php echo $fila['name_servicio'];?>"><a href="custom-login.php">
             <div class="card-body">
               <h3><?php echo $fila['name_servicio']; ?></h3>
               <div class="d-flex justify-content-between align-items-center">
