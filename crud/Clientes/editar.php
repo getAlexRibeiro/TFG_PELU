@@ -108,7 +108,7 @@
                     <input type="text" class="form-control" name="rol" placeholder="Ingresa el rol del cliente" value="<?php echo $fila['rol']; ?>">                    
                 </div>
 
-                <button type="submit" class="btn btn-primary w-100" name="editarRegistro">Editar Registro</button>
+                <button type="submit" class="btn btn-outline-secondary w-100" name="editarRegistro">Editar Registro</button>
 
                 </form>
             </div>

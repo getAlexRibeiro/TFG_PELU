@@ -53,10 +53,10 @@ if (!isset($_SESSION["sname"])) {
   <body>
 <div class="text-center">
         <h1>
-      <span style="color:green">CRUD FAMOSSO BA</span>
+      <span style="color:black">CRUD FAMOSSO BARBER</span>
       <div class="position-absolute top-0 end-0">
       <FORM method="POST">
-        <input class='btn btn-success pull-right' type="submit" name="Submit3" value="Destroy Session">
+        <input class='btn btn-outline-dark' type="submit" name="Submit3" value="Destroy Session">
     </FORM>
     <?php
             if(isset($_POST['Submit3']))
@@ -73,7 +73,7 @@ if (!isset($_SESSION["sname"])) {
  
   <br>
   
-    <center><input type="button" class="btn btn-primary btn-lg btn-block" value="Tabla Clientes" onClick="showHideDiv('divMsg')"/> </center><br><br>
+    <center><input type="button" class="btn btn-outline-dark" value="Tabla Clientes" onClick="showHideDiv('divMsg')"/> </center><br><br>
     <div style="display: none; class="container" id = 'divMsg'>
         <?php if(isset($_GET['mensaje'])) : ?>                
             <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -84,7 +84,7 @@ if (!isset($_SESSION["sname"])) {
 
         <div class="row">
             <div class="col-sm-4 offset-8">
-                <a href="./Clientes/crear.php" class="btn btn-success w-100">Crear Nuevo Cliente</a>
+                <a href="./Clientes/crear.php" class="btn btn-outline-warning w-100">Crear Nuevo Cliente</a>
             </div>            
         </div>
         <div class="row caja">
@@ -110,8 +110,8 @@ if (!isset($_SESSION["sname"])) {
                             <td><?php echo $fila['password']; ?></td>
                             <td><?php echo $fila['rol']; ?></td>
                             <td>
-                            <a href="./Clientes/editar.php?id=<?php echo $fila['id_cliente']; ?>" class="btn btn-primary"> Editar</a>
-                            <a href="./Clientes/borrar.php?id=<?php echo $fila['id_cliente']; ?>" class="btn btn-danger"> Borrar</a>
+                            <a href="./Clientes/editar.php?id=<?php echo $fila['id_cliente']; ?>" class="btn btn-outline-dark"> Editar</a>
+                            <a href="./Clientes/borrar.php?id=<?php echo $fila['id_cliente']; ?>" class="btn btn-outline-danger"> Borrar</a>
                             </td>
                         </tr> 
 
@@ -124,7 +124,7 @@ if (!isset($_SESSION["sname"])) {
     </div>
     <br>
     <!-- Tabla Servicios --> 
-    <center><input type="button" class="btn btn-primary btn-lg btn-block" value="Tabla Servicios" onClick="showHideDiv('divMsg2')"/> </center><br><br>
+    <center><input type="button" class="btn btn-outline-dark" value="Tabla Servicios" onClick="showHideDiv('divMsg2')"/> </center><br><br>
     <div style="display: none; class="container" id = 'divMsg2'>
         <?php if(isset($_GET['mensaje'])) : ?>                
             <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -135,7 +135,7 @@ if (!isset($_SESSION["sname"])) {
 
         <div class="row">
             <div class="col-sm-4 offset-8">
-                <a href="./Servicios/crear_servicio.php" class="btn btn-success w-100">Crear Nuevo Servicio</a>
+                <a href="./Servicios/crear_servicio.php" class="btn btn-outline-warning w-100">Crear Nuevo Servicio</a>
             </div>            
         </div>
         <div class="row caja">
@@ -157,8 +157,8 @@ if (!isset($_SESSION["sname"])) {
                             <td><?php echo $fila['name_servicio']; ?></td>
                             <td><?php echo $fila['price_servicio']; ?></td>
                             <td>
-                            <a href="./Servicios/editar_servicio.php?id=<?php echo $fila['id_servicio']; ?>" class="btn btn-primary"> Editar</a>
-                            <a href="./Servicios/borrar_servicio.php?id=<?php echo $fila['id_servicio']; ?>" class="btn btn-danger"> Borrar</a>
+                            <a href="./Servicios/editar_servicio.php?id=<?php echo $fila['id_servicio']; ?>" class="btn btn-outline-dark"> Editar</a>
+                            <a href="./Servicios/borrar_servicio.php?id=<?php echo $fila['id_servicio']; ?>" class="btn btn-outline-danger"> Borrar</a>
                             </td>
                         </tr> 
 
@@ -171,7 +171,7 @@ if (!isset($_SESSION["sname"])) {
     </div>
     <br>
     <!-- Tabla Citas --> 
-    <center><input type="button" class="btn btn-primary btn-lg btn-block" value="Tabla Citas" onClick="showHideDiv('divMsg1')"/> </center><br><br>
+    <center><input type="button" class="btn btn-outline-dark" value="Tabla Citas" onClick="showHideDiv('divMsg1')"/> </center><br><br>
     <div style="display: none; class="container" id = 'divMsg1'>
         <?php if(isset($_GET['mensaje'])) : ?>                
             <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -186,7 +186,7 @@ if (!isset($_SESSION["sname"])) {
         </div>
         <div class="row caja">
         <div class="col-sm-4 offset-8">
-                <a href="./Citas/crear_cita.php" class="btn btn-success w-100">Crear nueva Cita</a>
+                <a href="./Citas/crear_cita.php" class="btn btn-outline-warning w-100">Crear nueva Cita</a>
             </div> 
             <div class="col-sm-12">
                 <table class="table table-striped">
@@ -212,8 +212,8 @@ if (!isset($_SESSION["sname"])) {
                             <td><?php echo $fila['timeslot']; ?></td>
                             <td><?php echo $fila['servicio']; ?></td>
                             <td>
-                            <a href="./Citas/editar_cita.php?id=<?php echo $fila['id_bookings']; ?>" class="btn btn-primary"> Editar</a>
-                            <a href="./Citas/borrar_cita.php?id=<?php echo $fila['id_bookings']; ?>" class="btn btn-danger"> Borrar</a>
+                            <a href="./Citas/editar_cita.php?id=<?php echo $fila['id_bookings']; ?>" class="btn btn-outline-dark"> Editar</a>
+                            <a href="./Citas/borrar_cita.php?id=<?php echo $fila['id_bookings']; ?>" class="btn btn-outline-danger"> Borrar</a>
                             </td>
                         </tr> 
 
