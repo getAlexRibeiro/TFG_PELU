@@ -81,7 +81,7 @@
 
 
               
-                <button type="submit" class="btn btn-primary w-100" name="borrarCita">Borrar Cita</button>
+                <button type="submit" class="btn btn-outline-secondary w-100" name="borrarCita">Borrar Cita</button>
 
                 </form>
             </div>

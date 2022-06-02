@@ -112,7 +112,7 @@ if (isset($_POST['editarCita'])) {
                     </div>
 
 
-                    <button type="submit" class="btn btn-primary w-100" name="editarCita">Editar Cita</button>
+                    <button type="submit" class="btn btn-outline-secondary w-100" name="editarCita">Editar Cita</button>
 
                 </form>
             </div>

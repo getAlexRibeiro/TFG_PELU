@@ -92,7 +92,7 @@
                     <input type="text" class="form-control" name="rol" placeholder="Ingresa el rol del cliente">                    
                 </div>
 
-                <button type="submit" class="btn btn-primary w-100" name="crearRegistro">Crear Registro</button>
+                <button type="submit" class="btn btn-outline-secondary w-100" name="crearRegistro">Crear Registro</button>
 
                 </form>
             </div>

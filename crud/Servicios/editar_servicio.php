@@ -92,7 +92,7 @@
                     <input type="text" required class="form-control" name="precio_servicio" placeholder="Ingresa la precio_servicio" value="<?php echo $fila['price_servicio']; ?>">                    
                 </div>
 
-                <button type="submit" class="btn btn-primary w-100" name="editarRegistro">Editar Registro</button>
+                <button type="submit" class="btn btn-outline-secondary w-100" name="editarRegistro">Editar Registro</button>
 
                 </form>
             </div>

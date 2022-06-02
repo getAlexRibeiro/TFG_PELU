@@ -110,12 +110,14 @@ if (isset($_POST['submit_login_admin'])) {
 
                 <div class="form-outline mb-4">
                   <input type="password" placeholder="Contraseña administrador" name="login_admin_pass" id="login_admin_pass" class="form-control form-control-lg" />
-                  </div>
+                </div>
 
-                    <div class="pt-1 mb-4">
-                      <button type="submit" name="submit_login_admin" class="btn btn-secondary" type="button">Login</button>
-                      <input type="reset" name="reset" class="btn btn-light" value="Reset">
-                    </div>
+                <div class="pt-1 mb-4">
+                  <button type="submit" name="submit_login_admin" class="btn btn-secondary" type="button">Login</button>
+                  <input type="reset" name="reset" class="btn btn-light" value="Reset">
+                  <button class="btn btn-secondary"><a style="color: #ffffff; text-decoration: none; background-color: #6c757d;" href="../index.php">Inicio</a></button>
+
+                </div>
               </form>
 
             </div>

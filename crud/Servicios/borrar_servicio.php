@@ -67,7 +67,7 @@
                     <input type="text" class="form-control" name="precio_servicio" placeholder="Ingresa el precio del servicio" value="<?php echo $fila['price_servicio']; ?>" readonly>                    
                 </div>
               
-                <button type="submit" class="btn btn-primary w-100" name="borrarRegistro">Borrar Registro</button>
+                <button type="submit" class="btn btn-outline-secondary w-100" name="borrarRegistro">Borrar Registro</button>
 
                 </form>
             </div>

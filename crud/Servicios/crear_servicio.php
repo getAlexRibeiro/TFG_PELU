@@ -112,7 +112,7 @@
                     <input type="file" name="imagen" id="imagen" />
                 </div>
 
-                <button type="submit" class="btn btn-primary w-100" name="crearRegistro">Crear Servicio</button>
+                <button type="submit" class="btn btn-outline-secondary w-100" name="crearRegistro">Crear Servicio</button>
 
                 </form>
             </div>

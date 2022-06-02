@@ -74,7 +74,7 @@
                     <input type="text" class="form-control" name="password" placeholder="Ingresa los password" value="<?php echo $fila['password']; ?>" readonly>                    
                 </div>
               
-                <button type="submit" class="btn btn-primary w-100" name="borrarRegistro">Borrar Registro</button>
+                <button type="submit" class="btn btn-outline-secondary w-100" name="borrarRegistro">Borrar Registro</button>
 
                 </form>
             </div>
