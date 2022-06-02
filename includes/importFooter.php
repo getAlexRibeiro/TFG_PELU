@@ -84,7 +84,7 @@
             </div>
             <div class="col-md-6">
             <ul class="list-inline mb-0 mt-2 mt-md-0 text-center text-md-end">
-            <li class="list-inline-item"><a href="includes/privacidad.html" class="text-muted">Política de privacidad y Política de cookies</a></li>
+            <li class="list-inline-item"><a href="privacidad.php" class="text-muted">Política de privacidad y Política de cookies</a></li>
             </ul>
             </div>
             <!--<div class="col-md-6">
