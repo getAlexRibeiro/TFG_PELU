@@ -63,30 +63,23 @@
         <div class="row caja">
             <div class="col-sm-6 offset-3">
             <form method="POST" action="<?php $_SERVER['PHP_SELF']; ?>">
-                <div class="mb-3">
-                    <label for="id_bookings" class="form-label">ID Cita:</label>
-                    <input type="text" class="form-control" name="id_bookings" placeholder="" value="<?php echo $fila['id_bookings']; ?>" readonly>                    
-                </div>
                 
                 <div class="mb-3">
                     <label for="name" class="form-label">Nombre cliente citado:</label>
-                    <input type="text" class="form-control" name="name" placeholder="Ingresa los password" value="<?php echo $fila['name']; ?>" readonly>                    
+                    <input type="text" class="form-control" name="name" placeholder="Nombre cliente" value="<?php echo $fila['name']; ?>" readonly>                    
                 </div>
 
                 <div class="mb-3">
-                    <label for="password" class="form-label">Email:</label>
-                    <input type="text" class="form-control" name="" placeholder="Ingresa los password" value="<?php echo $fila['name']; ?>" readonly>                    
+                    <label for="name" class="form-label">Correo cliente citado:</label>
+                    <input type="email" class="form-control" name="correo" placeholder="Correo cliente" value="<?php echo $fila['email']; ?>" readonly>                    
                 </div>
 
                 <div class="mb-3">
-                    <label for="password" class="form-label">Date:</label>
-                    <input type="text" class="form-control" name="" placeholder="Ingresa los password" value="<?php echo $fila['name']; ?>" readonly>                    
+                    <label for="fecha_cita" class="form-label">Fecha cita:</label>
+                    <input type="text" class="form-control" name="" placeholder="Fecha cita" value="<?php echo $fila['date']; ?>" readonly>                    
                 </div>
 
-                <div class="mb-3">
-                    <label for="password" class="form-label">Servicio:</label>
-                    <input type="text" class="form-control" name="" placeholder="Ingresa los password" value="<?php echo $fila['name']; ?>" readonly>                    
-                </div>
+
               
                 <button type="submit" class="btn btn-primary w-100" name="borrarCita">Borrar Cita</button>
 

@@ -209,6 +209,7 @@ if (!isset($_SESSION["sname"])) {
                             <td><?php echo $fila['timeslot']; ?></td>
                             <td><?php echo $fila['servicio']; ?></td>
                             <td>
+                            <a href="./Citas/editar_cita.php?id=<?php echo $fila['id_bookings']; ?>" class="btn btn-primary"> Editar</a>
                             <a href="./Citas/borrar_cita.php?id=<?php echo $fila['id_bookings']; ?>" class="btn btn-danger"> Borrar</a>
                             </td>
                         </tr> 

@@ -57,7 +57,7 @@ if(isset($_POST['submit'])){
                     #$startTimeslot = substr($timeslot,-5,5);
                     #$timeslot2 = timeslots(30,0,$startTimeslot,); 
                     /* hacer substr para sacar los valores de 11:00 , si los minutos son 00 añadir 30 min, si
-    es 30, añadir 1 hora y poner 00. Utilizar la opción inval para pasar de string a int. */
+                    es 30, añadir 1 hora y poner 00. Utilizar la opción inval para pasar de string a int. */
                     $stmt = $con->prepare("INSERT INTO bookings (name, timeslot, email, date, servicio) VALUES (?,?,?,?,?)");
                     $stmt->bind_param('sssss', $name, $timeslot, $email, $date, $servicio);
                     $stmt->execute();
@@ -183,7 +183,7 @@ function timeslots($duration,$cleanup,$start,$end){
                                     <select name="servicio">
                                     <?php while($fila = mysqli_fetch_array($datos, MYSQLI_ASSOC)) : ?>
 
-                                        <option value="<?php echo $fila["id_servicio"];
+                                        <option value="<?php echo $fila["name_servicio"];
                                             // The value we usually set is the primary key
                                         ?>">
                                             <?php echo $fila["name_servicio"];
