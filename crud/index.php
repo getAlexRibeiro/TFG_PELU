@@ -114,8 +114,8 @@ if (isset($_POST['submit_login_admin'])) {
 
                 <div class="pt-1 mb-4">
                   <button type="submit" name="submit_login_admin" class="btn btn-secondary" type="button">Login</button>
-                  <input type="reset" name="reset" class="btn btn-light" value="Reset">
-                  <button class="btn btn-secondary"><a style="color: #ffffff; text-decoration: none; background-color: #6c757d;" href="../index.php">Inicio</a></button>
+                  <input type="reset" name="reset" class="btn btn-light" value="Limpiar">
+                  <button class="btn btn-secondary"><a style="color: #ffffff; text-decoration: none; background-color: #6c757d;" href="../index.php">Volver a inicio</a></button>
 
                 </div>
               </form>

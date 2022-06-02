@@ -186,8 +186,8 @@ if (isset($_POST['submit_login']))
                       <input type="password" placeholder="Contraseña:" name="login_Password" id="login_Password" required>
                     </div>
                     <div class="mb-4 text-center">
-                      <input type="submit" name="submit_login" class="btn btn-primary" value="Send"> <!-- boton para enviar los datos -->
-                      <input type="reset" name="reset" class="btn btn-secundary" value="Reset">
+                      <input type="submit" name="submit_login" class="btn btn-outline-secondary" value="Enviar"> <!-- boton para enviar los datos -->
+                      <input type="reset" name="reset" class="btn btn-outline-dark" value="Limpiar">
                     </div>
                   </form>
                 </div>
@@ -221,8 +221,8 @@ if (isset($_POST['submit_login']))
                       <input type="password" placeholder="Contraseña:" name="password" id="password">
                     </div>
                     <div class="mb-4 text-center">
-                      <input type="submit" name="submit" class="btn btn-primary" value="Send"> <!-- boton para enviar los datos -->
-                      <input type="reset" name="reset" class="btn btn-secundary" value="Reset">
+                      <input type="submit" name="submit" class="btn btn-outline-secondary" value="Enviar"> <!-- boton para enviar los datos -->
+                      <input type="reset" name="reset" class="btn btn-outline-dark" value="Limpiar">
                     </div>
                   </form>
                 </div>
