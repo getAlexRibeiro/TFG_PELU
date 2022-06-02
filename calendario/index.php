@@ -54,12 +54,12 @@ function build_calendar($month, $year) {
     
     $calendar = "<table class='table table-bordered'>";
     $calendar .= "<center><h2>$monthName $year</h2>";
-    $calendar.= "<a  class='btn btn-outline-warning' href='?month=".date('m', mktime(0, 0, 0, $month-1, 1, $year))."&year=".date('Y', mktime(0, 0, 0, $month-1, 1, $year))."'>Mes Anterior</a> ";
-    
-    $calendar.= " <a class='btn btn-outline-warning' href='?month=".date('m')."&year=".date('Y')."'>Mes Actual</a> ";
-    
-    $calendar.= "<a class='btn btn-outline-warning' href='?month=".date('m', mktime(0, 0, 0, $month+1, 1, $year))."&year=".date('Y', mktime(0, 0, 0, $month+1, 1, $year))."'>Siguiente Mes</a></center><br>";
-
+    $calendar.= "<a  class='btn btn-outline-warning' style='color: #ffffff; text-decoration: none; background-color: #6c757d;' href='?month=".date('m', mktime(0, 0, 0, $month-1, 1, $year))."&year=".date('Y', mktime(0, 0, 0, $month-1, 1, $year))."'>Mes Anterior</a> ";
+     
+    $calendar.= " <a class='btn btn-outline-warning' style='color: #ffffff; text-decoration: none; background-color: #6c757d;' href='?month=".date('m')."&year=".date('Y')."'>Mes Actual</a> ";
+     
+    $calendar.= "<a class='btn btn-outline-warning' style='color: #ffffff; text-decoration: none; background-color: #6c757d;' href='?month=".date('m', mktime(0, 0, 0, $month+1, 1, $year))."&year=".date('Y', mktime(0, 0, 0, $month+1, 1, $year))."'>Siguiente Mes</a></center><br>";
+ 
     /*$calendar.= "<center><label for=''>Servicio </label><select name='servicio'>"
 
             ?>
@@ -320,11 +320,11 @@ function checkSlots($con,$date){
     
 
     <div class="form-group">
-        <center><button><a style="color: #000; text-decoration: none;" href="../index.php">Volver al inicio</a></button></center>
+        <center><a class='btn btn-outline-warning' style="color: #ffffff; text-decoration: none; background-color: #6c757d;" href="../index.php">Volver al inicio</a></center>
     </div>
 
     <FORM method="POST">
-        <center><input type="submit" name="Submit3" value="Cerrar sesión"></center>
+        <center><input class='btn btn-outline-warning' style="color: #ffffff; text-decoration: none; background-color: #6c757d;" type="submit" name="Submit3" value="Cerrar sesión"></center>
     </FORM>
     </div>
         
