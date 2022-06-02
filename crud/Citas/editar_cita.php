@@ -29,7 +29,6 @@ if (isset($_POST['editarCita'])) {
     $servicio = mysqli_real_escape_string($con, $_POST['servicio']);
 
 
-    echo $servicio;
     //Configurar tiempo zona horaria
     date_default_timezone_set('America/Bogota');
     $time = date('h:i:s a', time());

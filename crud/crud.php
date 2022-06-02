@@ -185,6 +185,9 @@ if (!isset($_SESSION["sname"])) {
             </div>            
         </div>
         <div class="row caja">
+        <div class="col-sm-4 offset-8">
+                <a href="./Citas/crear_cita.php" class="btn btn-success w-100">Crear nueva Cita</a>
+            </div> 
             <div class="col-sm-12">
                 <table class="table table-striped">
                     <thead>

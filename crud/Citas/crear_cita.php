@@ -8,45 +8,25 @@
         include '../../conexion.php'; 
     }
 
-    if(isset($_POST['crearRegistro'])){
+    
 
-
-        $nombre_servicio = mysqli_real_escape_string($con, $_POST['nombre_servicio']);
-        $precio_servicio = mysqli_real_escape_string($con, $_POST['precio_servicio']);
-
-        // Verificamos si el tipo de archivo es un tipo de imagen permitido.
-        // y que el tamaño del archivo no exceda los 16MB
-        $permitidos = array("image/jpg", "image/jpeg", "image/gif", "image/png");
-        $limite_kb = 16384;
-
+    if(isset($_POST['crearCita'])){
+        $nombre_cita = mysqli_real_escape_string($con, $_POST['nombre_cita']);
+        $email_cita = mysqli_real_escape_string($con, $_POST['email_cita']);
+        $date_cita = mysqli_real_escape_string($con, $_POST['date_cita']);
+        $timeslot = mysqli_real_escape_string($con, $_POST['timeslot']);
+        $servicio = mysqli_real_escape_string($con, $_POST['servicio']);
+    
 
         //Configurar tiempo zona horaria
         date_default_timezone_set('DEFAULT');
         $time = date('h:i:s a', time());
 
         //Validar si no están vacíos
-        if(!isset($nombre_servicio) || $nombre_servicio == '' || !isset($precio_servicio) || $precio_servicio == ''){
+        if (!isset($nombre_cita) || $nombre_cita == '' || !isset($email_cita) || $email_cita == '' || !isset($date_cita) || $date_cita == '' || !isset($timeslot) || $timeslot == '') {
             $error = "Algunos campos están vacíos";
-        }else if ((in_array($_FILES['imagen']['type'], $permitidos) && $_FILES['imagen']['size'] <= $limite_kb * 1024)){
-
-            // Archivo temporal
-        $imagen_temporal = $_FILES['imagen']['tmp_name'];
-
-        // Tipo de archivo
-        $tipo = $_FILES['imagen']['type'];
-
-        // Leemos el contenido del archivo temporal en binario.
-        $fp = fopen($imagen_temporal, 'r+b');
-        $data = fread($fp, filesize($imagen_temporal));
-        fclose($fp);
-        
-        //Podríamos utilizar también la siguiente instrucción en lugar de las 3 anteriores.
-        // $data=file_get_contents($imagen_temporal);
-
-        // Escapamos los caracteres para que se puedan almacenar en la base de datos correctamente.
-        $data = mysqli_real_escape_string($con, $data);
-
-            $query = "INSERT INTO servicios(name_servicio, price_servicio, imagen_servicio, tipo_imagen )VALUES('$nombre_servicio', '$precio_servicio', '$data', '$tipo')";
+        } else {
+            $query = "INSERT INTO bookings(name, email, date, timeslot, servicio)VALUES('$nombre_cita', '$email_cita', '$date_cita', '$timeslot', '$servicio')";
 
             if(!mysqli_query($con, $query)){
                 die('Error: ' . mysqli_error($con));
@@ -59,8 +39,6 @@
         }
 
     }
-    
-
     
 
 ?>
@@ -80,12 +58,12 @@
   </head>
   <body>
     <h1 class="text-center">CRUD PHP Y MYSQL</h1>
-    <p class="text-center"> CRUD(Create, Read, Update, Delete) Servicios</p>
+    <p class="text-center"> CRUD(Create, Read, Update, Delete) Usuarios</p>
 
     <div class="container">
 
     <div class="row">
-        <h4>Crear un Nuevo Servicio</h4>
+        <h4>Crear un Nuevo Registro</h4>
     </div>   
 
         <div class="row caja">
@@ -96,23 +74,34 @@
 
 
             <div class="col-sm-6 offset-3">
-            <form method="POST" action="<?php $_SERVER['PHP_SELF']; ?>" enctype="multipart/form-data">
-                <div class="mb-3">
-                    <label for="nombre_servicio" class="form-label">Nombre Servicio:</label>
-                    <input type="text" required class="form-control" name="nombre_servicio" placeholder="Ingresa el nombre del servicio">                    
-                </div>
-                
-                <div class="mb-3">
-                    <label for="precio_servicio" class="form-label">Precio de servicio:</label>
-                    <input type="text" required class="form-control" name="precio_servicio" placeholder="Ingresa el precio">                    
-                </div>
+            <form method="POST" action="<?php $_SERVER['PHP_SELF']; ?>">
+            <div class="mb-3">
+                        <label for="nombre_cita" class="form-label">Cliente:</label>
+                        <input type="text" required class="form-control" name="nombre_cita" placeholder="Ingresa el Cliente" value="">
+                    </div>
 
-                <div class="mb-3">
-                    <label for="imagen">Imagen:</label>
-                    <input type="file" name="imagen" id="imagen" />
-                </div>
+                    <div class="mb-3">
+                        <label for="email_cita" class="form-label">Email:</label>
+                        <input type="text" required class="form-control" name="email_cita" placeholder="Ingresa la Email" value="">
+                    </div>
 
-                <button type="submit" class="btn btn-primary w-100" name="crearRegistro">Crear Servicio</button>
+                    <div class="mb-3">
+                        <label for="date_cita" class="form-label">Fecha de la cita:</label>
+                        <input type="date" required class="form-control" name="date_cita" placeholder="Ingresa la fecha de cita" >
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="timeslot" class="form-label">Horario cita:</label>
+                        <input type="time" min="12:00" max="18:00" step="1800" required class="form-control" name="timeslot" placeholder="Ingresa el horario de la cita">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="servicio" class="form-label">Servicio:</label>
+                        <input type="text" required class="form-control" name="servicio" placeholder="Ingrese el servicio" >
+                    </div>
+
+
+                <button type="submit" class="btn btn-primary w-100" name="crearCita">Crear Cita</button>
 
                 </form>
             </div>
