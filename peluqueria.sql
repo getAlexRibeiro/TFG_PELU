@@ -61,7 +61,7 @@ CREATE TABLE IF NOT EXISTS `clientes` (
 -- admin para tabla de `clientes`
 --
 INSERT INTO `clientes` (`id_cliente`, `nombre`, `email`, `password`, `rol`) VALUES
-(13, 'admin', 'ad@ad', '$2y$10$9Qv5c3Cn82oUOTHraagskONUWn784gVDg/UEIbtb27wWpL/3LfO..', 'admin');
+(1, 'admin', 'ad@ad', '$2y$10$9Qv5c3Cn82oUOTHraagskONUWn784gVDg/UEIbtb27wWpL/3LfO..', 'admin');
 
 -- --------------------------------------------------------
 
