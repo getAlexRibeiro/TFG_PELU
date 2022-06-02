@@ -103,7 +103,7 @@ if (isset($_POST['editarCita'])) {
 
                     <div class="mb-3">
                         <label for="timeslot" class="form-label">Horario cita:</label>
-                        <input type="time" min="12:00" max="18:00" step="1800" required class="form-control" name="timeslot" placeholder="Ingresa el horario de la cita" value="<?php echo $fila['timeslot']; ?>">
+                        <input type="time" min="10:00" max="18:00" step="1800" required class="form-control" name="timeslot" placeholder="Ingresa el horario de la cita" value="<?php echo $fila['timeslot']; ?>">
                     </div>
 
                     <div class="mb-3">

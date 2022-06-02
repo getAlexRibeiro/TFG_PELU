@@ -7,82 +7,67 @@ $enviado = true;
 
 
 // Login del administrador, que en caso de insertar datos de cliente nos lleva al calendario
-if (isset($_POST['submit_login_admin'])) 
-{
+if (isset($_POST['submit_login_admin'])) {
 
   $login_Nombre = $_POST['login_admin'];
   $login_Password = $_POST['login_admin_pass'];
-  if (!empty($login_Nombre)) 
-    {
-      //comprabamos nombre login
-      $login_Nombre = filter_var($login_Nombre, FILTER_SANITIZE_STRING); //limpia o verifica que es un texto
-    } 
-    else 
-      {
-        $errores .= 'Por ingresa un nombre <br />';
-        $enviado = false;
-      }
+  if (!empty($login_Nombre)) {
+    //comprabamos nombre login
+    $login_Nombre = filter_var($login_Nombre, FILTER_SANITIZE_STRING); //limpia o verifica que es un texto
+  } else {
+    $errores .= 'Por ingresa un nombre <br />';
+    $enviado = false;
+  }
 
-  if ($enviado == false) 
-  { //lanzamos los errores que hayan podido ocurrir
+  if ($enviado == false) { //lanzamos los errores que hayan podido ocurrir
     echo "<script type='text/javascript'>alert('Usuario o contraseña inválido');</script>";
     header("Location: ./index.php");
-  } else 
-  {
+  } else {
     // Verificamos problemas de conexión
     $conexion = new mysqli("localhost", "root", "", "peluqueria");
-      if ($conexion->connect_errno) 
-        {
-          die('Lo siento hubo un problema con el servidor');
-          exit();
-        } 
-        else 
-        {
-          // En caso de que el usuario insertado sea un cliente nos redirecciona al indice
-          if($cliente = "SELECT * FROM CLIENTES WHERE NOMBRE = '$login_Nombre' AND ROL = 'cliente'") 
-          {
-            $result = $conexion->query($cliente);
-              if($result->num_rows>0) 
-              {
-                $row = $result->fetch_array(MYSQLI_ASSOC);
-                $pass_hash = $row['password'];
-                if(password_verify($login_Password, $pass_hash)) 
-                {
-                    $_SESSION["sname"] = 'cliente';
-                    header('Location: ../index.php');
-                } else 
-                {
-                  echo "<script type='text/javascript'>alert('Usuario o contraseña inválido');</script>";
-                }
-              } 
-              // En caso de que el usuario insertado sea un administrador nos lleva al CRUD
-              elseif ($cliente = "SELECT * FROM CLIENTES WHERE NOMBRE = '$login_Nombre' AND ROL = 'admin'") 
-              {
-              $result = $conexion->query($cliente);
-                if($result->num_rows>0) 
-                {
-                  $row = $result->fetch_array(MYSQLI_ASSOC);
-                  $pass_hash = $row['password'];
-                  if(password_verify($login_Password, $pass_hash)) 
-                  {
-                      $_SESSION["sname"] = 'admin';
-                      header('Location: ./crud.php');
-                  } else 
-                  {
-                    echo "<script type='text/javascript'>alert('Usuario o contraseña inválido');</script>";
-                  }
-                }else {echo "<script type='text/javascript'>alert('Usuario o contraseña inválido');</script>";}
-              }
-        
-    } 
-  }}
+    if ($conexion->connect_errno) {
+      die('Lo siento hubo un problema con el servidor');
+      exit();
+    } else {
+      // En caso de que el usuario insertado sea un cliente nos redirecciona al indice
+      if ($cliente = "SELECT * FROM CLIENTES WHERE NOMBRE = '$login_Nombre' AND ROL = 'cliente'") {
+        $result = $conexion->query($cliente);
+        if ($result->num_rows > 0) {
+          $row = $result->fetch_array(MYSQLI_ASSOC);
+          $pass_hash = $row['password'];
+          if (password_verify($login_Password, $pass_hash)) {
+            $_SESSION["sname"] = 'cliente';
+            header('Location: ../index.php');
+          } else {
+            echo "<script type='text/javascript'>alert('Usuario o contraseña inválido');</script>";
+          }
+        }
+        // En caso de que el usuario insertado sea un administrador nos lleva al CRUD
+        elseif ($cliente = "SELECT * FROM CLIENTES WHERE NOMBRE = '$login_Nombre' AND ROL = 'admin'") {
+          $result = $conexion->query($cliente);
+          if ($result->num_rows > 0) {
+            $row = $result->fetch_array(MYSQLI_ASSOC);
+            $pass_hash = $row['password'];
+            if (password_verify($login_Password, $pass_hash)) {
+              $_SESSION["sname"] = 'admin';
+              header('Location: ./crud.php');
+            } else {
+              echo "<script type='text/javascript'>alert('Usuario o contraseña inválido');</script>";
+            }
+          } else {
+            echo "<script type='text/javascript'>alert('Usuario o contraseña inválido');</script>";
+          }
+        }
+      }
+    }
+  }
 }
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 </head>
 
 
@@ -102,39 +87,43 @@ if (isset($_POST['submit_login_admin']))
       </div>
     </section>
     <!-- Admin login-->
-    <section>
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-5">
-            <div class="block">
-              <div class="form-group">
-                <!---->
-                </div>
-                <div class="form-signin w-100 m-auto">
-                  <form action=" " name="formulario" method="post">
-                    <div class="mb-4">
-                      <label class="form-label" for="admin">Administrador</label>
-                      <input type="text" placeholder="Cuenta administrador:" name="login_admin" id="login_admin">
-                    </div>
-                    <div class="mb-4">
-                      <label class="form-label" for="password">Contraseña</label>
-                      <input type="password" placeholder="Contraseña Administrador:" name="login_admin_pass" id="login_admin_pass">
-                    </div>
-                    <div class="mb-4 text-center">
-                      <input type="submit" name="submit_login_admin" class="btn btn-primary" value="Send"> <!-- boton para enviar los datos -->
-                      <input type="reset" name="reset" class="btn btn-secundary" value="Reset">
-                    </div>
-                  </form>
-                </div>
-              </div>
+    <section class="vh-100">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-6 text-black">
+
+            <div class="px-5 ms-xl-4">
+              <i class="fas fa-crow fa-2x me-3 pt-5 mt-xl-4" style="color: #709085;"></i>
+              <span class="h1 fw-bold mb-0">Logo</span>
             </div>
+
+            <div class="d-flex align-items-center h-custom-2 px-5 ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5">
+
+              <form action=" " name="formulario" method="post" style="width: 23rem;">
+
+                <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Log in</h3>
+
+                <div class="form-outline mb-4">
+                  <input type="text" name="login_admin" id="login_admin" placeholder="Usuario administrador" class="form-control form-control-lg" />
+
                 </div>
-              </div>
+
+                <div class="form-outline mb-4">
+                  <input type="password" placeholder="Contraseña administrador" name="login_admin_pass" id="login_admin_pass" class="form-control form-control-lg" />
+                  </div>
+
+                    <div class="pt-1 mb-4">
+                      <button type="submit" name="submit_login_admin" class="btn btn-secondary" type="button">Login</button>
+                      <input type="reset" name="reset" class="btn btn-light" value="Reset">
+                    </div>
+              </form>
+
             </div>
+
           </div>
         </div>
+      </div>
     </section>
-
 
     <!-- IMPORTS FOOTER BEGIN -->
     <!-- IMPORTS FOOTER END -->

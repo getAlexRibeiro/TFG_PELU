@@ -43,7 +43,7 @@ if(isset($_POST['submit'])){
     if($stmt->execute()){
         $result = $stmt->get_result();
         
-        if(($timeslot=="17:30 - 18:00")&&($servicio==3)){
+        if(($timeslot=="17:30 - 18:00")&&($servicio=="Corte Pelo y Barba")){
             echo "<script type='text/javascript'>alert('No puede reservar cita del servicio Corta de Pelo y Barba en la franja horaria `17:30-18:00`.');</script>";
             
         }elseif($result->num_rows>0){
@@ -68,7 +68,7 @@ if(isset($_POST['submit'])){
                 }
 
             # Creamos un if para que cuando se seleccione el servicio de corte pelo y barba, se añada 30 minutos a la duración y nos coja dos slots de tiempo en vez de uno.
-            elseif($servicio==3){
+            elseif($servicio=="Corte Pelo y Barba"){
                 $duration = 30;
                 $cleanup = 0;
                 $startTimeslot = substr($timeslot,-5,5); 
@@ -211,7 +211,7 @@ function timeslots($duration,$cleanup,$start,$end){
                                     <select name="servicio">
                                     <?php while($fila = mysqli_fetch_array($datos, MYSQLI_ASSOC)) : ?>
 
-                                        <option value="<?php echo $fila["id_servicio"];
+                                        <option value="<?php echo $fila["name_servicio"];
                                             // The value we usually set is the primary key
                                         ?>">
                                             <?php echo $fila["name_servicio"];

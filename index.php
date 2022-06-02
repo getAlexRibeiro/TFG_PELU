@@ -5,9 +5,6 @@
   <!-- IMPORTS HEADER BEGIN -->
 <?php include "includes/importHead.php"; ?>
   <!-- IMPORTS HEADER END -->
-
- 
-
   </head>
   <body>
 
