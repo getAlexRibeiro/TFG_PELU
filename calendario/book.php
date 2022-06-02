@@ -173,10 +173,10 @@ function timeslots($duration,$cleanup,$start,$end){
     </div>
     <br><br><br>
     <div class="form-group">
-        <center><button><a href="index.php">Volver al calendario</a></button></center>
+        <center><button><a style="color: #000; text-decoration: none;" href="index.php">Volver al calendario</a></button></center>
     </div>
     <div class="form-group">
-        <center><button><a href="../index.php">Volver al inicio</a></button></center>
+        <center><button><a style="color: #000; text-decoration: none;" href="../index.php">Volver al inicio</a></button></center>
     </div>
 
 
