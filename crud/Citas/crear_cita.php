@@ -14,7 +14,7 @@
         $nombre_cita = mysqli_real_escape_string($con, $_POST['nombre_cita']);
         $email_cita = mysqli_real_escape_string($con, $_POST['email_cita']);
         $date_cita = mysqli_real_escape_string($con, $_POST['date_cita']);
-        $timeslot = mysqli_real_escape_string($con, $_POST['timeslot']);
+        $timeslot = mysqli_real_escape_string($con, $_POST['timeslot']) ." - ". mysqli_real_escape_string($con, $_POST['timeslot2']);
         $servicio = mysqli_real_escape_string($con, $_POST['servicio']);
     
 
@@ -93,6 +93,7 @@
                     <div class="mb-3">
                         <label for="timeslot" class="form-label">Horario cita:</label>
                         <input type="time" min="10:00" max="18:00" step="1800" required class="form-control" name="timeslot" placeholder="Ingresa el horario de la cita">
+                        <input type="time" min="10:00" max="18:00" step="1800" required class="form-control" name="timeslot2" placeholder="Ingresa el horario de la cita">
                     </div>
 
                     <div class="mb-3">
