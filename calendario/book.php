@@ -84,7 +84,6 @@ if(isset($_POST['submit'])){
 
                 $endTimeslot= strval($endTs1) . ":" . $endTs2;
                 $timeslot2 = strval($startTimeslot . " - " . $endTimeslot);
-                echo $timeslot . " Esta es la primera franja y esta la segunda: " . $timeslot2;
                 $stmt = $con->prepare("INSERT INTO bookings (name, timeslot, email, date, servicio) VALUES (?,?,?,?,?)");
                 $stmt->bind_param('sssss', $name, $timeslot2, $email, $date, $servicio);
                 $stmt->execute();
