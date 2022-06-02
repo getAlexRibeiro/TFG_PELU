@@ -324,7 +324,7 @@ function checkSlots($con,$date){
     </div>
 
     <FORM method="POST">
-        <input class='btn btn-success pull-right' type="submit" name="Submit3" value="Cerrar sesión">
+        <center><input type="submit" name="Submit3" value="Cerrar sesión"></center>
     </FORM>
     </div>
         

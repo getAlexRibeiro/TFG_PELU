@@ -42,27 +42,54 @@ if(isset($_POST['submit'])){
     $stmt->bind_param('ss', $date, $timeslot);
     if($stmt->execute()){
         $result = $stmt->get_result();
-        if($result->num_rows>0){
+        
+        if(($timeslot=="17:30 - 18:00")&&($servicio==3)){
+            echo "<script type='text/javascript'>alert('No puede reservar cita del servicio Corta de Pelo y Barba en la franja horaria `17:30-18:00`.');</script>";
+            
+        }elseif($result->num_rows>0){
 
             $msg = "<div class='alert alert-danger'>Ocupado</div>";
+        // Añadimos un if y que si intenta pedir una cita a las ultima hora del servicio 3, salte un mensaje de error.
         }else{
             $stmt = $con->prepare("INSERT INTO bookings (name, timeslot, email, date, servicio) VALUES (?,?,?,?,?)");
             $stmt->bind_param('sssss', $name, $timeslot, $email, $date, $servicio);
             $stmt->execute();
             $msg = "<div class='alert alert-success'>Citado correctamente</div>";
             $bookings[] = $timeslot;
-            
+        }
+        
+        if($timeslot=="17:30 - 18:00"){
+                                        
+                    
+                    //echo "<script type='text/javascript'>alert('No puede reservar cita del servicio Corta de Pelo y Barba en la franja horaria `17:30-18:00`. Se le //redireccionará al calendario para que elija de nuevo día y hora.');</script>";
+//
+//
+                    //header("Location: ./index.php");
+                }
+
             # Creamos un if para que cuando se seleccione el servicio de corte pelo y barba, se añada 30 minutos a la duración y nos coja dos slots de tiempo en vez de uno.
-              if($servicio==3){ /*  && ($timeslot!="17:30 - 18:00")*/
-                    #$startTimeslot = substr($timeslot,-5,5);
-                    #$timeslot2 = timeslots(30,0,$startTimeslot,); 
-                    /* hacer substr para sacar los valores de 11:00 , si los minutos son 00 añadir 30 min, si
-                    es 30, añadir 1 hora y poner 00. Utilizar la opción inval para pasar de string a int. */
-                    $stmt = $con->prepare("INSERT INTO bookings (name, timeslot, email, date, servicio) VALUES (?,?,?,?,?)");
-                    $stmt->bind_param('sssss', $name, $timeslot, $email, $date, $servicio);
-                    $stmt->execute();
-                    $msg = "<div class='alert alert-success'>Citado correctamente</div>";
-                    $bookings[] = $timeslot;
+            elseif($servicio==3){
+                $duration = 30;
+                $cleanup = 0;
+                $startTimeslot = substr($timeslot,-5,5); 
+                $endTs1 = substr($startTimeslot,-5,2); 
+                $endTs2 = substr($startTimeslot,-2,2);
+
+                  if($endTs2==30){
+                      $endTs1 = intval($endTs1) + 1;
+                      $endTs2 = "00";
+                  }else{
+                      $endTs2 = 30;
+                  }
+
+                $endTimeslot= strval($endTs1) . ":" . $endTs2;
+                $timeslot2 = strval($startTimeslot . " - " . $endTimeslot);
+                echo $timeslot . " Esta es la primera franja y esta la segunda: " . $timeslot2;
+                $stmt = $con->prepare("INSERT INTO bookings (name, timeslot, email, date, servicio) VALUES (?,?,?,?,?)");
+                $stmt->bind_param('sssss', $name, $timeslot2, $email, $date, $servicio);
+                $stmt->execute();
+                $msg = "<div class='alert alert-success'>Citado correctamente</div>";
+                $bookings[] = $timeslot2;
             
             }
             
@@ -70,9 +97,10 @@ if(isset($_POST['submit'])){
             $con->close();
             
         }
+
     }
     
-}
+
 
 $duration = 30;
 $cleanup = 0;
@@ -98,6 +126,7 @@ function timeslots($duration,$cleanup,$start,$end){
 
         $slots[] = $intStart->format("H:i")." - ".$endPeriod->format("H:i");
     }
+//print_r($slots);
     return $slots;
 }
 
@@ -183,7 +212,7 @@ function timeslots($duration,$cleanup,$start,$end){
                                     <select name="servicio">
                                     <?php while($fila = mysqli_fetch_array($datos, MYSQLI_ASSOC)) : ?>
 
-                                        <option value="<?php echo $fila["name_servicio"];
+                                        <option value="<?php echo $fila["id_servicio"];
                                             // The value we usually set is the primary key
                                         ?>">
                                             <?php echo $fila["name_servicio"];
