@@ -56,7 +56,7 @@ if (!isset($_SESSION["sname"])) {
       <span style="color:black">CRUD FAMOSSO BARBER</span>
       <div class="position-absolute top-0 end-0">
       <FORM method="POST">
-        <input class='btn btn-outline-dark' type="submit" name="Submit3" value="Destroy Session">
+        <input class='btn btn-outline-dark' type="submit" name="Submit3" value="Cerrar sesión">
     </FORM>
     <?php
             if(isset($_POST['Submit3']))
