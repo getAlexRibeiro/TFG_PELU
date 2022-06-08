@@ -8,8 +8,6 @@ _Este proyecto consiste en el desarrollo de una página web enfocada a dar visib
 _Podrás obtener una copia del proyecto a través del enlace de GITHUB que dejamos a continuación_
 
 
-## Comenzando 🚀
-
 _Instalar la aplicación XAMPP con Apache y MySQL_
 
 
@@ -32,7 +30,7 @@ _Instalar la aplicación XAMPP con Apache y MySQL_
 
 ## Licencia 📄
 
-Este proyecto está bajo la Licencia GNU GENERAL PUBLIC LICENSE)
+Este proyecto está bajo la Licencia GNU GENERAL PUBLIC LICENSE
 
 
 ## Expresiones de Gratitud 🎁
