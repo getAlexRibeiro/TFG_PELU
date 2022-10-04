@@ -25,109 +25,93 @@ if (isset($_POST['submit'])) {
     $errores = 'Por favor ingresa un correo <br/>'; // caso el correo no este puesto devuelve un error
     $enviado = false;
   }
- 
+
   // Realizamos la conexión
   $conexion = new mysqli("localhost", "root", "", "peluqueria");
   if ($conexion->connect_errno) {
-      die('Lo siento hubo un problema con el servidor');
+    die('Lo siento hubo un problema con el servidor');
   } else {
-       // Comprobamos que el usuario existe
-        $consulta = mysqli_query($conexion, "SELECT * FROM clientes WHERE Nombre = '$Nombre' or email ='$Email' "); // VERIFICAMOS QUE EL NOMBRE INTRODUCIDO NO ESTA REGISTRADO
-        if (mysqli_num_rows($consulta)==0) { // CASO DE QUE LA CONSULTA ESTE VACIA ES QUE NO EXISTE UN USUARIO CON ESE NOMBRE Y PODEMOS SEGUIR CON EL REGISTRO
-          // Usamos consultas preparadas para mejorar la seguridad
-          $statement = $conexion->prepare("INSERT INTO clientes (id_cliente, nombre, password, email) VALUES (?,?,?,?)");
-          $ID = null;
-          // Usamos la función BIND_PARAM para mejorar la seguridad de la aplicación
-          $statement->bind_param('isss', $ID, $Nombre, $Password, $Email);
-          $statement->execute();
-          if ($statement->affected_rows >= 1) {  //si todo va bien carga la pagina principal
-            sleep(3); //Damos unos segundos para redireccionar
+    // Comprobamos que el usuario existe
+    $consulta = mysqli_query($conexion, "SELECT * FROM clientes WHERE Nombre = '$Nombre' or email ='$Email' "); // VERIFICAMOS QUE EL NOMBRE INTRODUCIDO NO ESTA REGISTRADO
+    if (mysqli_num_rows($consulta) == 0) { // CASO DE QUE LA CONSULTA ESTE VACIA ES QUE NO EXISTE UN USUARIO CON ESE NOMBRE Y PODEMOS SEGUIR CON EL REGISTRO
+      // Usamos consultas preparadas para mejorar la seguridad
+      $statement = $conexion->prepare("INSERT INTO clientes (id_cliente, nombre, password, email) VALUES (?,?,?,?)");
+      $ID = null;
+      // Usamos la función BIND_PARAM para mejorar la seguridad de la aplicación
+      $statement->bind_param('isss', $ID, $Nombre, $Password, $Email);
+      $statement->execute();
+      if ($statement->affected_rows >= 1) {  //si todo va bien carga la pagina principal
+        sleep(3); //Damos unos segundos para redireccionar
+        // Damos el valor a la sesión
+        $_SESSION["sname"] = $_POST['nombre'];
+        $_SESSION["semail"] = $_POST['email'];
+        header("Location: ./calendario/index.php");
+        exit();
+      }
+    } else {
+      echo "<script type='text/javascript'>alert('El usuario o correo ya está registrado')</script>";
+    }
+  }
+}
+
+
+// PARA LOGIN
+if (isset($_POST['submit_login'])) {
+  $login_Nombre = $_POST['login_Nombre'];
+  $login_Password = $_POST['login_Password'];
+  if (!empty($login_Nombre)) {
+    //comprabamos nombre login
+    $login_Nombre = filter_var($login_Nombre, FILTER_SANITIZE_STRING); //limpia o verifica que es un texto
+  } else {
+    $errores .= 'Por ingresa un nombre <br />';
+    $enviado = false;
+  }
+
+  if ($enviado == false) { //lanzamos los errores que hayan podido ocurrir
+    echo "<script type='text/javascript'>alert('Usuario o contraseña inválido');</script>";
+    header("Location: ./index.php");
+  } else {
+    // Verificamos problemas de conexión
+    $conexion = new mysqli("localhost", "root", "", "peluqueria");
+    if ($conexion->connect_errno) {
+      die('Lo siento hubo un problema con el servidor');
+      exit();
+    } else {
+      if ($cliente = "SELECT * FROM CLIENTES WHERE NOMBRE = '$login_Nombre' AND ROL = 'cliente'") {
+        $result = $conexion->query($cliente);
+        if ($result->num_rows > 0) {
+          $row = $result->fetch_array(MYSQLI_ASSOC);
+          $pass_hash = $row['password'];
+          if (password_verify($login_Password, $pass_hash)) {
             // Damos el valor a la sesión
-            $_SESSION["sname"] = $_POST['nombre'];
-            $_SESSION["semail"] = $_POST['email'];
-            header("Location: ./calendario/index.php");
-            exit();
+            $_SESSION["sname"] = $_POST['login_Nombre'];
+            $_SESSION["semail"] = $row['email'];
+            // Redireccionamos al calendario al ser un cliente
+            header('Location: ./calendario/index.php');
+          } else {
+            echo "<script type='text/javascript'>alert('Usuario o contraseña inválido');</script>";
           }
-      } else {
-        echo "<script type='text/javascript'>alert('El usuario o correo ya está registrado')</script>";
+        } elseif ($cliente = "SELECT * FROM CLIENTES WHERE NOMBRE = '$login_Nombre' AND ROL = 'admin'") {
+          $result = $conexion->query($cliente);
+          if ($result->num_rows > 0) {
+            $row = $result->fetch_array(MYSQLI_ASSOC);
+            $pass_hash = $row['password'];
+            if (password_verify($login_Password, $pass_hash)) {
+              // Damos el valor a la sesión
+              $_SESSION["sname"] = $_POST['login_Nombre'];
+              $_SESSION["semail"] = $row['email'];
+              // Redireccionamos al CRUD al se un admin
+              header('Location: ./crud/crud.php');
+            } else {
+              echo "<script type='text/javascript'>alert('Usuario o contraseña inválido');</script>";
+            }
+          } else {
+            echo "<script type='text/javascript'>alert('Usuario o contraseña inválido');</script>";
+          }
+        }
       }
     }
   }
-
-  
-// PARA LOGIN
-if (isset($_POST['submit_login'])) 
-{
-  $login_Nombre = $_POST['login_Nombre'];
-  $login_Password = $_POST['login_Password'];
-  if (!empty($login_Nombre)) 
-    {
-      //comprabamos nombre login
-      $login_Nombre = filter_var($login_Nombre, FILTER_SANITIZE_STRING); //limpia o verifica que es un texto
-    } 
-    else 
-      {
-        $errores .= 'Por ingresa un nombre <br />';
-        $enviado = false;
-      }
-
-  if ($enviado == false) 
-  { //lanzamos los errores que hayan podido ocurrir
-    echo "<script type='text/javascript'>alert('Usuario o contraseña inválido');</script>";
-    header("Location: ./index.php");
-  } else 
-  {
-    // Verificamos problemas de conexión
-    $conexion = new mysqli("localhost", "root", "", "peluqueria");
-      if ($conexion->connect_errno) 
-        {
-          die('Lo siento hubo un problema con el servidor');
-          exit();
-        } 
-        else 
-        {
-          if($cliente = "SELECT * FROM CLIENTES WHERE NOMBRE = '$login_Nombre' AND ROL = 'cliente'") 
-          {
-            $result = $conexion->query($cliente);
-              if($result->num_rows>0) 
-              {
-                $row = $result->fetch_array(MYSQLI_ASSOC);
-                $pass_hash = $row['password'];
-                if(password_verify($login_Password, $pass_hash)) 
-                {
-                    // Damos el valor a la sesión
-                    $_SESSION["sname"] = $_POST['login_Nombre'];
-                    $_SESSION["semail"] = $row['email'];
-                    // Redireccionamos al calendario al ser un cliente
-                    header('Location: ./calendario/index.php');
-                } else 
-                {
-                  echo "<script type='text/javascript'>alert('Usuario o contraseña inválido');</script>";
-                }
-              } 
-              elseif ($cliente = "SELECT * FROM CLIENTES WHERE NOMBRE = '$login_Nombre' AND ROL = 'admin'") 
-              {
-              $result = $conexion->query($cliente);
-                if($result->num_rows>0) 
-                {
-                  $row = $result->fetch_array(MYSQLI_ASSOC);
-                  $pass_hash = $row['password'];
-                  if(password_verify($login_Password, $pass_hash)) 
-                  {
-                      // Damos el valor a la sesión
-                      $_SESSION["sname"] = $_POST['login_Nombre'];
-                      $_SESSION["semail"] = $row['email'];
-                      // Redireccionamos al CRUD al se un admin
-                      header('Location: ./crud/crud.php');
-                  } else 
-                  {
-                    echo "<script type='text/javascript'>alert('Usuario o contraseña inválido');</script>";
-                  }
-                }else {echo "<script type='text/javascript'>alert('Usuario o contraseña inválido');</script>";}
-              }
-            }
-          }
-        }
 }
 
 ?>
@@ -195,7 +179,7 @@ if (isset($_POST['submit_login']))
             </div>
             <div class="col-lg-8">
               <div class="block-center">
-                <div class="block-header" >
+                <div class="block-header">
                   <h6 class="text-uppercase mb-0">Registrate</h6>
                 </div>
                 <div class="block-body">
@@ -205,28 +189,28 @@ if (isset($_POST['submit_login']))
                     <br><a href="contacto.php">Contacto</a>
                   </p>
                   <hr>
-                <div class="form-group ">
-                  <form action=" " name="formulario" method="post">
-                    <!-- Usamos el método post para recoger lo que seleccione el usuario en unas variables -->
-                    <div class="mb-4">
-                      <label class="form-label" for="name">Nombre</label>
-                      <input type="text" placeholder="Nombre:" name="nombre" id="nombre">
-                    </div>
-                    <div class="mb-4">
-                      <label class="form-label" for="email">Correo</label>
-                      <input type="email" placeholder="Correo:" name="email" id="email">
-                    </div>
-                    <div class="mb-4">
-                      <label class="form-label" for="password">Contraseña</label>
-                      <input type="password" placeholder="Contraseña:" name="password" id="password">
-                    </div>
-                    <div class="mb-4 text-center">
-                      <input type="submit" name="submit" class="btn btn-outline-secondary" value="Enviar"> <!-- boton para enviar los datos -->
-                      <input type="reset" name="reset" class="btn btn-outline-dark" value="Limpiar">
-                    </div>
-                  </form>
+                  <div class="form-group ">
+                    <form action=" " name="formulario" method="post">
+                      <!-- Usamos el método post para recoger lo que seleccione el usuario en unas variables -->
+                      <div class="mb-4">
+                        <label class="form-label" for="name">Nombre</label>
+                        <input type="text" placeholder="Nombre:" name="nombre" id="nombre">
+                      </div>
+                      <div class="mb-4">
+                        <label class="form-label" for="email">Correo</label>
+                        <input type="email" placeholder="Correo:" name="email" id="email">
+                      </div>
+                      <div class="mb-4">
+                        <label class="form-label" for="password">Contraseña</label>
+                        <input type="password" placeholder="Contraseña:" name="password" id="password">
+                      </div>
+                      <div class="mb-4 text-center">
+                        <input type="submit" name="submit" class="btn btn-outline-secondary" value="Enviar"> <!-- boton para enviar los datos -->
+                        <input type="reset" name="reset" class="btn btn-outline-dark" value="Limpiar">
+                      </div>
+                    </form>
+                  </div>
                 </div>
-              </div>
               </div>
             </div>
           </div>
